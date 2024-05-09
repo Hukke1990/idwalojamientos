@@ -1,154 +1,152 @@
-{
-  "alojamientos": [
-    {
-      "idAlojamiento": "A0001",
-      "titulo": "Casa de Playa",
-      "descripcion": "Hermosa casa frente al mar",
-      "tipoAlojamiento": {
-        "idTipoAlojamiento": 1,
-        "descripcion": "Casa"
-      },
-      "ubicacion": {
-        "latitud": -34.590536,
-        "longitud": -58.438811
-      },
-      "precioDia": 250,
-      "cantidadDormitorios": 3,
-      "cantidadBanios": 2,
-      "estado": "Disponible",
-      "imagenes": [
-        {
-          "idImagen": "I0001",
-          "idAlojamiento": 1,
-          "rutaArchivo": "images/Alojamientos/01_exterior.webp"
-        },
-        {
-          "idImagen": "I0002",
-          "idAlojamiento": 1,
-          "rutaArchivo": "images/Alojamientos/01_banio.webp"
-        },
-        {
-          "idImagen": "I0003",
-          "idAlojamiento": 1,
-          "rutaArchivo": "images/Alojamientos/01_cocina.jpeg"
-        },
-        {
-          "idImagen": "I0004",
-          "idAlojamiento": 1,
-          "rutaArchivo": "images/Alojamientos/01_dormitorio.webp"
-        },
-        {
-          "idImagen": "I0005",
-          "idAlojamiento": 1,
-          "rutaArchivo": "images/Alojamientos/01_living.webp"
-        },
-        {
-          "idImagen": "I0006",
-          "idAlojamiento": 1,
-          "rutaArchivo": "images/Alojamientos/01_patioTracero.webp"
-        }
-      ],
-      "servicios": [
-        {
-          "idServicio": 1,
-          "nombre": "Wi-Fi"
-        },
-        {
-          "idServicio": 2,
-          "nombre": "Parrilla"
-        },
-        {
-          "idServicio": 3,
-          "nombre": "Vista al mar"
-        },
-        {
-          "idServicio": 4,
-          "nombre": "Acceso a la playa - Frente al mar"
-        },
-        {
-          "idServicio": 5,
-          "nombre": "Televisor"
-        },
-        {
-          "idServicio": 6,
-          "nombre": "Zona de trabajo"
-        }
-      ]
+[
+  {
+    "idAlojamiento": "A0001",
+    "titulo": "Casa de Playa",
+    "descripcion": "Hermosa casa frente al mar",
+    "tipoAlojamiento": {
+      "idTipoAlojamiento": 1,
+      "descripcion": "Casa"
     },
-    {
-      "idAlojamiento": "A0002",
-      "titulo": "Cabaña en el Bosque",
-      "descripcion": "Acogedora cabaña rodeada de naturaleza",
-      "tipoAlojamiento": {
-        "idTipoAlojamiento": 2,
-        "descripcion": "Cabaña"
+    "ubicacion": {
+      "latitud": -34.590536,
+      "longitud": -58.438811
+    },
+    "precioDia": 250,
+    "cantidadDormitorios": 3,
+    "cantidadBanios": 2,
+    "estado": "Disponible",
+    "imagenes": [
+      {
+        "idImagen": "I0001",
+        "idAlojamiento": 1,
+        "rutaArchivo": "images/Alojamientos/01_exterior.webp"
       },
-      "ubicacion": {
-        "latitud": -34.600123,
-        "longitud": -58.450987
+      {
+        "idImagen": "I0002",
+        "idAlojamiento": 1,
+        "rutaArchivo": "images/Alojamientos/01_banio.webp"
       },
-      "precioDia": 180,
-      "cantidadDormitorios": 2,
-      "cantidadBanios": 1,
-      "estado": "Disponible",
-      "imagenes": [
-        {
-          "idImagen": "I0007",
-          "idAlojamiento": 2,
-          "rutaArchivo": "images/Alojamientos/02_exterior.webp"
-        },
-        {
-          "idImagen": "I0008",
-          "idAlojamiento": 2,
-          "rutaArchivo": "images/Alojamientos/02_living.webp"
-        },
-        {
-          "idImagen": "I0009",
-          "idAlojamiento": 2,
-          "rutaArchivo": "images/Alojamientos/02_patioTracero.webp"
-        },
-        {
-          "idImagen": "I0010",
-          "idAlojamiento": 2,
-          "rutaArchivo": "images/Alojamientos/02_cocina.webp"
-        },
-        {
-          "idImagen": "I0011",
-          "idAlojamiento": 2,
-          "rutaArchivo": "images/Alojamientos/02_dormitorio.webp"
-        },
-        {
-          "idImagen": "I0012",
-          "idAlojamiento": 2,
-          "rutaArchivo": "images/Alojamientos/02_pileta.webp"
-        }
-      ],
-      "servicios": [
-        {
-          "idServicio": 1,
-          "nombre": "Wi-Fi"
-        },
-        {
-          "idServicio": 2,
-          "nombre": "Parrilla"
-        },
-        {
-          "idServicio": 3,
-          "nombre": "Vista al mar"
-        },
-        {
-          "idServicio": 4,
-          "nombre": "Acceso a la playa - Frente al mar"
-        },
-        {
-          "idServicio": 5,
-          "nombre": "Televisor"
-        },
-        {
-          "idServicio": 6,
-          "nombre": "Zona de trabajo"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "idImagen": "I0003",
+        "idAlojamiento": 1,
+        "rutaArchivo": "images/Alojamientos/01_cocina.jpeg"
+      },
+      {
+        "idImagen": "I0004",
+        "idAlojamiento": 1,
+        "rutaArchivo": "images/Alojamientos/01_dormitorio.webp"
+      },
+      {
+        "idImagen": "I0005",
+        "idAlojamiento": 1,
+        "rutaArchivo": "images/Alojamientos/01_living.webp"
+      },
+      {
+        "idImagen": "I0006",
+        "idAlojamiento": 1,
+        "rutaArchivo": "images/Alojamientos/01_patioTracero.webp"
+      }
+    ],
+    "servicios": [
+      {
+        "idServicio": 1,
+        "nombre": "Wi-Fi"
+      },
+      {
+        "idServicio": 2,
+        "nombre": "Parrilla"
+      },
+      {
+        "idServicio": 3,
+        "nombre": "Vista al mar"
+      },
+      {
+        "idServicio": 4,
+        "nombre": "Acceso a la playa - Frente al mar"
+      },
+      {
+        "idServicio": 5,
+        "nombre": "Televisor"
+      },
+      {
+        "idServicio": 6,
+        "nombre": "Zona de trabajo"
+      }
+    ]
+  },
+  {
+    "idAlojamiento": "A0002",
+    "titulo": "Cabaña en el Bosque",
+    "descripcion": "Acogedora cabaña rodeada de naturaleza",
+    "tipoAlojamiento": {
+      "idTipoAlojamiento": 2,
+      "descripcion": "Cabaña"
+    },
+    "ubicacion": {
+      "latitud": -34.600123,
+      "longitud": -58.450987
+    },
+    "precioDia": 180,
+    "cantidadDormitorios": 2,
+    "cantidadBanios": 1,
+    "estado": "Disponible",
+    "imagenes": [
+      {
+        "idImagen": "I0007",
+        "idAlojamiento": 2,
+        "rutaArchivo": "images/Alojamientos/02_exterior.webp"
+      },
+      {
+        "idImagen": "I0008",
+        "idAlojamiento": 2,
+        "rutaArchivo": "images/Alojamientos/02_living.webp"
+      },
+      {
+        "idImagen": "I0009",
+        "idAlojamiento": 2,
+        "rutaArchivo": "images/Alojamientos/02_patioTracero.webp"
+      },
+      {
+        "idImagen": "I0010",
+        "idAlojamiento": 2,
+        "rutaArchivo": "images/Alojamientos/02_cocina.webp"
+      },
+      {
+        "idImagen": "I0011",
+        "idAlojamiento": 2,
+        "rutaArchivo": "images/Alojamientos/02_dormitorio.webp"
+      },
+      {
+        "idImagen": "I0012",
+        "idAlojamiento": 2,
+        "rutaArchivo": "images/Alojamientos/02_pileta.webp"
+      }
+    ],
+    "servicios": [
+      {
+        "idServicio": 1,
+        "nombre": "Wi-Fi"
+      },
+      {
+        "idServicio": 2,
+        "nombre": "Parrilla"
+      },
+      {
+        "idServicio": 3,
+        "nombre": "Vista al mar"
+      },
+      {
+        "idServicio": 4,
+        "nombre": "Acceso a la playa - Frente al mar"
+      },
+      {
+        "idServicio": 5,
+        "nombre": "Televisor"
+      },
+      {
+        "idServicio": 6,
+        "nombre": "Zona de trabajo"
+      }
+    ]
+  }
+]

@@ -4,18 +4,15 @@ import alojamientoJson from '../../../Data/data.json'
 export const AlojamientoDetail = () => {
 
   const [alojamiento, setAlojamiento] = useState({});
-
-  console.log(alojamiento)
-
+  
   useEffect(() => {
     const getAlojamiento = (alojamientoList) => new Promise((resolve, reject) => {
-
       setTimeout(() => {
-        if (alojamientoList.lenght) {
+        if (alojamientoList.length) {
           resolve(alojamientoList);
         } else {
           reject("No se encontraron alojamientos")
-        };
+        }
 
       }, 2000);
     });
@@ -29,7 +26,7 @@ export const AlojamientoDetail = () => {
   return (
     <div>
       <p>aca va informacion del alojamiento</p>
-      {alojamiento.lenght ? <p>Hay alojamientos</p> : <p>No hay alojamientos</p>}
+      {alojamiento.length ? <p>Hay alojamientos</p> : <p>No hay alojamientos</p>}
     </div>
   )
 }
