@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Logo } from './logo/Logo';
 
 export const Header = () => {
     return (
-        <>
-            <h1>IDW</h1>
-            <img src="../src/assets/images/logo.png" alt="logo de la empresa" />
-            <h1>Alojamientos</h1>
-        </>
+        <div>
+            <p>IDW <span><Logo /></span>Alojamientos</p>          
+        </div>
     );
 }
