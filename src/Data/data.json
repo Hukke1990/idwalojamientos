@@ -15,36 +15,41 @@
     "cantidadDormitorios": 3,
     "cantidadBanios": 2,
     "estado": "Disponible",
+    "imagenCover": {
+        "idImagen": "I0001",
+        "idAlojamiento": 1,
+        "img": "images/Alojamientos/01_exterior.webp"
+      },
     "imagenes": [
       {
         "idImagen": "I0001",
         "idAlojamiento": 1,
-        "rutaArchivo": "images/Alojamientos/01_exterior.webp"
+        "img": "images/Alojamientos/01_exterior.webp"
       },
       {
         "idImagen": "I0002",
         "idAlojamiento": 1,
-        "rutaArchivo": "images/Alojamientos/01_banio.webp"
+        "img": "images/Alojamientos/01_banio.webp"
       },
       {
         "idImagen": "I0003",
         "idAlojamiento": 1,
-        "rutaArchivo": "images/Alojamientos/01_cocina.jpeg"
+        "img": "images/Alojamientos/01_cocina.jpeg"
       },
       {
         "idImagen": "I0004",
         "idAlojamiento": 1,
-        "rutaArchivo": "images/Alojamientos/01_dormitorio.webp"
+        "img": "images/Alojamientos/01_dormitorio.webp"
       },
       {
         "idImagen": "I0005",
         "idAlojamiento": 1,
-        "rutaArchivo": "images/Alojamientos/01_living.webp"
+        "img": "images/Alojamientos/01_living.webp"
       },
       {
         "idImagen": "I0006",
         "idAlojamiento": 1,
-        "rutaArchivo": "images/Alojamientos/01_patioTracero.webp"
+        "img": "images/Alojamientos/01_patioTracero.jpeg"
       }
     ],
     "servicios": [
@@ -90,36 +95,41 @@
     "cantidadDormitorios": 2,
     "cantidadBanios": 1,
     "estado": "Disponible",
+    "imagenCover": {
+        "idImagen": "I0007",
+        "idAlojamiento": 2,
+        "img": "images/Alojamientos/02_exterior.webp"
+      },
     "imagenes": [
       {
         "idImagen": "I0007",
         "idAlojamiento": 2,
-        "rutaArchivo": "images/Alojamientos/02_exterior.webp"
+        "img": "images/Alojamientos/02_exterior.webp"
       },
       {
         "idImagen": "I0008",
         "idAlojamiento": 2,
-        "rutaArchivo": "images/Alojamientos/02_living.webp"
+        "img": "images/Alojamientos/02_living.webp"
       },
       {
         "idImagen": "I0009",
         "idAlojamiento": 2,
-        "rutaArchivo": "images/Alojamientos/02_patioTracero.webp"
+        "img": "images/Alojamientos/02_patioTracero.webp"
       },
       {
         "idImagen": "I0010",
         "idAlojamiento": 2,
-        "rutaArchivo": "images/Alojamientos/02_cocina.webp"
+        "img": "images/Alojamientos/02_cocina.webp"
       },
       {
         "idImagen": "I0011",
         "idAlojamiento": 2,
-        "rutaArchivo": "images/Alojamientos/02_dormitorio.webp"
+        "img": "images/Alojamientos/02_dormitorio.webp"
       },
       {
         "idImagen": "I0012",
         "idAlojamiento": 2,
-        "rutaArchivo": "images/Alojamientos/02_pileta.webp"
+        "img": "images/Alojamientos/02_pileta.webp"
       }
     ],
     "servicios": [

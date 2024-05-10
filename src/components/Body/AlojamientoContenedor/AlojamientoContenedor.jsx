@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { AlojamientoList } from '../AlojamientoList/AlojamientoList'
 import alojamientoJson from '../../../Data/data.json'
 
-export const AlojamientoDetail = () => {
+export const AlojamientoContenedor = () => {
 
-  const [alojamiento, setAlojamiento] = useState({});
-  
+  const [alojamiento, setAlojamiento] = useState([]);
+
   useEffect(() => {
     const getAlojamiento = (alojamientoList) => new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -16,17 +17,15 @@ export const AlojamientoDetail = () => {
 
       }, 2000);
     });
-
     getAlojamiento(alojamientoJson).
       then(res => setAlojamiento(res)).catch(err => console.log(`${err} No hay alojamientos`));
-
-
   }, [])
 
+  console.log(alojamiento, "componenete contenedor")
   return (
     <div>
       <p>aca va informacion del alojamiento</p>
-      {alojamiento.length ? <p>Hay alojamientos</p> : <p>No hay alojamientos</p>}
+      {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p>cargando...</p>}
     </div>
   )
 }
