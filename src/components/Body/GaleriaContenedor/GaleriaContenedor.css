@@ -1,5 +1,4 @@
-.contenedorBody {
-    margin: 20px;
+.contenedorGaleria {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

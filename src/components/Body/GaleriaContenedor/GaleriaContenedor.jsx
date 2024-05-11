@@ -1,5 +1,5 @@
 import React from 'react'
-import './Galeria.css'
+import './GaleriaContenedor.css'
 import { AlojamientoContenedor } from '../AlojamientoContenedor/AlojamientoContenedor';
 
 export const GaleriaContenedor = () => {

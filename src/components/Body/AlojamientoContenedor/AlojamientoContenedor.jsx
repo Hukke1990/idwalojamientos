@@ -23,8 +23,8 @@ export const AlojamientoContenedor = () => {
 
   console.log(alojamiento, "componenete contenedor")
   return (
-    <div>
+    <>
       {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p>cargando...</p>}
-    </div>
+    </>
   )
 }
