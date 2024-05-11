@@ -10,7 +10,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; 
   /*background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));*/
 }
 
