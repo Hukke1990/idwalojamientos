@@ -12,8 +12,8 @@ export const Header = () => {
                     <ul>
                         <li className='quesi-queno-1'><i class="bi bi-house"></i></li>
                         <li className='quesi-queno-2'><i class="bi bi-house-heart"></i></li>
-                        <li className='quesi-queno-3'><i class="bi bi-house"></i></li>
-                        <li className='quesi-queno-2'><i class="bi bi-house-heart"></i></li>
+                        <li className=''><i class="bi bi-house"></i></li>
+                        <li className=''><i class="bi bi-house-heart"></i></li>
                         <li className='quesi-queno-3'><i class="bi bi-house"></i></li>
                     </ul>
                 </div>
