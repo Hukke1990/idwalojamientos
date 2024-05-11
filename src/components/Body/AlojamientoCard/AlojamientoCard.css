@@ -19,5 +19,6 @@
 }
 
 .card p {
+    margin: 3px;
     color: white;
 }
