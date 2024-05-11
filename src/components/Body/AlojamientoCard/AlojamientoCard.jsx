@@ -7,7 +7,7 @@ export const AlojamientoCard = ({ card }) => {
   return (
     <figure className='contenedorCard'>
       <div className='card'>
-        <Link to='/AlojamientoDetalles'><img src={card.imagenCover.img} alt="imagen casa" /></Link>
+        <Link to={`/idAlojamiento/${card.idAlojamiento}`}><img src={card.imagenCover.img} alt="imagen casa" /></Link>
         {/* Estos datos deben ser tomados de data.json */}
         <h3>{card.titulo}</h3>
         <p><span>L<span className='quesi-queno-1'>o</span>cal<span className='quesi-queno-3'>id</span>a<span className='quesi-queno-2'>d</span>: </span>{card.ubicacion.latitud}, {card.ubicacion.longitud}</p>

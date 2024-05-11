@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { AlojamientoList } from '../AlojamientoList/AlojamientoList'
 import alojamientoJson from '../../../Data/data.json'
 import './AlojamientoContenedor.css'
+import { useParams } from 'react-router-dom'
 
 export const AlojamientoContenedor = () => {
 
