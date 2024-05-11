@@ -6,14 +6,14 @@ export const Nav = () => {
         <nav className='contenedorMenu'>
             <div className="menu">
                 <ul>
-                    <li><a href="#" class="btn">
+                    <li><a href="" class="btn">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
                         home
                     </a></li>
-                    <li><a href="#" class="btn">
+                    <li><a href="pages/Contact/Contact" class="btn">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
