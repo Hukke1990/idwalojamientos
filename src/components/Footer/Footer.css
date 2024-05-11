@@ -1,0 +1,31 @@
+.contenedorFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    border-top: 1px solid #ee0cd0;
+    padding: 20px;
+}
+
+.contenedorFooter p {
+    color: white;
+}
+
+.contenedorRedes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorRedes a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.contenedorRedes i {
+    margin-right: 5px;
+}
