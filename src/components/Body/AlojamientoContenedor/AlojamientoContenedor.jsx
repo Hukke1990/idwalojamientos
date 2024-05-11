@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AlojamientoList } from '../AlojamientoList/AlojamientoList'
 import alojamientoJson from '../../../Data/data.json'
+import './AlojamientoContenedor.css'
 
 export const AlojamientoContenedor = () => {
 
@@ -24,7 +25,7 @@ export const AlojamientoContenedor = () => {
   console.log(alojamiento, "componenete contenedor")
   return (
     <>
-      {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p>cargando...</p>}
+      {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p className='cargando'>cargando...</p>}
     </>
   )
 }
