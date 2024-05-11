@@ -8,7 +8,7 @@
     text-align: center;
 }
 
-.logo p {
+.logo-p1 {
     margin: 0;
     font-family: 'Poetsen One', serif;
     font-style: italic;
@@ -18,7 +18,13 @@
     text-shadow: 0 0 5px red, 0 0 15px red, 0 0 30px red, 0 0 50px red;
 }
 
-.logo p span {
+.logo-p2 {
+    margin: 0;
+    font-family: 'Poetsen One', serif;
+    font-style: italic;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: white;
     text-shadow: 0 0 5px yellow, 0 0 15px yellow, 0 0 30px red, 0 0 50px red;
 }
 
@@ -29,4 +35,24 @@
     color: white;
     font-size: 20px;
     text-shadow: 0 0 5px white, 0 0 15px white, 0 0 30px white, 0 0 50px white;
+}
+
+.quesi-queno-1 {
+    animation: parpadear 2s infinite backwards steps(3);
+}
+
+.quesi-queno-2 {
+    animation: parpadear 1.5s infinite backwards steps(2);
+}
+
+.quesi-queno-3 {
+    animation: parpadear 2.5s infinite backwards steps(4);
+}
+
+@keyframes parpadear {
+    to {
+        color: rgb(187, 187, 187);
+        text-shadow: none;
+    }
+
 }
