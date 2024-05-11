@@ -1,0 +1,23 @@
+.contenedorCard {
+    border: 1px solid white;
+    box-shadow: inset 0 0 5px red, 0 0 5px red;
+    padding: 10px;
+}
+
+.contenedorCard img {
+    width: 300px;
+    height: 200px;
+    border: 2px solid white;
+    box-shadow: inset 0 0 5px yellow, 0 0 5px red;
+}
+
+.card h3 {
+    color: white;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.card p {
+    color: white;
+}

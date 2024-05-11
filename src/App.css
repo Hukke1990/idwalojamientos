@@ -6,13 +6,18 @@
 
 .App {
   min-height: 100vh;
-  background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));
+  background-image: url("../public/images/background/wall.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  /*background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));*/
 }
 
 .App ul li {
   list-style: none;
 }
-
+s
 .App ul li a {
   text-decoration: none;
 }

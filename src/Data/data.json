@@ -158,5 +158,133 @@
         "nombre": "Zona de trabajo"
       }
     ]
+  },
+  {
+    "idAlojamiento": "A0003",
+    "titulo": "Casa de Montaña",
+    "descripcion": "Encantadora casa en medio de las montañas",
+    "tipoAlojamiento": {
+      "idTipoAlojamiento": 1,
+      "descripcion": "Casa"
+    },
+    "ubicacion": {
+      "latitud": -34.570987,
+      "longitud": -58.420321
+    },
+    "precioDia": 300,
+    "cantidadDormitorios": 4,
+    "cantidadBanios": 3,
+    "estado": "Disponible",
+    "imagenCover": {
+      "idImagen": "I0013",
+      "idAlojamiento": 3,
+      "img": "images/Alojamientos/03_exterior.webp"
+    },
+    "imagenes": [
+      {
+        "idImagen": "I0013",
+        "idAlojamiento": 3,
+        "img": "images/Alojamientos/03_exterior.webp"
+      },
+      {
+        "idImagen": "I0014",
+        "idAlojamiento": 3,
+        "img": "images/Alojamientos/03_cocina.webp"
+      },
+      {
+        "idImagen": "I0015",
+        "idAlojamiento": 3,
+        "img": "images/Alojamientos/03_dormitorio.webp"
+      },
+      {
+        "idImagen": "I0016",
+        "idAlojamiento": 3,
+        "img": "images/Alojamientos/03_jardin.webp"
+      }
+    ],
+    "servicios": [
+      {
+        "idServicio": 1,
+        "nombre": "Wi-Fi"
+      },
+      {
+        "idServicio": 2,
+        "nombre": "Parrilla"
+      },
+      {
+        "idServicio": 3,
+        "nombre": "Vista a la montaña"
+      },
+      {
+        "idServicio": 4,
+        "nombre": "Jardín amplio"
+      },
+      {
+        "idServicio": 5,
+        "nombre": "Chimenea"
+      },
+      {
+        "idServicio": 6,
+        "nombre": "Estacionamiento"
+      }
+    ]
+  },
+  {
+    "idAlojamiento": "A0004",
+    "titulo": "Departamento en la Ciudad",
+    "descripcion": "Moderno departamento en el corazón de la ciudad",
+    "tipoAlojamiento": {
+      "idTipoAlojamiento": 3,
+      "descripcion": "Departamento"
+    },
+    "ubicacion": {
+      "latitud": -34.599988,
+      "longitud": -58.424646
+    },
+    "precioDia": 150,
+    "cantidadDormitorios": 1,
+    "cantidadBanios": 1,
+    "estado": "Disponible",
+    "imagenCover": {
+      "idImagen": "I0017",
+      "idAlojamiento": 4,
+      "img": "images/Alojamientos/04_exterior.webp"
+    },
+    "imagenes": [
+      {
+        "idImagen": "I0017",
+        "idAlojamiento": 4,
+        "img": "images/Alojamientos/04_exterior.webp"
+      },
+      {
+        "idImagen": "I0018",
+        "idAlojamiento": 4,
+        "img": "images/Alojamientos/04_interior.webp"
+      }
+    ],
+    "servicios": [
+      {
+        "idServicio": 1,
+        "nombre": "Wi-Fi"
+      },
+      {
+        "idServicio": 5,
+        "nombre": "Televisor"
+      },
+      {
+        "idServicio": 6,
+        "nombre": "Zona de trabajo"
+      },
+      {
+        "idServicio": 7,
+        "nombre": "Cerca de atracciones turísticas"
+      },
+      {
+        "idServicio": 8,
+        "nombre": "Gimnasio"
+      }
+    ]
   }
+
+
 ]
