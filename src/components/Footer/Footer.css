@@ -26,6 +26,51 @@
     margin: 10px;
 }
 
+.contenedorRedes .facebook {
+    text-shadow: 0 0 5px rgb(50, 126, 224), 0 0 5px rgb(50, 126, 224), 0 0 15px rgb(50, 126, 224), 0 0 30px rgb(50, 126, 224);
+}
+
+.contenedorRedes .facebook:hover {
+    animation: none;
+    
+}
+
+.contenedorRedes .instagram {
+    text-shadow: 0 0 5px yellow, 0 0 15px orange, 0 0 30px orangered, 0 0 50px purple;
+}
+
+.contenedorRedes .instagram:hover {
+    animation: none;
+}
+
+.contenedorRedes .twitter-x {
+    text-shadow: 0 0 5px black, 0 0 5px white, 0 0 15px white, 0 0 30px white;
+}
+
+.contenedorRedes .twitter-x:hover {
+    animation: none;
+}
+
 .contenedorRedes i {
     margin-right: 5px;
+}
+
+.quesi-queno-1 {
+    animation: parpadear 2s infinite backwards steps(3);
+}
+
+.quesi-queno-2 {
+    animation: parpadear 1.5s infinite backwards steps(2);
+}
+
+.quesi-queno-3 {
+    animation: parpadear 2.5s infinite backwards steps(4);
+}
+
+@keyframes parpadear {
+    to {
+        color: rgb(187, 187, 187);
+        text-shadow: none;
+    }
+
 }
