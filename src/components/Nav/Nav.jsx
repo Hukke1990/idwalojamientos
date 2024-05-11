@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './Nav.css';
 
 export const Nav = () => {
     return (
-        <nav>
+        <nav className='menu'>
             <ul>
                 <li><a href="/#">Home</a></li>
                 <li><a href="/#">Contacto</a></li>
@@ -10,5 +11,5 @@ export const Nav = () => {
                 <li><a href="/#">Login</a></li>
             </ul>
         </nav>
-    );  
+    );
 }

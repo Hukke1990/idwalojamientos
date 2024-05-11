@@ -5,6 +5,14 @@
 }
 
 .App {
+  min-height: 100vh;
   background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));
-  text-align: center;
+}
+
+.App ul li {
+  list-style: none;
+}
+
+.App ul li a {
+  text-decoration: none;
 }

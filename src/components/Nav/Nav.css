@@ -1,0 +1,12 @@
+.menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul li a {
+    font-family: 'Poetsen One', serif;
+    padding-inline: 10px;
+    color: white;
+}
