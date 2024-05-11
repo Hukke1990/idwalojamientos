@@ -178,7 +178,7 @@
     "imagenCover": {
       "idImagen": "I0013",
       "idAlojamiento": 3,
-      "img": "images/Alojamientos/03_exterior.webp"
+      "img": "images/Alojamientos/03_exterior.jpeg"
     },
     "imagenes": [
       {
@@ -248,7 +248,7 @@
     "imagenCover": {
       "idImagen": "I0017",
       "idAlojamiento": 4,
-      "img": "images/Alojamientos/04_exterior.webp"
+      "img": "images/Alojamientos/04_exterior.jpg"
     },
     "imagenes": [
       {
