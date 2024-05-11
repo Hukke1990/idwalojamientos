@@ -6,30 +6,34 @@ export const Nav = () => {
         <nav className='contenedorMenu'>
             <div className="menu">
                 <ul>
-                    <li><a className='btn' href="/#">
-                        <span id='span1'></span>
-                        <span id='span2'></span>
-                        <span id='span3'></span>
-                        <span id='span4'></span>
-                        Home</a></li>
-                    <li><a className='btn' href="/#">
-                        <span id='span1'></span>
-                        <span id='span2'></span>
-                        <span id='span3'></span>
-                        <span id='span4'></span>
-                        Contacto</a></li>
-                    <li><a className='btn' href="/#">
-                        <span id='span1'></span>
-                        <span id='span2'></span>
-                        <span id='span3'></span>
-                        <span id='span4'></span>
-                        Sobre nosotros</a></li>
-                    <li><a className='btn' href="/#">
-                        <span id='span1'></span>
-                        <span id='span2'></span>
-                        <span id='span3'></span>
-                        <span id='span4'></span>
-                        Login</a></li>
+                    <li><a href="#" class="btn">
+                        <span className="span1"></span>
+                        <span className="span2"></span>
+                        <span className="span3"></span>
+                        <span className="span4"></span>
+                        home
+                    </a></li>
+                    <li><a href="#" class="btn">
+                        <span className="span1"></span>
+                        <span className="span2"></span>
+                        <span className="span3"></span>
+                        <span className="span4"></span>
+                        contacto
+                    </a></li>
+                    <li><a href="#" class="btn">
+                        <span className="span1"></span>
+                        <span className="span2"></span>
+                        <span className="span3"></span>
+                        <span className="span4"></span>
+                        sobre nosotros
+                    </a></li>
+                    <li><a href="#" class="btn">
+                        <span className="span1"></span>
+                        <span className="span2"></span>
+                        <span className="span3"></span>
+                        <span className="span4"></span>
+                        login
+                    </a></li>
                 </ul>
             </div>
         </nav>
