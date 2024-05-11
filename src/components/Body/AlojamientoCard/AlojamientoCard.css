@@ -22,3 +22,7 @@
     margin: 3px;
     color: white;
 }
+
+.card span {
+    text-shadow: 0 0 5px #ee0cd0;
+}
