@@ -23,6 +23,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
+          <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 
         <Footer />
