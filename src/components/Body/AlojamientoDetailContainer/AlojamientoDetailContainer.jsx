@@ -59,6 +59,23 @@ export const AlojamientoDetailContainer = () => {
                             </a></li>
                         </div>
                     </div>
+                    <div className="contenedorMasDetalles">
+                        <div className="contenedorUbicacion">
+                            <h4>Ubicación</h4>
+                            <p><span>Latitud: </span>{alojamiento.ubicacion.latitud}</p>
+                            <p><span>Longitud: </span>{alojamiento.ubicacion.longitud}</p>
+                            <p>{alojamiento.ubicacion.direccion}</p>
+                        </div>
+                        <div className='contenedorCaracteristicas'>
+                            <h4>Características</h4>
+                            <p><span>Tipo de alojamiento: </span>{alojamiento.tipoAlojamiento.descripcion}</p>
+                            <p><span>Descripción: </span>{alojamiento.descripcion}</p>
+                            <p><span>Precio por dia: </span>{alojamiento.precioDia}</p>
+                            <p><span>Cantidad de dormitorios: </span>{alojamiento.cantidadDormitorios}</p>
+                            <p><span>Cantidad de banios: </span>{alojamiento.cantidadBanios}</p>
+                            <p><span>Estado: </span>{alojamiento.estado}</p>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 <p className='cargandoCard'>Buscando ...</p>
