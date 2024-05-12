@@ -39,6 +39,43 @@ export const AlojamientoDetailContainer = () => {
                             <img key={imagen.idImagen} src={imagen.img} alt={imagen.idImagen} />
                         ))}
                     </div>
+                    <h4>¿Qué ofrece este lugar?</h4>
+                    <div className="contenedorDetalles">
+                        <ul className='contenedorServicios'>
+                            {alojamiento.servicios.map((servicio) => (
+                                <li key={servicio.idServicio}>
+                                    <i className={servicio.icono}></i>
+                                    {servicio.nombre}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className='masServicios'>
+                            <li><a href="#" class="btn">
+                                <span className="span1"></span>
+                                <span className="span2"></span>
+                                <span className="span3"></span>
+                                <span className="span4"></span>
+                                + servicios
+                            </a></li>
+                        </div>
+                    </div>
+                    <div className="contenedorMasDetalles">
+                        <div className="contenedorUbicacion">
+                            <h4>Ubicación</h4>
+                            <p><span>Latitud: </span>{alojamiento.ubicacion.latitud}</p>
+                            <p><span>Longitud: </span>{alojamiento.ubicacion.longitud}</p>
+                            <p>{alojamiento.ubicacion.direccion}</p>
+                        </div>
+                        <div className='contenedorCaracteristicas'>
+                            <h4>Características</h4>
+                            <p><span>Tipo de alojamiento: </span>{alojamiento.tipoAlojamiento.descripcion}</p>
+                            <p><span>Descripción: </span>{alojamiento.descripcion}</p>
+                            <p><span>Precio por dia: </span>{alojamiento.precioDia}</p>
+                            <p><span>Cantidad de dormitorios: </span>{alojamiento.cantidadDormitorios}</p>
+                            <p><span>Cantidad de banios: </span>{alojamiento.cantidadBanios}</p>
+                            <p><span>Estado: </span>{alojamiento.estado}</p>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 <p className='cargandoCard'>Buscando ...</p>

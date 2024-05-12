@@ -45,7 +45,72 @@
 .contenedorImages img {
     height: 280px;
     width: 300px;
+    /* height: auto;
+    width: auto; */
     border: 2px solid white;
     padding: 5px;
     margin: 10px;
+}
+
+.contenedorDetalles {
+    display: flex;
+    flex-direction: row;
+}
+
+h4 {
+    font-family: "Pacifico";
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.contenedorServicios {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: #ee0cd0 2px solid;
+    padding-right: 20px;
+    width: 250px;
+}
+
+.contenedorServicios i {
+    color: #ee0cd0;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.masServicios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.masServicios a {
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-inline: 5px;
+}
+
+.contenedorMasDetalles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.contenedorMasDetalles span {
+    color: #ee0cd0;
+}
+
+.contenedorUbicacion {
+    padding: 20px;
+}
+
+.contenedorCaracteristicas {
+    padding: 20px;
 }

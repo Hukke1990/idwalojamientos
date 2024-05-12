@@ -55,27 +55,33 @@
     "servicios": [
       {
         "idServicio": 1,
-        "nombre": "Wi-Fi"
+        "nombre": "Wi-Fi",
+        "icono":"bi bi-wifi"
       },
       {
         "idServicio": 2,
-        "nombre": "Parrilla"
+        "nombre": "Parrilla",
+        "icono":"bi bi-bricks"
       },
       {
         "idServicio": 3,
-        "nombre": "Vista al mar"
+        "nombre": "Vista al mar",
+        "icono":"bi bi-water"
       },
       {
         "idServicio": 4,
-        "nombre": "Acceso a la playa - Frente al mar"
+        "nombre": "Acceso a la playa",
+        "icono":"bi bi-tsunami"
       },
       {
         "idServicio": 5,
-        "nombre": "Televisor"
+        "nombre": "Televisor",
+        "icono":"bi bi-tv"
       },
       {
         "idServicio": 6,
-        "nombre": "Zona de trabajo"
+        "nombre": "Zona de trabajo",
+        "icono":"bi bi-pc-display"
       }
     ]
   },
@@ -135,27 +141,33 @@
     "servicios": [
       {
         "idServicio": 1,
-        "nombre": "Wi-Fi"
+        "nombre": "Wi-Fi",
+        "icono":"bi bi-wifi"
       },
       {
         "idServicio": 2,
-        "nombre": "Parrilla"
+        "nombre": "Parrilla",
+        "icono":"bi bi-bricks"
       },
       {
         "idServicio": 3,
-        "nombre": "Vista al mar"
+        "nombre": "Vista al mar",
+        "icono":"bi bi-water"
       },
       {
         "idServicio": 4,
-        "nombre": "Acceso a la playa - Frente al mar"
+        "nombre": "Acceso a la playa",
+        "icono":"bi bi-tsunami"
       },
       {
         "idServicio": 5,
-        "nombre": "Televisor"
+        "nombre": "Televisor",
+        "icono":"bi bi-tv"
       },
       {
         "idServicio": 6,
-        "nombre": "Zona de trabajo"
+        "nombre": "Zona de trabajo",
+        "icono":"bi bi-pc-display"
       }
     ]
   },
