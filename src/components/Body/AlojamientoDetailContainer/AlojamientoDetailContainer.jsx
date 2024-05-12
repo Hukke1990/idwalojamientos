@@ -39,6 +39,18 @@ export const AlojamientoDetailContainer = () => {
                             <img key={imagen.idImagen} src={imagen.img} alt={imagen.idImagen} />
                         ))}
                     </div>
+                    <div className="contenedorDetalles">
+                        <h3>mas detalles sobre nuestro alojamiento</h3>
+                        <h4>¿Qué ofrece este lugar?</h4>
+                        <ul>
+                            {alojamiento.servicios.map((servicio) => (
+                                <li key={servicio.idServicio}>
+                                    <img src={servicio.icono} alt={servicio.nombre} />
+                                    {servicio.nombre}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             ) : (
                 <p className='cargandoCard'>Buscando ...</p>

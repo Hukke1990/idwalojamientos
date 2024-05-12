@@ -55,27 +55,33 @@
     "servicios": [
       {
         "idServicio": 1,
-        "nombre": "Wi-Fi"
+        "nombre": "Wi-Fi",
+        "icono":"/images/Iconos/wifi.svg"
       },
       {
         "idServicio": 2,
-        "nombre": "Parrilla"
+        "nombre": "Parrilla",
+        "icono":"/images/Iconos/bricks.svg"
       },
       {
         "idServicio": 3,
-        "nombre": "Vista al mar"
+        "nombre": "Vista al mar",
+        "icono":"/images/Iconos/water.svg"
       },
       {
         "idServicio": 4,
-        "nombre": "Acceso a la playa - Frente al mar"
+        "nombre": "Acceso a la playa - Frente al mar",
+        "icono":"/images/Iconos/tsunami.svg"
       },
       {
         "idServicio": 5,
-        "nombre": "Televisor"
+        "nombre": "Televisor",
+        "icono":"/images/Iconos/tv.svg"
       },
       {
         "idServicio": 6,
-        "nombre": "Zona de trabajo"
+        "nombre": "Zona de trabajo",
+        "icono":"/images/Iconos/pc-display.svg"
       }
     ]
   },
@@ -135,27 +141,33 @@
     "servicios": [
       {
         "idServicio": 1,
-        "nombre": "Wi-Fi"
+        "nombre": "Wi-Fi",
+        "icono":"/images/Iconos/wifi.svg"
       },
       {
         "idServicio": 2,
-        "nombre": "Parrilla"
+        "nombre": "Parrilla",
+        "icono":"/images/Iconos/bricks.svg"
       },
       {
         "idServicio": 3,
-        "nombre": "Vista al mar"
+        "nombre": "Vista al mar",
+        "icono":"/images/Iconos/water.svg"
       },
       {
         "idServicio": 4,
-        "nombre": "Acceso a la playa - Frente al mar"
+        "nombre": "Acceso a la playa - Frente al mar",
+        "icono":"/images/Iconos/tsunami.svg"
       },
       {
         "idServicio": 5,
-        "nombre": "Televisor"
+        "nombre": "Televisor",
+        "icono":"/images/Iconos/tv.svg"
       },
       {
         "idServicio": 6,
-        "nombre": "Zona de trabajo"
+        "nombre": "Zona de trabajo",
+        "icono":"/images/Iconos/pc-display.svg"
       }
     ]
   },

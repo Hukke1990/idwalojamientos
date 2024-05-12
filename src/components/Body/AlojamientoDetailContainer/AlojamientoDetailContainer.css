@@ -43,8 +43,10 @@
 }
 
 .contenedorImages img {
-    height: 280px;
-    width: 300px;
+    max-height: 280px;
+    max-width: 300px;
+    height: auto;
+    width: auto;
     border: 2px solid white;
     padding: 5px;
     margin: 10px;
