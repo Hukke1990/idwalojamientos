@@ -87,7 +87,9 @@ h4 {
 
 
 .masServicios a {
+    white-space: nowrap;
     text-decoration: none;
     color: white;
     font-size: 20px;
+    padding-inline: 5px;
 }
