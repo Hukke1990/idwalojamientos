@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import alojamientoJson from '../../../Data/data.json'
-import { AlojamientoList } from '../AlojamientoList/AlojamientoList'
+import './AlojamientoDetailContainer.css'
 
 export const AlojamientoDetailContainer = () => {
     const [alojamiento, setAlojamiento] = useState(null);
@@ -27,14 +27,15 @@ export const AlojamientoDetailContainer = () => {
 
     return (
         <section>
-            <h1>Detalle de alojamiento</h1>
             {alojamiento ? ( // Verificar si alojamiento está definido y no es nulo
-                <div>
-                    <h2>{alojamiento.titulo}</h2>
-                    <p>{alojamiento.descripcion}</p>
+                <div className='contenedorDetailContainer'>
+                    <div className='contenedorTituloDetail'>
+                        <h2>{alojamiento.titulo}</h2>
+                        <p>{alojamiento.descripcion}</p>
+                    </div>
                 </div>
             ) : (
-                <p className='cargando'>Buscando ...</p>
+                <p className='cargandoCard'>Buscando ...</p>
             )}
         </section>
     );
