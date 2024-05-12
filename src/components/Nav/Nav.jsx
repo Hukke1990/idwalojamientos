@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
 import './Nav.css';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export const Nav = () => {
     return (
         <nav className='contenedorMenu'>
             <div className="menu">
                 <ul>
-                    <li><Link to="/" class="btn">
+                    <li><NavLink exact to="/" activeClassName="active" className="btn">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
                         home
-                    </Link></li>
-                    <li><Link to="/Contact" class="btn">
+                    </NavLink></li>
+                    <li><NavLink to="/Contact" activeClassName="active" className="btn">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
                         contacto
-                    </Link></li>
-                    <li><Link to="/About" class="btn">
+                    </NavLink></li>
+                    <li><NavLink to="/About" activeClassName="active" className="btn">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
                         sobre nosotros
-                    </Link></li>
-                    <li><Link to="#" class="btn login">
+                    </NavLink></li>
+                    <li><NavLink to="/Login" activeClassName="active" className="btn login">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
                         login
-                    </Link></li>
+                    </NavLink></li>
                 </ul>
             </div>
         </nav>

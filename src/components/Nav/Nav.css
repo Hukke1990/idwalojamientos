@@ -94,3 +94,16 @@
     transition: 1s;
     transition-delay: 0.75s;
 }
+
+/* Añade estilos para el botón activo */
+.btn.active {
+    background: #ee0cd0;
+    box-shadow: 0 0 10px #ee0cd0, 0 0 40px #ee0cd0, 0 0 80px #ee0cd0;
+    transition-delay: none;
+    /* Color de fondo cuando está activo */
+}
+
+.btn.active span {
+    background: #fff;
+    /* Color del span cuando está activo */
+}
