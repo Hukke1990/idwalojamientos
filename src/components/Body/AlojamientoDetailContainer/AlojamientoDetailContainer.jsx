@@ -33,6 +33,12 @@ export const AlojamientoDetailContainer = () => {
                         <h2>{alojamiento.titulo}</h2>
                         <p>{alojamiento.descripcion}</p>
                     </div>
+                    <h3>Conoce nuestro alojameinto</h3>
+                    <div className="contenedorImages">
+                        {alojamiento.imagenes.map((imagen) => (
+                            <img key={imagen.idImagen} src={imagen.img} alt={imagen.idImagen} />
+                        ))}
+                    </div>
                 </div>
             ) : (
                 <p className='cargandoCard'>Buscando ...</p>
