@@ -8,6 +8,7 @@ export const AlojamientoContenedor = () => {
 
   const [alojamiento, setAlojamiento] = useState([]);
 
+
   useEffect(() => {
     const getAlojamiento = (alojamientoList) => new Promise((resolve, reject) => {
       setTimeout(() => {

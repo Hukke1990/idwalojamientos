@@ -7,6 +7,8 @@ import "./App.css";
 import { Contact } from "./pages/Contact/Contact";
 import { About } from "./pages/About/About";
 //import { AlojamientoDetalles } from "./pages/AlojamientoDetalles/AlojamientoDetalles";
+//import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
+import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailContainer/AlojamientoDetailContainer";
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
           <Route path="/" element={<Body />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
-          <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoContenedor />} />
+          <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
         </Routes>
 
         <Footer />
