@@ -56,32 +56,32 @@
       {
         "idServicio": 1,
         "nombre": "Wi-Fi",
-        "icono":"/images/Iconos/wifi.svg"
+        "icono":"bi bi-wifi"
       },
       {
         "idServicio": 2,
         "nombre": "Parrilla",
-        "icono":"/images/Iconos/bricks.svg"
+        "icono":"bi bi-bricks"
       },
       {
         "idServicio": 3,
         "nombre": "Vista al mar",
-        "icono":"/images/Iconos/water.svg"
+        "icono":"bi bi-water"
       },
       {
         "idServicio": 4,
         "nombre": "Acceso a la playa - Frente al mar",
-        "icono":"/images/Iconos/tsunami.svg"
+        "icono":"bi bi-tsunami"
       },
       {
         "idServicio": 5,
         "nombre": "Televisor",
-        "icono":"/images/Iconos/tv.svg"
+        "icono":"bi bi-tv"
       },
       {
         "idServicio": 6,
         "nombre": "Zona de trabajo",
-        "icono":"/images/Iconos/pc-display.svg"
+        "icono":"bi bi-pc-display"
       }
     ]
   },
@@ -142,32 +142,32 @@
       {
         "idServicio": 1,
         "nombre": "Wi-Fi",
-        "icono":"/images/Iconos/wifi.svg"
+        "icono":"bi bi-wifi"
       },
       {
         "idServicio": 2,
         "nombre": "Parrilla",
-        "icono":"/images/Iconos/bricks.svg"
+        "icono":"bi bi-bricks"
       },
       {
         "idServicio": 3,
         "nombre": "Vista al mar",
-        "icono":"/images/Iconos/water.svg"
+        "icono":"bi bi-water"
       },
       {
         "idServicio": 4,
         "nombre": "Acceso a la playa - Frente al mar",
-        "icono":"/images/Iconos/tsunami.svg"
+        "icono":"bi bi-tsunami"
       },
       {
         "idServicio": 5,
         "nombre": "Televisor",
-        "icono":"/images/Iconos/tv.svg"
+        "icono":"bi bi-tv"
       },
       {
         "idServicio": 6,
         "nombre": "Zona de trabajo",
-        "icono":"/images/Iconos/pc-display.svg"
+        "icono":"bi bi-pc-display"
       }
     ]
   },
