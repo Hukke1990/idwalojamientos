@@ -43,10 +43,10 @@
 }
 
 .contenedorImages img {
-    max-height: 280px;
-    max-width: 300px;
-    height: auto;
-    width: auto;
+    height: 280px;
+    width: 300px;
+    /* height: auto;
+    width: auto; */
     border: 2px solid white;
     padding: 5px;
     margin: 10px;
@@ -69,6 +69,7 @@ h4 {
     align-items: flex-start;
     border-right: #ee0cd0 2px solid;
     padding-right: 20px;
+    width: 250px;
 }
 
 .contenedorServicios i {
