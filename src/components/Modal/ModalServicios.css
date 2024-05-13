@@ -54,11 +54,13 @@
 }
 
 #btnCloseModal {
-    position: absolute;
-    top: 260px;
-    right: 235px;
-    color: black;
+    position: relative;
+    top: -1340px;
+    right: -430px;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
     cursor: pointer;
+    z-index: 9999;
 }
 
 #btnCloseModal:hover {
