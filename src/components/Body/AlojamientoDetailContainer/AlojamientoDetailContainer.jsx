@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import alojamientoJson from '../../../Data/data.json'
-import Modal from '../../Modal/Modal'
+import Modal from '../../Modal/ModalServicios'
 import './AlojamientoDetailContainer.css'
 
 export const AlojamientoDetailContainer = () => {
