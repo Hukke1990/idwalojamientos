@@ -76,6 +76,7 @@ h4 {
     color: #ee0cd0;
     font-size: 20px;
     margin-right: 10px;
+    text-shadow: #ee0cd0 0px 0px 5px;
 }
 
 .masServicios {
@@ -92,19 +93,21 @@ h4 {
     color: white;
     font-size: 20px;
     padding-inline: 5px;
+    font-family: 'Roboto';
+    font-weight: bold;
 }
 
 .contenedorMasDetalles {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: flex-start;
 
 }
 
 .contenedorMasDetalles span {
     color: #ee0cd0;
+    text-shadow: #ee0cd0 0px 0px 5px;
 }
 
 .contenedorUbicacion {
