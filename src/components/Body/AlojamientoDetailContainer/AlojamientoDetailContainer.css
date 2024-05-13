@@ -93,7 +93,9 @@ h4 {
 }
 
 
-.masServicios a {
+.masServicios button {
+    background-color: transparent;
+    border: none;
     white-space: nowrap;
     text-decoration: none;
     color: white;

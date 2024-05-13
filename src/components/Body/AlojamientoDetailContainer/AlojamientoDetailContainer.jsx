@@ -50,13 +50,13 @@ export const AlojamientoDetailContainer = () => {
                             ))}
                         </ul>
                         <div className='masServicios'>
-                            <li><a href="#" class="btn">
+                            <button class="btn">
                                 <span className="span1"></span>
                                 <span className="span2"></span>
                                 <span className="span3"></span>
                                 <span className="span4"></span>
                                 + servicios
-                            </a></li>
+                            </button>
                         </div>
                     </div>
                     <div className="contenedorMasDetalles">
