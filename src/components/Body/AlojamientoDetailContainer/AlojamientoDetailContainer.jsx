@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import alojamientoJson from '../../../Data/data.json'
+import Modal from '../../Modal/Modal'
 import './AlojamientoDetailContainer.css'
 
 export const AlojamientoDetailContainer = () => {
     const [alojamiento, setAlojamiento] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false); // Estado para controlar la apertura del modal
     const { idAlojamiento } = useParams();
 
     useEffect(() => {
@@ -24,6 +26,8 @@ export const AlojamientoDetailContainer = () => {
 
     }, [idAlojamiento]) //agrega idAlojamiento como dependencia para que cada vez que se actulice el ID de alojamiento cambie el useEffect
 
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
 
     return (
         <section>
@@ -50,13 +54,14 @@ export const AlojamientoDetailContainer = () => {
                             ))}
                         </ul>
                         <div className='masServicios'>
-                            <button class="btn">
+                            <button className="btn" onClick={openModal}>
                                 <span className="span1"></span>
                                 <span className="span2"></span>
                                 <span className="span3"></span>
                                 <span className="span4"></span>
                                 + servicios
                             </button>
+                            <Modal isOpen={modalOpen} onClose={closeModal} /> {/* Agrega el modal aquí */}
                         </div>
                     </div>
                     <div className="contenedorMasDetalles">
