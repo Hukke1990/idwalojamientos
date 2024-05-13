@@ -1,4 +1,4 @@
-.modal-overlay {
+.contenedorModal {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,6 +14,69 @@
     background-color: white;
     padding: 20px;
     border-radius: 5px;
+    color: black;
+    max-width: 500px;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilos adicionales según necesites */
+.modal h2 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 30px;
+    margin-bottom: -20px;
+    text-align: center;
+}
+
+.modal h3 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.modal li {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-size: 16px;
+    border-bottom: rgb(231, 231, 231) 1px solid;  
+    margin-left: -40px;  
+}
+
+.modal li p {
+    font-size: 12px;
+    color: #ee0cd0;
+}
+
+#btnCloseModal {
+    position: absolute;
+    top: 260px;
+    right: 235px;
+    color: black;
+    cursor: pointer;
+}
+
+#btnCloseModal:hover {
+    color: #ee0cd0;
+}
+
+
+/* Estilos para el scrollbar dentro del modal */
+.modal::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: #ee0cd0;
+    border-radius: 10px;
+}

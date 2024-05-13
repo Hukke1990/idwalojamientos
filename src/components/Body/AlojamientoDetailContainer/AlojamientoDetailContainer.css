@@ -103,6 +103,7 @@ h4 {
     padding-inline: 5px;
     font-family: 'Roboto';
     font-weight: bold;
+    cursor: pointer;
 }
 
 li::marker { /* elimina color ::marker de + servicios */
