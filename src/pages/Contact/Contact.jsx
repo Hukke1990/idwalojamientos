@@ -55,6 +55,21 @@ export const Contact = () => {
         <div className='contenedorContact'>
             <div className='contenedorIntro'>
                 <h2>Informacion de contacto</h2>
+                <div className='cotenedorInfContacto'>
+                    <div className='contenedorInformacionContacto'>
+                        <h3>Informacion</h3>
+                        <p><i class="bi bi-geo-alt-fill"></i>Calle falsa 123</p>
+                        <p><i class="bi bi-telephone"></i>0800-123-456</p>
+                        <p><i class="bi bi-whatsapp"></i>011-123-456</p>
+                        <p><i class="bi bi-envelope-at-fill"></i>contactoidw@idwalojamientos.com</p>
+                    </div>
+                    <div className='contenedorRedesSociales'>
+                        <h3>Redes Sociales</h3>
+                        <a href='/#'><i class="bi bi-facebook"></i>/idwAlojamientos</a>
+                        <a href='/#'><i class="bi bi-twitter-x"></i>@idwAlojamientos</a>
+                        <a href='/#'><i class="bi bi-instagram"></i>/idwAlojamientos</a>
+                    </div>
+                </div>
                 <p>Pongase en contacto con nosotros, recuerder que nuestro horario de atencion es de Lun a Vie de 9 a 18hs</p>
             </div>
             <div className='contenedorFieldset'>
