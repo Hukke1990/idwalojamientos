@@ -17,10 +17,19 @@ const Modal = ({ isOpen, onClose }) => {
     }
 
     return (
-        <div className="contenedorModal" onClick={onClose}>
-            <div className="contenedorModal" onClick={(e) => e.stopPropagation()}>
-                <div className="modal">
-                    <button id='btnCloseModal' onClick={handleModalClose}><i class="bi bi-x-circle"></i></button>
+        <div className="contenedorModalLogin" onClick={onClose}>
+            <div className="contenedorModalLogin" onClick={(e) => e.stopPropagation()}>
+                <div className="modalLogin">
+                    <h2>Bienvenido</h2>
+                    <form className='contenedorInicioSesion'>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" />
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" />
+                        <button type="submit">Iniciar Sesion</button>
+                    </form>
+                    <p>No tienes cuenta? <a href="#">Registrate</a></p>
+                    <button id='btnCloseModalLogin' onClick={handleModalClose}>Cancelar</button>
                 </div>
             </div>
         </div>
