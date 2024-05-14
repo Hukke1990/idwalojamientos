@@ -1,5 +1,135 @@
 .contenedorContact {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     color: white;
+}
+
+.contenedorIntro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 20px;
+}
+
+.contenedorIntro h2 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 50px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.contenedorIntro p {
+    margin-top: -30px;
+}
+
+.contenedorFieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 50px;
+    border: 2px solid white;
+    box-shadow: inset 0 0 5px #ee0cd0, 0 0 5px #ee0cd0;
+}
+
+.fieldset legend {
+    text-align: center;
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 20px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.fieldset input {
+    font-family: 'Roboto';
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 300px;
+}
+
+.fieldset label {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.fieldset textarea {
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 300px;
+    /* limitar automaticamente el tamanio del textarea */
+    resize: vertical;
+}
+
+.fieldset select {
+    font-family: 'Roboto';
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    background: #ee0cd0;
+    border: none;
+    box-shadow: 0 0 5px #ee0cd0, 0 0 5px #ee0cd0;
+}
+
+.opcionPreferencia {
+    color: #ee0cd0;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: white;
+}
+
+.btnEnviar {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-inline: 50px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-family: 'Pacifico';
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.error {
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 16px;
+    color: white;
+    text-shadow: red  0 0px 5px,
+     red 0 0px 5px,
+    red 0 0px 10px;
+}
+
+.enviado {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 16px;
+    color: white;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 5px #ee0cd0;
 }
