@@ -36,6 +36,7 @@
     white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
+    margin-bottom: 4px;
 }
 
 .btn:hover {

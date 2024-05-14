@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import './Nav.css';
 import { NavLink, Link } from 'react-router-dom';
+import Modal from '../Modal/ModalLogin';
 // agregar ruta modal login
 export const Nav = () => {
 
@@ -39,6 +40,7 @@ export const Nav = () => {
                         <span className="span3"></span>
                         <span className="span4"></span>
                         login
+                        <Modal isOpen={modalOpen} onClose={closeModal} /> {/* Agrega el modal aquí */}
                     </button>
                 </ul>
             </div>
