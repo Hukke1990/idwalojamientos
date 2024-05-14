@@ -13,7 +13,7 @@ export const Nav = () => {
         <nav className='contenedorMenu'>
             <div className="menu">
                 <ul>
-                    <li><NavLink exact to="/" activeClassName="active" className="btn">
+                    <li><NavLink exact to="/" activeClassName="active" className="btn home" id='home'>
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>

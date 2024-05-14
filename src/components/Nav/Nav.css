@@ -15,6 +15,10 @@
     align-items: center;
 }
 
+.home {
+    font-size: 24px;
+}
+
 .btn {
     position: relative;
     display: inline-block;
