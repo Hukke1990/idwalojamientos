@@ -30,6 +30,14 @@
     font-weight: 100;
 }
 
+.login {
+    background-color: transparent;
+    border: none;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .btn:hover {
     background: #ee0cd0;
     box-shadow: 0 0 10px #ee0cd0, 0 0 40px #ee0cd0, 0 0 80px #ee0cd0;
