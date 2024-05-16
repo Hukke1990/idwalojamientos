@@ -15,7 +15,7 @@
     background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));
     padding: 20px;
     border-radius: 5px;
-    color: black;
+    color: rgb(255, 255, 255);
     max-width: 500px;
     width: 100%;
     max-height: 400px;
@@ -31,4 +31,26 @@
     color: white;
     text-align: center;
     text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.contenedorInicioSesion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalLogin input {
+    width: 300px;
+    height: 30px;
+    font-size: 18px;
+    padding: 0px 15px;
+    border: white 2px solid;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+input:focus {
+    border: #ee0cd0 2px solid;
 }

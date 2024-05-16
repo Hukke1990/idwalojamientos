@@ -22,10 +22,12 @@ const Modal = ({ isOpen, onClose }) => {
                 <div className="modalLogin">
                     <h2>Bienvenido</h2>
                     <form className='contenedorInicioSesion'>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" />
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" />
+                        <div className="contenedorEmail">
+                            <input type="email" placeholder="Email" id="email" />
+                        </div>
+                        <div className="contenedorPassword">
+                            <input type="password" placeholder="Password" id="password" />
+                        </div>
                         <button type="submit">Iniciar Sesion</button>
                     </form>
                     <p>No tienes cuenta? <a href="#">Registrate</a></p>
