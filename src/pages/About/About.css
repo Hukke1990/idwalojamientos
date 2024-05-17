@@ -1,0 +1,127 @@
+.contenedorAbout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    font-family: 'Roboto';
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenedorAbout h2 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 30px;
+}
+
+.contenedorIntroduccion {
+    text-align: center;
+}
+
+.contenedorIntroduccion h1 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 50px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.contenedorIntroduccion span {
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.contenedorObjectivos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.contenedorObjectivos ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contenedorObjectivos ul li i {
+    color: #ee0cd0;
+    font-size: 20px;
+    margin-right: 10px;
+    text-shadow: #ee0cd0 0px 0px 5px;
+}
+
+.contenedorEquipoTrabajo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 20px;
+}
+
+.contenedorEquipoTrabajo h2 {
+    text-align: center;
+}
+
+.contenedorIntegrantes ul {
+    display: flex;
+    flex-direction: row;
+    /* Aquí va la propiedad */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contenedorIntegrantes ul li {
+    border: white 2px solid;
+    box-shadow: inset #ee0cd0 0px 0px 5px, #ee0cd0 0px 0px 5px, #ee0cd0 0px 0px 10px;
+    margin: 10px;
+    padding-inline: 5px;
+}
+
+.contenedorIntegrantes img {
+    width: 230px;
+    height: 300px;
+    margin: 10px;
+    object-fit: cover;
+    object-position: center;
+    border: white 2px solid;
+    box-shadow: red 0px 0px 5px;
+}
+
+.contenedorIntegrantes h3 {
+    position: relative;
+    text-align: center;
+    font-family: 'Pacifico';
+    font-weight: 100;
+    top: -10px;    
+    margin-bottom: 20px;
+    padding: 0;
+    font-size: 26px;
+    border-bottom: white 1px solid;
+}
+
+.contenedorIntegrantes p {
+    text-align: left;
+    margin-top: -10px;
+}
+
+.serviciosDestacados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.serviciosDestacados span {
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.serviciosDestacados i {
+    color: #ee0cd0;
+    font-size: 20px;
+    margin-right: 10px;
+    text-shadow: #ee0cd0 0px 0px 5px;
+}

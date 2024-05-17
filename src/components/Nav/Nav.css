@@ -6,13 +6,21 @@
     margin: 0 auto;
     font-style: normal;
     border-bottom: 1px solid #ee0cd0;
-    /* controlar sticky ( mejorar ) 
-    ---> */
     position: sticky;
     right: 0;
     top: 0;
-    /* <--- */
+
     transition: background-color 0.3s ease;
+}
+
+.contenedorNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .contenedorMenu.sticky {
@@ -23,10 +31,22 @@
     
 }
 
+.text {
+    font-family: "Pacifico";
+    font-size: 24px;
+    font-weight: 100;
+    height: 20px;
+}
+
 .contenedorMenu.sticky .btn {
     font-size: 16px;
     margin-bottom: 0;
     margin-top: -30px;
+}
+
+.contenedorMenu.sticky .login {
+    font-size: 16px;
+    top: -2px;
 }
 
 
@@ -35,10 +55,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.home {
-    font-size: 24px;
 }
 
 .btn {
@@ -58,12 +74,13 @@
 }
 
 .login {
-    background-color: transparent;
-    border: none;
-    white-space: nowrap;
-    text-decoration: none;
-    cursor: pointer;
-    margin-bottom: 4px;
+    position: relative;
+    top: -2px;
+    
+}
+
+.icon {
+    display: none;
 }
 
 .btn:hover {
@@ -143,4 +160,48 @@
 .btn.active span {
     background: #fff;
     /* Color del span cuando está activo */
+}
+
+
+@media screen and (max-width: 768px) {
+    .contenedorMenu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .menu ul {
+        flex-direction: row;
+        
+    }
+
+    .menu ul i {
+        display: block;
+        text-align: center;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .login {
+        position: relative;
+        top: -2px;
+    }
+
+    .contenedorMenu.sticky .btn {
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-top: -30px;
+    }
+
+    .contenedorMenu.sticky .login {
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-top: -25px;
+    }
+    
 }

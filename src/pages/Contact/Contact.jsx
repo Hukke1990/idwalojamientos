@@ -1,8 +1,8 @@
-import React, { useState } from 'react'; // Importamos React y useState para manejar estados locales
-import './Contact.css'; // Importamos los estilos CSS para el formulario
+import React, { useState } from 'react';
+import './Contact.css';
 
 export const Contact = () => {
-    // Definimos el estado inicial del formulario
+
     const [formData, setFormData] = useState({
         nombre: '', // Nombre del usuario
         email: '', // Correo electrónico del usuario
@@ -12,18 +12,15 @@ export const Contact = () => {
         preferencia: 'email', // Preferencia de contacto (email o teléfono)
     });
 
-    // Definimos el estado para almacenar los errores del formulario
+
     const [formErrors, setFormErrors] = useState({});
-    // Definimos el estado para verificar si el formulario fue enviado
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    // Función para manejar cambios en los campos del formulario
     const handleChange = (e) => {
-        const { name, value } = e.target; // Extraemos el nombre y el valor del campo
-        setFormData({ ...formData, [name]: value }); // Actualizamos el estado formData con el nuevo valor
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
-    // Función para validar el formulario
     const validateForm = () => {
         const errors = {}; // Objeto para almacenar los errores
         if (!formData.nombre) errors.nombre = 'Nombre completo es requerido';
@@ -38,12 +35,11 @@ export const Contact = () => {
         return errors; // Retornamos el objeto de errores
     };
 
-    // Función para manejar el envío del formulario
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevenimos el comportamiento por defecto del formulario
-        const errors = validateForm(); // Validamos el formulario
-        if (Object.keys(errors).length === 0) { // Si no hay errores
-            setIsSubmitted(true); // Marcamos el formulario como enviado
+        const errors = validateForm();
+        if (Object.keys(errors).length === 0) {
+            setIsSubmitted(true);
             // Aquí podrías manejar el envío del formulario, por ejemplo, enviando los datos a un servidor
             console.log('Formulario enviado:', formData); // Mostramos los datos en la consola
         } else {
@@ -58,7 +54,7 @@ export const Contact = () => {
                 <div className='cotenedorInfContacto'>
                     <div className='contenedorInformacionContacto'>
                         <h3>Informacion</h3>
-                        <p><i class="bi bi-geo-alt-fill"></i>Calle falsa 123</p>
+                        <p><i class="bi bi-geo-alt-fill"></i>Calle 123, Paraná, Entre Rios</p>
                         <p><i class="bi bi-telephone"></i>0800-123-456</p>
                         <p><i class="bi bi-whatsapp"></i>011-123-456</p>
                         <p><i class="bi bi-envelope-at-fill"></i>contactoidw@idwalojamientos.com</p>
