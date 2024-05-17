@@ -28,7 +28,7 @@
     z-index: 1000;
     max-width: 100%;
     font-size: 10px;
-    
+
 }
 
 .text {
@@ -76,7 +76,7 @@
 .login {
     position: relative;
     top: -2px;
-    
+
 }
 
 .icon {
@@ -173,7 +173,7 @@
 
     .menu ul {
         flex-direction: row;
-        
+
     }
 
     .menu ul i {
@@ -203,5 +203,5 @@
         margin-bottom: 0;
         margin-top: -25px;
     }
-    
+
 }
