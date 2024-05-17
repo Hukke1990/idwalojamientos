@@ -15,10 +15,11 @@
 
 .contenedorIntro h2 {
     font-family: 'Pacifico';
+    text-align: center;
     font-weight: 100;
     font-size: 50px;
     text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
-    white-space: nowrap;
+    white-space: wrap;
 }
 
 /* .contenedorIntro p {
@@ -32,10 +33,31 @@
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .cotenedorInfContacto {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenedorInformacionContacto {
+        border-right: none !important;
+        border-bottom: #ee0cd0 2px solid;
+        padding-left: 30px;
+    }
+
+    .contenedorRedesSociales {
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    
+}
+
 .contenedorInformacionContacto {
     border-right: #ee0cd0 2px solid;
-    padding-right: 50px;
-    margin-right: 50px;
+    padding-right: 30px;
 }
 
 .cotenedorInfContacto h3 {
@@ -67,6 +89,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 50px;
 }
 
 
