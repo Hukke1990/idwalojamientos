@@ -6,6 +6,8 @@
     color: white;
     padding: 20px;
     font-family: 'Roboto';
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .contenedorAbout h2 {
