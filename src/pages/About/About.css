@@ -81,6 +81,11 @@
     padding-inline: 5px;
 }
 
+.contenedorIntegrantes span {
+    color: #ee0cd0;
+    text-shadow: 0 0 5px #ee0cd0;
+}
+
 .contenedorIntegrantes img {
     width: 230px;
     height: 300px;

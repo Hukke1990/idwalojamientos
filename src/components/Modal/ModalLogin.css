@@ -53,4 +53,15 @@
 
 input:focus {
     border: #ee0cd0 2px solid;
+    box-shadow: inset #ee0cd0 0 0 5px, #ee0cd0 0 0 5px, #ee0cd0 0 0 10px;
+}
+
+.iniciarSesion {
+    width: 300px;
+    height: 30px;
+    padding: 0px 15px;
+    color: white;
+    outline: none;
+    margin-top: 10px;
+    background-color: transparent;
 }
