@@ -115,7 +115,11 @@ li::marker { /* elimina color ::marker de + servicios */
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
+}
 
+.contenedorMasDetalles h4 {
+    text-align: center;
 }
 
 .contenedorMasDetalles span {

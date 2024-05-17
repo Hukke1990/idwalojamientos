@@ -14,7 +14,7 @@ export const Nav = () => {
     return (
         <nav className='contenedorMenu'>
             <div className="menu">
-                <ul className="nav-list">
+                <ul className="contenedorNav">
                     <li><NavLink exact to="/" activeClassName="active" className="btn home" id='home'>
                         <span className="span1"></span>
                         <span className="span2"></span>
