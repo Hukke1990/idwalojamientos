@@ -6,12 +6,10 @@
     margin: 0 auto;
     font-style: normal;
     border-bottom: 1px solid #ee0cd0;
-    /* controlar sticky ( mejorar ) 
-    ---> */
     position: sticky;
     right: 0;
     top: 0;
-    /* <--- */
+
     transition: background-color 0.3s ease;
 }
 
