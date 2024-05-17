@@ -20,29 +20,30 @@ export const Nav = () => {
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
-                        <i className="bi bi-house"></i>home {/* Icono de Bootstrap */}
+                        <i className="bi bi-house icon"></i><p className='text'>home</p> {/* Icono de Bootstrap */}
                     </NavLink></li>
                     <li><NavLink to="/Contact" activeClassName="active" className="btn contact">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
-                        <i className="bi bi-envelope"></i>contacto {/* Icono de Bootstrap */}
+                        <i className="bi bi-envelope icon"></i><p className='text'>contacto</p> {/* Icono de Bootstrap */}
                     </NavLink></li>
                     <li><NavLink to="/About" activeClassName="active" className="btn">
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
-                        <i className="bi bi-info-circle"></i>sobre nosotros {/* Icono de Bootstrap */}
+                        <i className="bi bi-info-circle icon"></i><p className='text'>sobre nosotros</p> {/* Icono de Bootstrap */}
                     </NavLink></li>
                     <button className="btn login" onClick={openModal}>
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
                         <span className="span4"></span>
-                        <i className="bi bi-person"></i>login {/* Icono de Bootstrap */}
-                        <Modal isOpen={modalOpen} onClose={closeModal} /> {/* Agrega el modal aquí */}
+                        <i class="bi bi-person icon"></i>
+                        <p className='text'>login</p>
+                        {modalOpen && <Modal isOpen={modalOpen} onClose={closeModal} />}
                     </button>
                 </ul>
             </div>

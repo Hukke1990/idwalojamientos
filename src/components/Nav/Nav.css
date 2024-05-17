@@ -23,6 +23,13 @@
     
 }
 
+.text {
+    font-family: "Pacifico";
+    font-size: 24px;
+    font-weight: 100;
+    height: 20px;
+}
+
 .contenedorMenu.sticky .btn {
     font-size: 16px;
     margin-bottom: 0;
@@ -35,10 +42,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.home {
-    font-size: 24px;
 }
 
 .btn {
@@ -55,6 +58,10 @@
     font-family: "Pacifico";
     font-weight: 100;
     white-space: nowrap;
+}
+
+.icon {
+    display: none;
 }
 
 .login {
@@ -143,4 +150,36 @@
 .btn.active span {
     background: #fff;
     /* Color del span cuando está activo */
+}
+
+
+@media screen and (max-width: 768px) {
+    .contenedorMenu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .menu ul {
+        flex-direction: row;
+        
+    }
+
+    .menu ul i {
+        display: block;
+        text-align: center;
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .login {
+        position: relative;
+        top: -2px;
+    }
+    
 }
