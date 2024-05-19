@@ -18,15 +18,15 @@ const Modal = ({ isOpen, onClose }) => {
             <div className="contenedorModalLogin" onClick={(e) => e.stopPropagation()}>
                 <div className="modalLogin">
                     <h2>Bienvenido</h2>
-                    <form className='contenedorInicioSesion'>
-                        <div className="contenedorEmail">
+                    <form>
+                        <div>
                             <input type="email" placeholder="Email" id="email" />
                         </div>
-                        <div className="contenedorPassword">
+                        <div>
                             <input type="password" placeholder="Password" id="password" />
                         </div>
-                        <button className='iniciarSesion'>
-                            <p>Iniciar Sesion</p>
+                        <button>
+                            Iniciar Sesion
                         </button>
                     </form>
                     <p>No tienes cuenta? <a href="#">Registrate</a></p>

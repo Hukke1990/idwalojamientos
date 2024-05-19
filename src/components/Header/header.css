@@ -4,14 +4,15 @@
 
 
 .contenedorLogo {
-    border: 2px solid white;
-    box-shadow: inset 0 0 5px red, 0 0 5px red;
     border-radius: 50px;
     max-width: 400px;
     margin : 0 auto;
     padding: 20px;
     text-align: center;
+    /* Reflejo para Chrome y Safari */
+    -webkit-box-reflect: below -80px linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0));
 }
+
 
 .logo-p1 {
     margin: 0;

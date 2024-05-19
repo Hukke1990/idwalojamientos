@@ -46,11 +46,19 @@
         padding-left: 30px;
     }
 
+    .contenedorInformacionContacto p {
+        text-align: left;
+    }
+
+
     .contenedorRedesSociales {
         align-items: center;
-        text-align: center;
         margin-bottom: 20px;
         margin-top: 20px;
+    }
+
+    .contenedorRedesSociales a {
+        text-align: left;
     }
     
 }
