@@ -8,7 +8,7 @@ export const Header = () => {
             <div className='contenedorLogo '>
                 <div className='logo'>
 
-                    <div className='logo-p1'>
+                    <div className='contenedorLogoP'>
                         <p className='logo-p1'>I<span className='quesi-queno-2'>D</span>W</p>
                         <Logo />
                         <p className='logo-p1'><span className='quesi-queno-2'>A</span>lo<span className='quesi-queno-1'>j</span>amien<span className='quesi-queno-3'>t</span>os</p>

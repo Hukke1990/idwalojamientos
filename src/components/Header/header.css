@@ -17,7 +17,14 @@
     flex-wrap: wrap;
 }
 
-.logo-p1 {
+@media screen and (max-width: 768px) {
+    .contenedorLogoP {
+        display: flex;
+        flex-direction: column;
+    }    
+}
+
+.contenedorLogoP {
     display: flex;
     justify-content: center;
     align-items: center;
