@@ -1,18 +1,27 @@
 .contenedorHeader {
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 
 .contenedorLogo {
+    display: block;
     border-radius: 50px;
-    max-width: 400px;
-    margin : 0 auto;
+    margin: 0 auto;
     padding: 20px;
     text-align: center;
-    /* Reflejo para Chrome y Safari */
-    -webkit-box-reflect: below -80px linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0));
+    -webkit-box-reflect: below -80px linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0));
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
+.logo-p1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .logo-p1 {
     margin: 0;
@@ -21,21 +30,11 @@
     font-size: 50px;
     letter-spacing: 2px;
     color: white;
-    text-shadow: 0 0 5px red, 0 0 15px red, 0 0 30px red, 0 0 50px red;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 15px #ee0cd0, 0 0 30px #ee0cd0, 0 0 50px #ee0cd0;
 }
 
 .logo span {
     font-family: 'Poetsen One';
-}
-
-.logo-p2 {
-    margin: 0;
-    font-family: 'Poetsen One';
-    font-style: italic;
-    font-size: 50px;
-    letter-spacing: 2px;
-    color: white;
-    text-shadow: 0 0 5px yellow, 0 0 15px yellow, 0 0 30px red, 0 0 50px red;
 }
 
 .logo ul {

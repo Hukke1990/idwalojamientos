@@ -1,6 +1,6 @@
 .contenedorMenu {
     display: flex;
-    padding-top: 50px;
+    padding-top: 70px;
     justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
@@ -9,7 +9,6 @@
     position: sticky;
     right: 0;
     top: 0;
-
     transition: background-color 0.3s ease;
 }
 
