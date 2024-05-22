@@ -10,6 +10,7 @@ import { About } from "./pages/About/About";
 //import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailContainer/AlojamientoDetailContainer";
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
+import { AddAlojamiento } from "./pages/AddAlojamiento/AddAlojamiento";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Body />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
+          < Route path="/AddAlojamiento" element={<AddAlojamiento />} />
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
