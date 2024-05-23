@@ -1,13 +1,11 @@
 import { Header } from "./components/Header/Header";
 import { Nav } from "./components/Nav/Nav";
 import { Footer } from "./components/Footer/Footer";
-import { Body } from "./components/Body/Body";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Home } from "./pages/Home/Home";
 import { Contact } from "./pages/Contact/Contact";
 import { About } from "./pages/About/About";
-//import { AlojamientoDetalles } from "./pages/AlojamientoDetalles/AlojamientoDetalles";
-//import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailContainer/AlojamientoDetailContainer";
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 import { AddAlojamiento } from "./pages/AddAlojamiento/AddAlojamiento";
@@ -20,10 +18,10 @@ function App() {
         <Nav />
 
         <Routes>
-          <Route path="/" element={<Body />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
-          < Route path="/AddAlojamiento" element={<AddAlojamiento />} />
+          <Route path="/AddAlojamiento" element={<AddAlojamiento />} />
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>

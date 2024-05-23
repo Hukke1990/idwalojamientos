@@ -244,6 +244,39 @@ export function AddAlojamiento() {
 
                     <button type='submit'>Guardar</button>
                 </div>
+                <ul>
+                    {alojamientos.map((alojamiento, index) => (
+                        <li key={index}>
+                            <h3>{alojamiento.titulo}</h3>
+                            <p>{alojamiento.descripcion}</p>
+                            <p>{alojamiento.tipoAlojamiento}</p>
+                            <p>{alojamiento.ubicacion}</p>
+                            <p>{alojamiento.precioDia}</p>
+                            <p>{alojamiento.cantidadDormitorios}</p>
+                            <p>{alojamiento.cantidadBanios}</p>
+                            <p>{alojamiento.estado}</p>
+                            {alojamientos.map((alojamiento, index) => (
+                                <li key={index}>
+                                    {alojamiento.titulo}
+                                    {alojamiento.imagenCover && (
+                                        <img
+                                            src={alojamiento.imagenCover}
+                                            alt="Imagen de portada"
+                                            className='imagenPreview' />
+                                    )}
+                                </li>
+                            ))}
+                            {alojamiento.imagenes.map((imagen, idx) => (
+                                <img
+                                    key={idx}
+                                    src={imagen}
+                                    alt={`Imagen ${idx + 1}`}
+                                    className='imagenPreview' />
+                            ))}
+                            <p>{alojamiento.servicios}</p>
+                        </li>
+                    ))}
+                </ul>
             </form>
         </div>
     );
