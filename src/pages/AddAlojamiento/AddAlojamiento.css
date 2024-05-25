@@ -1,5 +1,4 @@
-.contenedorAddAlojamientos {
-    color: #ffffff;
+.contenedorAddAlojamientos{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,10 +13,174 @@
     font-weight: 100;
     font-size: 50px;
     text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    color: #ffffff;
+}
+
+.contenedorAddAlojamientos p {
+    position: relative;
+    font-family: 'Roboto';
+    color: #ffffff;
+    top: -20px;
+}
+
+.contenedorAddAlojamientos fieldset {
+    position: relative;
+    padding: 20px;
+    border: #ffffff 2px solid;
+    box-shadow: inset 0 0 5px #ee0cd0, 0 0 10px #ee0cd0;
+    max-width: 200px;
+}
+
+.contenedorAddAlojamientos legend {
+    position: relative;
+    font-family: 'Pacifico';
+    font-weight: 100;
+    color: #ffffff;
+    font-size: 30px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    text-align: center;
+}
+
+.contenedorForm .form-error {
+    position: relative;
+    top: 0px;
+    color: #ee390c;
+    text-shadow: #ee390c 0 0 5px;
+}
+
+.contenedorForm .guardarAlojamiento {
+    position: relative;
+    top: 30px;
 }
 
 .contenedorForm {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+.contenedorForm label {
+    padding: 5px;
+    width: max-content;
+    margin: 0px auto;
+
+    display: grid;
+    grid-template-areas: "input";
+    
+}
+
+input {
+    grid-area: input;
+    width: 300px;
+    font: inherit;
+    border: #ffffff 2px solid;
+    background-color: transparent;
+    padding: .7rem 1.5rem;
+    color: #ffffff;
+}
+
+span {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    color: #ffffff;
+    
+}
+
+.label_name {
+    grid-area: input;
+
+    z-index: 100;
+    width: max-content;
+    margin-left: 1rem;
+    padding: 0 .5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    transition: transform .2s;
+    transform-origin: center left;
+}
+
+
+input:focus + .label_name,
+input:not(:placeholder-shown) + .label_name {
+    transform: translateY(-50%) scale(0.7);
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    background-color: transparent;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+    border-color: #ffffff;
+    box-shadow: inset 0 0 5px #ee0cd0, 0 0 10px #ee0cd0;
+
+}
+
+select {
+    grid-area: select;
+    width: 300px;
+    font: inherit;
+    border: #ffffff 2px solid;
+    background-color: transparent;
+    padding: .7rem 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: #ffffff;
+    font-family: 'Pacifico';
+}
+
+select:focus {
+    border-color: #ee0cd0;
+    /* Cambia el color del borde */
+}
+
+select:focus:invalid {
+    box-shadow: none;
+}
+
+select:valid {
+    box-shadow: 0 0 10px #ee0cd0;
+    /* Añade un efecto de sombra */
+}
+
+
+option {
+    color: #000000;
+}
+
+span {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    color: #ffffff;
+}
+
+.contenedorImagenesPreview {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+.imagenPreview {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: #ffffff 2px solid;
+}
+
+.imagenCoverPreview {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: #ffffff 2px solid;
+}
+
+.contenedorDatosCargados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
