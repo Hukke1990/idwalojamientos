@@ -1,0 +1,28 @@
+.contenedorOpciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenedorOpciones button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorOpciones .addAlojamientos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Pacifico';
+    font-weight: 100;
+    color: #ffffff;
+    text-decoration: none;
+}
+

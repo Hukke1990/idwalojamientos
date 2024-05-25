@@ -56,6 +56,12 @@
     align-items: center;
 }
 
+.login {
+    position: relative;
+    top: -2px;
+
+}
+
 .btn {
     position: relative;
     display: inline-block;
@@ -70,12 +76,6 @@
     font-family: "Pacifico";
     font-weight: 100;
     white-space: nowrap;
-}
-
-.login {
-    position: relative;
-    top: -2px;
-
 }
 
 .icon {
