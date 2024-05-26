@@ -225,7 +225,7 @@ export function AddAlojamiento() {
                         {errors.estado && <p className="form-error">{errors.estado}</p>}
 
 
-                        <label htmlFor="imagenCover"><input
+                        <label htmlFor="imagenCover" className='contenedorImagenCover'><input
                             type="file"
                             id='imagenCover'
                             placeholder=" "
