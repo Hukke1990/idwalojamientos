@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './AddAlojamiento.css';
 
 export function AddAlojamiento() {
-    // Declaración de estados para cada campo del formulario
     const [idAlojamiento, setIdAlojamiento] = useState('');
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
@@ -16,11 +15,16 @@ export function AddAlojamiento() {
     const [imagenCoverPreview, setImagenCoverPreview] = useState('');
     const [imagenes, setImagenes] = useState([]);
     const [imagenesPreview, setImagenesPreview] = useState([]);
-    const [servicios, setServicios] = useState('');
-
-    // Estado para almacenar los datos ingresados
+    const [servicios, setServicios] = useState([]);
     const [alojamientos, setAlojamientos] = useState([]);
     const [errors, setErrors] = useState({});
+
+    const serviciosPredefinidos = [
+        { id: 1, nombre: 'Wifi', icono: 'bi bi-wifi' },
+        { id: 2, nombre: 'Piscina', icono: 'bi bi-droplet' },
+        { id: 3, nombre: 'Estacionamiento', icono: 'bi bi-car' },
+        { id: 4, nombre: 'Desayuno', icono: 'bi bi-cup' }
+    ];
 
     const handleImagenCoverChange = (e) => {
         const file = e.target.files[0];
@@ -62,7 +66,7 @@ export function AddAlojamiento() {
         if (!cantidadBanios) newErrors.cantidadBanios = 'Cantidad de baños es requerida';
         if (!estado) newErrors.estado = 'Estado es requerido';
         if (!imagenCover) newErrors.imagenCover = 'Imagen de portada es requerida';
-        if (!servicios) newErrors.servicios = 'Servicios son requeridos';
+        if (!servicios.length) newErrors.servicios = 'Servicios son requeridos';
         return newErrors;
     };
 
@@ -74,7 +78,6 @@ export function AddAlojamiento() {
             return;
         }
 
-        // Crear un nuevo alojamiento con los datos del formulario
         const nuevoAlojamiento = {
             idAlojamiento,
             titulo,
@@ -87,13 +90,11 @@ export function AddAlojamiento() {
             estado,
             imagenCover: imagenCoverPreview,
             imagenes: imagenesPreview,
-            servicios,
+            servicios: servicios.map(servicioId => serviciosPredefinidos.find(s => s.id === parseInt(servicioId)))
         };
 
-        // Agregar el nuevo alojamiento a la lista de alojamientos
         setAlojamientos([...alojamientos, nuevoAlojamiento]);
 
-        // Limpiar los campos del formulario y errores
         setIdAlojamiento('');
         setTitulo('');
         setDescripcion('');
@@ -107,7 +108,7 @@ export function AddAlojamiento() {
         setImagenCoverPreview('');
         setImagenes([]);
         setImagenesPreview([]);
-        setServicios('');
+        setServicios([]);
         setErrors({});
     };
 
@@ -126,6 +127,7 @@ export function AddAlojamiento() {
                                 placeholder=" "
                                 value={idAlojamiento}
                                 onChange={(e) => setIdAlojamiento(e.target.value)}
+                                className='formInput'
                             />
                             <span className='label_name'>ID Alojamiento</span>
                         </label>
@@ -137,6 +139,7 @@ export function AddAlojamiento() {
                             placeholder=' '
                             value={titulo}
                             onChange={(e) => setTitulo(e.target.value)}
+                            className='formInput'
                         />
                             <span className='label_name'>Titulo</span>
                         </label>
@@ -148,6 +151,7 @@ export function AddAlojamiento() {
                             placeholder=" "
                             value={descripcion}
                             onChange={(e) => setDescripcion(e.target.value)}
+                            className='formInput'
                         />
                             <span className='label_name'>Descripcion</span>
                         </label>
@@ -160,6 +164,7 @@ export function AddAlojamiento() {
                                 placeholder=" "
                                 value={tipoAlojamiento}
                                 onChange={(e) => setTipoAlojamiento(e.target.value)}
+                                className='formInput'
                             />
                             <span className='label_name'>Tipo de alojamiento</span>
                         </label>
@@ -171,6 +176,7 @@ export function AddAlojamiento() {
                             placeholder=" "
                             value={ubicacion}
                             onChange={(e) => setUbicacion(e.target.value)}
+                            className='formInput'
                         />
                             <span className='label_name'>Ubicacion</span>
                         </label>
@@ -182,11 +188,11 @@ export function AddAlojamiento() {
                             placeholder=" "
                             value={precioDia}
                             onChange={(e) => setPrecioDia(e.target.value)}
+                            className='formInput'
                         />
-                            <span className='label_name'>Precio por dia</span>
+                            <span className='label_name'>Precio por día</span>
                         </label>
                         {errors.precioDia && <p className="form-error">{errors.precioDia}</p>}
-
 
                         <label htmlFor="cantidadDormitorios"><input
                             type="text"
@@ -194,6 +200,7 @@ export function AddAlojamiento() {
                             placeholder=" "
                             value={cantidadDormitorios}
                             onChange={(e) => setCantidadDormitorios(e.target.value)}
+                            className='formInput'
                         />
                             <span className='label_name'>Cantidad de dormitorios</span>
                         </label>
@@ -205,119 +212,81 @@ export function AddAlojamiento() {
                             placeholder=" "
                             value={cantidadBanios}
                             onChange={(e) => setCantidadBanios(e.target.value)}
+                            className='formInput'
                         />
-                            <span className='label_name'>Cantidad de banios</span>
+                            <span className='label_name'>Cantidad de baños</span>
                         </label>
                         {errors.cantidadBanios && <p className="form-error">{errors.cantidadBanios}</p>}
 
-                        <label htmlFor="estado">
-                            <select
-                                id='estado'
-                                value={estado}
-                                onChange={(e) => setEstado(e.target.value)}
-                                className="estado-select"
-                            >
-                                <option value="" disabled hidden>Selecciona un estado</option>
-                                <option value="Disponible">Disponible</option>
-                                <option value="Ocupado">Ocupado</option>
-                            </select>
+                        <label htmlFor="estado"><input
+                            type="text"
+                            id='estado'
+                            placeholder=" "
+                            value={estado}
+                            onChange={(e) => setEstado(e.target.value)}
+                            className='formInput'
+                        />
+                            <span className='label_name'>Estado</span>
                         </label>
                         {errors.estado && <p className="form-error">{errors.estado}</p>}
 
-
-                        <label htmlFor="imagenCover" className='contenedorImagenCover'><input
+                        <label htmlFor="imagenCover"><input
                             type="file"
-                            id='imagenCover'
-                            placeholder=" "
-                            accept='image/*'
-                            className='imagenCover'
+                            id="imagenCover"
                             onChange={handleImagenCoverChange}
+                            className='formInput'
                         />
                             <span className='label_name'>Imagen de portada</span>
                         </label>
+                        {imagenCoverPreview && <img src={imagenCoverPreview} alt="Vista previa de la imagen de portada" className='imagenCoverPreview' />}
                         {errors.imagenCover && <p className="form-error">{errors.imagenCover}</p>}
-
-
-                        {imagenCoverPreview && (
-                            <img
-                                src={imagenCoverPreview}
-                                alt="Previsualizacion de la imagen de portada"
-                                className='imagenCoverPreview' />
-                        )}
 
                         <label htmlFor="imagenes"><input
                             type="file"
-                            id='imagenes'
-                            placeholder=" "
-                            accept='image/*'
+                            id="imagenes"
                             multiple
                             onChange={handleImagenesChange}
+                            className='formInput'
                         />
-                            <span className='label_name'>Otras imagenes</span>
-                            {errors.imagenes && <p className="form-error">{errors.imagenes}</p>}
+                            <span className='label_name'>Imágenes</span>
                         </label>
-                        {errors.imagenCover && <p className="form-error">{errors.imagenCover}</p>}
+                        {imagenesPreview.map((imagen, index) => (
+                            <img key={index} src={imagen} alt={`Vista previa ${index + 1}`} className='imagenesPreview' />
+                        ))}
 
-                        <div className='contenedorImagenesPreview'>
-                            {imagenesPreview.map((preview, index) => (
-                                <img
-                                    key={index}
-                                    src={preview}
-                                    alt={`Imagen ${index + 1}`}
-                                    className='imagenPreview' />
-                            ))}
+                        <div className='contenedorAgregarServicios'>
+                            <h3>Servicios</h3>
+                            <div className='contenedorCheckbox'>
+                                {serviciosPredefinidos.map(servicio => (
+                                    <label key={servicio.id} className='servicioCheckbox'>
+                                        <input
+                                            type="checkbox"
+                                            value={servicio.id}
+                                            checked={servicios.includes(servicio.id.toString())}
+                                            onChange={(e) => {
+                                                const servicioId = e.target.value;
+                                                setServicios(prev =>
+                                                    e.target.checked
+                                                        ? [...prev, servicioId]
+                                                        : prev.filter(id => id !== servicioId)
+                                                );
+                                            }}
+                                        />
+                                        <div className='servicioNombreIcono'>
+                                            <i className={servicio.icono}></i>
+                                            <span className='servicioName'>{servicio.nombre}</span>
+                                        </div>
+                                    </label>
+                                ))}
+                            </div>
+
                         </div>
-
-                        <label htmlFor="servicios"><input
-                            type="text"
-                            id='servicios'
-                            placeholder=" "
-                            value={servicios}
-                            onChange={(e) => setServicios(e.target.value)}
-                        />
-                            <span className='label_name'>Servicios</span>
-                        </label>
                         {errors.servicios && <p className="form-error">{errors.servicios}</p>}
 
-                        <button type='submit' className='btn guardarAlojamiento'>
-                            <span className='span1'></span>
-                            <span className='span2'></span>
-                            <span className='span3'></span>
-                            <span className='span4'></span>
-                            Guardar</button>
                     </div>
-                    <ul className='contenedorDatosCargados'>
-                        {alojamientos.map((alojamiento, index) => (
-                            <li key={index}>
-                                <p>{alojamiento.titulo}</p>
-                                <p>{alojamiento.descripcion}</p>
-                                <p>{alojamiento.tipoAlojamiento}</p>
-                                <p>{alojamiento.ubicacion}</p>
-                                <p>{alojamiento.precioDia}</p>
-                                <p>{alojamiento.cantidadDormitorios}</p>
-                                <p>{alojamiento.cantidadBanios}</p>
-                                <p>{alojamiento.estado}</p>
-                                {alojamientos.map((alojamiento, index) => (
-                                    <li key={index}>
-                                        {alojamiento.imagenCover && (
-                                            <img
-                                                src={alojamiento.imagenCover}
-                                                alt="Imagen de portada"
-                                                className='imagenPreview' />
-                                        )}
-                                    </li>
-                                ))}
-                                {alojamiento.imagenes.map((imagen, idx) => (
-                                    <img
-                                        key={idx}
-                                        src={imagen}
-                                        alt={`Imagen ${idx + 1}`}
-                                        className='imagenPreview' />
-                                ))}
-                                <p>{alojamiento.servicios}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="boton-container">
+                        <button type="submit">Agregar Alojamiento</button>
+                    </div>
                 </fieldset>
             </form>
         </div>
