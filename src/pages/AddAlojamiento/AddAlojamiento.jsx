@@ -23,7 +23,17 @@ export function AddAlojamiento() {
         { id: 1, nombre: 'Wifi', icono: 'bi bi-wifi' },
         { id: 2, nombre: 'Piscina', icono: 'bi bi-droplet' },
         { id: 3, nombre: 'Estacionamiento', icono: 'bi bi-car' },
-        { id: 4, nombre: 'Desayuno', icono: 'bi bi-cup' }
+        { id: 4, nombre: 'Desayuno', icono: 'bi bi-cup' },
+        { id: 5, nombre: 'Parrilla', icono: 'bi bi-bricks' },
+        { id: 6, nombre: 'Vista al mar', icono: 'bi bi-water' },
+        { id: 7, nombre: 'Acceso a la playa', icono: 'bi bi-tsunami' },
+        { id: 8, nombre: 'Televisor', icono: 'bi bi-tv' },
+        { id: 9, nombre: 'Zona de trabajo', icono: 'bi bi-pc-display' },
+        { id: 10, nombre: 'Cocina', icono: 'bi bi-egg-fried' },
+        { id: 11, nombre: 'Jardin amplio', icono: 'bi bi-tree' },
+        { id: 12, nombre: 'Calefacción', icono: 'bi bi-snow' },
+        { id: 13, nombre: 'Cafeteria', icono: 'bi bi-cup-straw' },
+        { id: 14, nombre: 'Pileta', icono: 'bi bi-swimming' },
     ];
 
     const handleImagenCoverChange = (e) => {
@@ -66,6 +76,7 @@ export function AddAlojamiento() {
         if (!cantidadBanios) newErrors.cantidadBanios = 'Cantidad de baños es requerida';
         if (!estado) newErrors.estado = 'Estado es requerido';
         if (!imagenCover) newErrors.imagenCover = 'Imagen de portada es requerida';
+        if (!imagenes.length) newErrors.imagenes = 'Imagenes son requeridas';
         if (!servicios.length) newErrors.servicios = 'Servicios son requeridos';
         return newErrors;
     };
@@ -250,9 +261,12 @@ export function AddAlojamiento() {
                         />
                             <span className='label_name'>Imágenes</span>
                         </label>
-                        {imagenesPreview.map((imagen, index) => (
-                            <img key={index} src={imagen} alt={`Vista previa ${index + 1}`} className='imagenesPreview' />
-                        ))}
+                        {errors.imagenes && <p className="form-error">{errors.imagenes}</p>}
+                        <div className='contenedorImagenesPreview'>
+                            {imagenesPreview.map((imagen, index) => (
+                                <img key={index} src={imagen} alt={`Vista previa ${index + 1}`} className='imagenesPreview' />
+                            ))}
+                        </div>
 
                         <div className='contenedorAgregarServicios'>
                             <h3>Servicios</h3>
@@ -284,8 +298,13 @@ export function AddAlojamiento() {
                         {errors.servicios && <p className="form-error">{errors.servicios}</p>}
 
                     </div>
-                    <div className="boton-container">
-                        <button type="submit">Agregar Alojamiento</button>
+                    <div className='guardarAlojamiento'>
+                        <button type='submit' className='btn'>
+                            <span className='span1'></span>
+                            <span className='span2'></span>
+                            <span className='span3'></span>
+                            <span className='span4'></span>
+                            Guardar</button>
                     </div>
                 </fieldset>
             </form>

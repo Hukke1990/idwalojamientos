@@ -67,9 +67,13 @@
     text-shadow: #ee390c 0 0 5px;
 }
 
-.contenedorForm .guardarAlojamiento {
-    position: relative;
-    top: 30px;
+.guardarAlojamiento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+
 }
 
 .contenedorForm label {
@@ -160,7 +164,7 @@ span {
     padding: 10px;
 }
 
-.imagenPreview {
+.imagenesPreview {
     margin: 10px;
     width: 100px;
     height: 100px;
@@ -199,7 +203,7 @@ span {
     flex-direction: column;
     align-items: center;
     padding-right: 20px;
-    width: 300px;
+    width: 275px;
     flex-wrap: wrap;
 }
 
@@ -226,4 +230,10 @@ span {
     align-items: center;
     justify-content: center;
     margin-left: 5px;
+}
+
+.contenedorAgregarServicios h3 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    color: #ffffff;
 }
