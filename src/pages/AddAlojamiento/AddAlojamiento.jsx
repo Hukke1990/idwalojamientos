@@ -22,7 +22,7 @@ export function AddAlojamiento() {
     const serviciosPredefinidos = [
         { id: 1, nombre: 'Wifi', icono: 'bi bi-wifi' },
         { id: 2, nombre: 'Piscina', icono: 'bi bi-droplet' },
-        { id: 3, nombre: 'Estacionamiento', icono: 'bi bi-car' },
+        { id: 3, nombre: 'Estacionamiento', icono: 'bi bi-car-front-fill' },
         { id: 4, nombre: 'Desayuno', icono: 'bi bi-cup' },
         { id: 5, nombre: 'Parrilla', icono: 'bi bi-bricks' },
         { id: 6, nombre: 'Vista al mar', icono: 'bi bi-water' },
@@ -33,7 +33,7 @@ export function AddAlojamiento() {
         { id: 11, nombre: 'Jardin amplio', icono: 'bi bi-tree' },
         { id: 12, nombre: 'Calefacción', icono: 'bi bi-snow' },
         { id: 13, nombre: 'Cafeteria', icono: 'bi bi-cup-straw' },
-        { id: 14, nombre: 'Pileta', icono: 'bi bi-swimming' },
+        { id: 14, nombre: 'Pileta', icono: 'bi bi-moisture' },
     ];
 
     const handleImagenCoverChange = (e) => {
@@ -306,6 +306,40 @@ export function AddAlojamiento() {
                             <span className='span4'></span>
                             Guardar</button>
                     </div>
+                    <ul className='contenedorDatosCargados'>
+                        {alojamientos.map((alojamiento, index) => (
+                            <li key={index}>
+                                <p>{alojamiento.titulo}</p>
+                                <p>{alojamiento.descripcion}</p>
+                                <p>{alojamiento.tipoAlojamiento}</p>
+                                <p>{alojamiento.ubicacion}</p>
+                                <p>{alojamiento.precioDia}</p>
+                                <p>{alojamiento.cantidadDormitorios}</p>
+                                <p>{alojamiento.cantidadBanios}</p>
+                                <p>{alojamiento.estado}</p>
+                                {alojamientos.map((alojamiento, index) => (
+                                    <li key={index}>
+                                        {alojamiento.imagenCover && (
+                                            <img
+                                                src={alojamiento.imagenCover}
+                                                alt="Imagen de portada"
+                                                className='imagenPreview' />
+                                        )}
+                                    </li>
+                                ))}
+                                {alojamiento.imagenes.map((imagen, idx) => (
+                                    <img
+                                        key={idx}
+                                        src={imagen}
+                                        alt={`Imagen ${idx + 1}`}
+                                        className='imagenPreview' />
+                                ))}
+                                {/* {alojamiento.servicios.map((servicio, index) => (
+                                    <p key={index}>{servicio}</p>
+                                ))} */}
+                            </li>
+                        ))}
+                    </ul>
                 </fieldset>
             </form>
         </div>

@@ -150,12 +150,6 @@ option {
     color: #000000;
 }
 
-span {
-    font-family: 'Pacifico';
-    font-weight: 100;
-    color: #ffffff;
-}
-
 .contenedorImagenesPreview {
     display: flex;
     flex-direction: row;
@@ -206,7 +200,6 @@ span {
     width: 275px;
     flex-wrap: wrap;
 }
-
 .contenedorAgregarServicios i {
     color: #ee0cd0;
     font-size: 20px;
