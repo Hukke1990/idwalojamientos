@@ -47,10 +47,10 @@ export const AddTipoAlojamiento = () => {
                 >
                     <option value="">Seleccione un tipo de Alojamiento</option>
                     <option value="Disponible">Casa</option>
-                    <option value="No disponible">Cabaña</option>
-                    <option value="No disponible">Hotel</option>
-                    <option value="No disponible">Departamento</option>
-                    <option value="No disponible">Duplex</option>
+                    <option value="Cabaña">Cabaña</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Departamento">Departamento</option>
+                    <option value="Duplex">Duplex</option>
                 </select>
             </div>
             <div>

@@ -1,0 +1,29 @@
+.contenedorGetAlojamiento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorGetAlojamiento h2 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 50px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    color: #ffffff;
+}
+
+.inputGetAlojamiento {
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto';
+    color: #000000;
+}
+
+.btnGetAlojamiento {
+    margin-top: 20px;
+}
