@@ -6,7 +6,7 @@ export const GetAllTiposAlojamiento = () => {
 
     const obtenerAlojamientos = async () => {
         try {
-            const response = await fetch('http://localhost:3001/tiposAlojamiento/getTipoAlojamiento');
+            const response = await fetch('http://localhost:3001/tiposAlojamiento/getTiposAlojamiento');
             if (response.ok) {
                 const data = await response.json();
                 console.log('Datos recibidos:', data);
@@ -31,8 +31,8 @@ export const GetAllTiposAlojamiento = () => {
             {alojamientos.length > 0 ? (
                 <ul>
                     {alojamientos.map(alojamiento => (
-                        <li key={alojamiento.id}>
-                            <p>ID: {alojamiento.id}</p>
+                        <li key={alojamiento.idTipoAlojamiento}>
+                            <p>ID: {alojamiento.idTipoAlojamiento}</p>
                             <p>Descripción: {alojamiento.Descripcion}</p>
                         </li>
                     ))}

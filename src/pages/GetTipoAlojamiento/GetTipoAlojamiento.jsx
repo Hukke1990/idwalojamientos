@@ -47,7 +47,6 @@ export const GetTipoAlojamiento = () => {
             {alojamientoData && (
                 <div className='contenedorAlojamientoInfo'>
                     <h3>Información del Alojamiento</h3>
-                    {console.log('Renderizando datos:', alojamientoData)}
                     <p>ID: <span>{alojamientoData.idTipoAlojamiento}</span></p>
                     <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
                 </div>
