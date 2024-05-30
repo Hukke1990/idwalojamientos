@@ -27,3 +27,49 @@
 .btnGetAlojamiento {
     margin-top: 20px;
 }
+
+.contenedorAlojamientoInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    color: #ffffff;
+    border-top: 1px solid #ee0cd0;
+}
+
+.contenedorAlojamientoInfo h3 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 20px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+}
+
+.contenedorAlojamientoInfo p {
+    color: #ee0cd0;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+
+.contenedorAlojamientoInfo span {
+    color: #ffffff;
+}
+
+.linkAdminAlojamiento {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;   
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.btnVolver {
+    background-color: transparent;
+    border: none;
+}
+
+.linkAdminAlojamiento:hover {
+    color: #ee0cd0;
+    text-shadow: #ee0cd0 0 0 5px;
+}

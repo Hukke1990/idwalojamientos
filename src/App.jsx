@@ -11,6 +11,7 @@ import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/A
 import { AdministrarAlojamientos } from "./pages/AdministrarAlojamientos/AdministrarAlojamientos/AdministrarAlojamientos";
 import { AgregarAlojamiento } from "./pages/AgregarAlojamiento/AgregarAlojamiento";
 import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
+import { GetAllTiposAlojamiento } from "./pages/GetAllTiposAlojamiento/GetAllTiposAlojamiento";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
           <Route path="/AgregarAlojamiento" element={<AgregarAlojamiento />} />
           <Route path="/GetTipoAlojamiento" element={<GetTipoAlojamiento />} />
+          <Route path="/GetAllTiposAlojamiento" element={<GetAllTiposAlojamiento />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 

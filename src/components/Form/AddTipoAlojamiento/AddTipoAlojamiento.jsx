@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddTipoAlojamiento.css';
+import { NavLink } from 'react-router-dom';
 
 export const AddTipoAlojamiento = () => {
 
@@ -61,8 +62,9 @@ export const AddTipoAlojamiento = () => {
                     <span className='span4'></span>
                     Enviar</button>
             </div>
-
-
+            <button className='btnVolver'>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
+            </button>
         </form>
     );
 

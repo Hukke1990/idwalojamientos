@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './GetTipoAlojamiento.css';
+import { NavLink } from 'react-router-dom';
 
 export const GetTipoAlojamiento = () => {
     const [alojamientoId, setAlojamientoId] = useState('');
@@ -39,13 +40,19 @@ export const GetTipoAlojamiento = () => {
                 Obtener Alojamiento
             </button>
 
+            <button className='btnVolver'>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
+            </button>
+
             {alojamientoData && (
                 <div className='contenedorAlojamientoInfo'>
                     <h3>Información del Alojamiento</h3>
-                    <p>ID: {alojamientoData.id}</p>
-                    <p>Descripción: {alojamientoData.Descripcion}</p>
+                    {console.log('Renderizando datos:', alojamientoData)}
+                    <p>ID: <span>{alojamientoData.idTipoAlojamiento}</span></p>
+                    <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
                 </div>
             )}
+
         </div>
     );
 }
