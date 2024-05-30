@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './GetAllTiposAlojamiento.css';
 
 export const GetAllTiposAlojamiento = () => {
@@ -27,15 +28,16 @@ export const GetAllTiposAlojamiento = () => {
 
     return (
         <div className='contenedorGetAlojamientos'>
-            <h2>Todos los Tipos de Alojamientos</h2>
             {alojamientos.length > 0 ? (
                 <ul>
-                    {alojamientos.map(alojamiento => (
-                        <li key={alojamiento.idTipoAlojamiento}>
-                            <p>ID: {alojamiento.idTipoAlojamiento}</p>
-                            <p>Descripción: {alojamiento.Descripcion}</p>
-                        </li>
-                    ))}
+                    <div className='contenedorAlojamientos'>
+                        {alojamientos.map(alojamiento => (
+                            <li className='AllTipoAlojamiento' key={alojamiento.idTipoAlojamiento}>
+                                <p>ID: <span>{alojamiento.idTipoAlojamiento}</span></p>
+                                <p>Descripción: <span>{alojamiento.Descripcion}</span></p>
+                            </li>
+                        ))}
+                    </div>
                 </ul>
             ) : (
                 <p>No hay tipos de alojamientos disponibles.</p>

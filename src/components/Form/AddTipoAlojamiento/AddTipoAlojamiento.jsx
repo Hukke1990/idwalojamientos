@@ -47,7 +47,7 @@ export const AddTipoAlojamiento = () => {
                     onChange={e => setDescripcion(e.target.value)}
                 >
                     <option value="">Seleccione un tipo de Alojamiento</option>
-                    <option value="Disponible">Casa</option>
+                    <option value="Casa">Casa</option>
                     <option value="Cabaña">Cabaña</option>
                     <option value="Hotel">Hotel</option>
                     <option value="Departamento">Departamento</option>
