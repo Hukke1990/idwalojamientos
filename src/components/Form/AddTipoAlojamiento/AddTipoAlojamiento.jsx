@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './AddTipoAlojamiento.css';
 import { NavLink } from 'react-router-dom';
+import { Alert } from '../../Alert/Alert';
 
 export const AddTipoAlojamiento = () => {
     const [descripcion, setDescripcion] = useState('');
+    const [alertMessage, setAlertMessage] = useState('');
+    const [alertType, setAlertType] = useState('');
 
     const enviar = async (e) => {
         e.preventDefault();
@@ -18,12 +21,14 @@ export const AddTipoAlojamiento = () => {
                 const existeAlojamiento = alojamientos.some(alojamiento => alojamiento.Descripcion.toLowerCase() === descripcion.toLowerCase());
 
                 if (existeAlojamiento) {
-                    alert('El tipo de alojamiento ya se encuentra registrado');
+                    setAlertMessage('El tipo de alojamiento ya se encuentra registrado');
+                    setAlertType('warning');
                     return;
                 }
             } else {
                 console.error('Error al obtener los tipos de alojamientos');
-                alert('Error al verificar el tipo de alojamiento');
+                setAlertMessage('Error al verificar el tipo de alojamiento');
+                setAlertType('error');
                 return;
             }
 
@@ -39,14 +44,17 @@ export const AddTipoAlojamiento = () => {
             });
 
             if (response.ok) {
-                alert('Alojamiento agregado');
+                setAlertMessage('Alojamiento agregado');
+                setAlertType('success');
             } else {
                 console.error('Error al agregar el alojamiento');
-                alert('Error al agregar el alojamiento');
+                setAlertMessage('Error al agregar el alojamiento');
+                setAlertType('error');
             }
         } catch (error) {
             console.error('Error: ', error);
-            alert('Error al establecer el servicio. Por favor, intente de nuevo.');
+            setAlertMessage('Error al establecer el servicio. Por favor, intente de nuevo.');
+            setAlertType('error');
         }
     }
 
@@ -62,13 +70,15 @@ export const AddTipoAlojamiento = () => {
                 />
             </div>
             <div>
+                {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
+            </div>
+            <div>
                 <button className='btn enviarForm' type='submit'>
                     <span className='span1'></span>
                     <span className='span2'></span>
                     <span className='span3'></span>
                     <span className='span4'></span>
-                    Enviar
-                </button>
+                    Enviar</button>
             </div>
             <button className='btnVolver'>
                 <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
