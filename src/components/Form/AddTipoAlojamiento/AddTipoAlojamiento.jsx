@@ -65,6 +65,10 @@ export const AddTipoAlojamiento = () => {
                 <input
                     type="text"
                     id='descripcion'
+                    name='descripcion'
+                    placeholder='Descripción'
+                    className='inputTipoAlojamiento'
+                    required
                     value={descripcion}
                     onChange={e => setDescripcion(e.target.value)}
                 />
