@@ -6,8 +6,8 @@ export const AgregarAlojamiento = () => {
 
     return (
         <div className='contenedorAddAlojamientos'>
-            <h2>Agregar Alojamiento</h2>
-            <p>Ingresa los datos del alojamiento que desea registrar</p>
+            <h2>Agregar Tipo Alojamiento</h2>
+            <p>Ingresa el tipo de alojamiento que desea registrar</p>
             < AddTipoAlojamiento />
         </div>
     )

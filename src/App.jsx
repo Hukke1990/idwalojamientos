@@ -9,7 +9,7 @@ import { About } from "./pages/About/About";
 import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailContainer/AlojamientoDetailContainer";
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 import { AdministrarAlojamientos } from "./pages/AdministrarAlojamientos/AdministrarAlojamientos/AdministrarAlojamientos";
-import { AgregarAlojamiento } from "./pages/AgregarAlojamiento/AgregarAlojamiento";
+import { AgregarAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAlojamiento";
 import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
 import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAlojamientos";
 
@@ -26,7 +26,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/AdministrarAlojamientos" element={<AdministrarAlojamientos />} />
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
-          <Route path="/AgregarAlojamiento" element={<AgregarAlojamiento />} />
+          <Route path="/AgregarTipoAlojamiento" element={<AgregarAlojamiento />} />
           <Route path="/GetTipoAlojamiento" element={<GetTipoAlojamiento />} />
           <Route path="/AllTiposAlojamientos" element={<AllTiposAlojamientos />} />
           <Route path="Login" element={<AlojamientoContenedor />} />

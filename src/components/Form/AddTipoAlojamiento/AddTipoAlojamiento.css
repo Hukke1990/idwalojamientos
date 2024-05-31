@@ -42,7 +42,7 @@
     justify-content: center;
 }
 
-select {
+/* select {
     grid-area: select;
     width: 300px;
     font: inherit;
@@ -56,7 +56,7 @@ select {
 
 option {
     color: #000000;
-}
+} */
 
 .enviarForm {
     grid-area: enviar;
