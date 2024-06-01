@@ -12,6 +12,7 @@ import { AdministrarAlojamientos } from "./pages/AdministrarAlojamientos/Adminis
 import { AgregarAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAlojamiento";
 import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
 import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAlojamientos";
+import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/EliminarTipoAlojamiento";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/AgregarTipoAlojamiento" element={<AgregarAlojamiento />} />
           <Route path="/GetTipoAlojamiento" element={<GetTipoAlojamiento />} />
           <Route path="/AllTiposAlojamientos" element={<AllTiposAlojamientos />} />
+          <Route path="/EliminarTipoAlojamiento" element={<EliminarTipoAlojamiento />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 
