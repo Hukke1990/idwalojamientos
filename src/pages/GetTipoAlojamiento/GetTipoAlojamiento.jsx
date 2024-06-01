@@ -9,6 +9,15 @@ export const GetTipoAlojamiento = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
 
+    const handleInputChange = (e) => {
+        setAlojamientoId(e.target.value);
+        // Borra el mensaje de alerta al escribir en el input
+        if (alertMessage) {
+            setAlertMessage('');
+            setAlertType('');
+        }
+    };
+
     const obtenerAlojamiento = async () => {
         try {
             const response = await fetch(`http://localhost:3001/tiposAlojamiento/getTipoAlojamiento/${alojamientoId}`);
@@ -35,7 +44,7 @@ export const GetTipoAlojamiento = () => {
             <input
                 type="text"
                 value={alojamientoId}
-                onChange={e => setAlojamientoId(e.target.value)}
+                onChange={handleInputChange} // Usar la nueva función para manejar el cambio
                 placeholder="Ingrese el ID del alojamiento"
                 className='inputGetAlojamiento'
             />

@@ -8,6 +8,15 @@ export const AddTipoAlojamiento = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
 
+    const handleInputChange = (e) => {
+        setDescripcion(e.target.value);
+        // Borra el mensaje de alerta al escribir en el input
+        if (alertMessage) {
+            setAlertMessage('');
+            setAlertType('');
+        }
+    };
+
     const enviar = async (e) => {
         e.preventDefault();
 
@@ -56,7 +65,7 @@ export const AddTipoAlojamiento = () => {
             setAlertMessage('Error al establecer el servicio. Por favor, intente de nuevo.');
             setAlertType('error');
         }
-    }
+    };
 
     return (
         <form className='contenedorForm' onSubmit={enviar}>
@@ -70,7 +79,7 @@ export const AddTipoAlojamiento = () => {
                     className='inputTipoAlojamiento'
                     required
                     value={descripcion}
-                    onChange={e => setDescripcion(e.target.value)}
+                    onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
                 />
             </div>
             <div>
