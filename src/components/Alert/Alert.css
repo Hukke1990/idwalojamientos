@@ -10,17 +10,17 @@
 
 .alert.success {
     color: #ffffff;
-    text-shadow: 0 0 5px #0bff54, 0 0 10px #0bff54, 0 0 15px #0bff54;
+    text-shadow: 0 0 5px #0bff54;
 }
 
 .alert.error {
     color: #ffffff;
-    text-shadow: 0 0 5px #ff0b0b, 0 0 10px #ff0b0b, 0 0 15px #ff0b0b;
+    text-shadow: 0 0 5px #ff0b0b;
 }
 
 .alert.warning {
     color: #ffffff;
-    text-shadow: 0 0 5px #856404, 0 0 10px #856404, 0 0 15px #856404;
+    text-shadow: 0 0 5px #856404;
 }
 
 /* Ejemplo de estilos personalizados */
