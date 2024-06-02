@@ -13,6 +13,7 @@ import { AgregarAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAl
 import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
 import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAlojamientos";
 import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/EliminarTipoAlojamiento";
+import { EditarTipoAlojamiento } from "./pages/EditarTipoAlojamiento/EditarTipoAlojamiento";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/GetTipoAlojamiento" element={<GetTipoAlojamiento />} />
           <Route path="/AllTiposAlojamientos" element={<AllTiposAlojamientos />} />
           <Route path="/EliminarTipoAlojamiento" element={<EliminarTipoAlojamiento />} />
+          <Route path="/EditarTipoAlojamiento" element={<EditarTipoAlojamiento />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 
