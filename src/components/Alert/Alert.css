@@ -1,0 +1,31 @@
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-family: 'Pacifico';
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.alert.success {
+    color: #ffffff;
+    text-shadow: 0 0 5px #0bff54;
+}
+
+.alert.error {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ff0b0b;
+}
+
+.alert.warning {
+    color: #ffffff;
+    text-shadow: 0 0 5px #856404;
+}
+
+/* Ejemplo de estilos personalizados */
+.alert.custom-style {
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid #000;
+}

@@ -8,7 +8,11 @@ import { Contact } from "./pages/Contact/Contact";
 import { About } from "./pages/About/About";
 import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailContainer/AlojamientoDetailContainer";
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
-import { AddAlojamiento } from "./pages/AddAlojamiento/AddAlojamiento";
+import { AdministrarAlojamientos } from "./pages/AdministrarAlojamientos/AdministrarAlojamientos/AdministrarAlojamientos";
+import { AgregarAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAlojamiento";
+import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
+import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAlojamientos";
+import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/EliminarTipoAlojamiento";
 
 function App() {
   return (
@@ -21,8 +25,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
-          <Route path="/AddAlojamiento" element={<AddAlojamiento />} />
+          <Route path="/AdministrarAlojamientos" element={<AdministrarAlojamientos />} />
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
+          <Route path="/AgregarTipoAlojamiento" element={<AgregarAlojamiento />} />
+          <Route path="/GetTipoAlojamiento" element={<GetTipoAlojamiento />} />
+          <Route path="/AllTiposAlojamientos" element={<AllTiposAlojamientos />} />
+          <Route path="/EliminarTipoAlojamiento" element={<EliminarTipoAlojamiento />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 

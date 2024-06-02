@@ -1,0 +1,39 @@
+.contenedorAdministrador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedorAdministrador h2 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 50px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    color: #ffffff;
+}
+
+.contenedorLinks {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.adminAlojamiento {
+    font-family: 'Roboto';
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.adminAlojamiento i {
+    margin-right: 10px;
+    color: #ee0cd0;
+    font-size: 20px;
+}
+
+.adminAlojamiento:hover {
+    color: #ee0cd0;
+    text-shadow: #ee0cd0 0 0 5px;
+}

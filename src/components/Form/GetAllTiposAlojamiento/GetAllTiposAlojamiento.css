@@ -1,0 +1,40 @@
+.contenedorGetAlojamientos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contenedorGetAlojamientos h2 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 50px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    color: #ffffff;
+}
+
+.contenedorAlojamientos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.AllTipoAlojamiento {
+    display: flex;
+    flex-direction: row;
+    border-bottom: #ee0cd093 1px solid;  
+}
+
+.AllTipoAlojamiento p {
+    margin: 3px 10px;
+    color: #ee0cd0;
+    text-shadow: #ee0cd0 0 0 5px;
+}
+
+.AllTipoAlojamiento span {
+    color: #ffffff;
+    text-shadow: none;
+    font-family: 'Roboto';
+    font-weight: bold;
+}

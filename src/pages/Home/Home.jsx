@@ -12,7 +12,7 @@ export const Home = () => {
                     <span className="span2"></span>
                     <span className="span3"></span>
                     <span className="span4"></span>
-                    <NavLink to="/AddAlojamiento" className='addAlojamientos'>Agregar Alojamientos</NavLink>
+                    <NavLink to="/AdministrarAlojamientos" className='administrarAlojamientos'>Administrar Alojamientos</NavLink>
                 </button>
             </div>
             <Body />
