@@ -8,7 +8,7 @@ export const EliminarTipoAlojamiento = () => {
     return (
         <div className='contenedorEliminarAlojamiento'>
             <h2>Eliminar Alojamiento por ID</h2>
-            < GetAllTiposAlojamiento />
+            <GetAllTiposAlojamiento />
             <DeleteTipoAlojamiento />
             <button className='btnVolver'>
                 <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
