@@ -38,3 +38,12 @@
     font-family: 'Roboto';
     font-weight: bold;
 }
+
+.noTipoAlojamientos {
+    color: #ffffff;
+    text-shadow: none;
+    font-family: 'Roboto';
+    font-weight: bold;
+    text-shadow: 0 0 5px #ee390c, 0 0 10px #ee390c, 0 0 15px #ee390c;
+    font-size: 20px;
+}

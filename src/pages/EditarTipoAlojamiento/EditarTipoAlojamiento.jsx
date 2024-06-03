@@ -62,7 +62,9 @@ export const EditarTipoAlojamiento = () => {
     return (
         <div className='contenedorEditAlojamiento'>
             <h2>Editar Alojamiento</h2>
-            < GetAllTiposAlojamiento />
+            <div className='moduloAllTipoAlojamiento'>
+                <GetAllTiposAlojamiento />
+            </div>
             <input
                 type="text"
                 name="alojamientoId"

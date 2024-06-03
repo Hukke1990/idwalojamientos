@@ -40,7 +40,7 @@ export const GetAllTiposAlojamiento = () => {
                     </div>
                 </ul>
             ) : (
-                <p>No hay tipos de alojamientos disponibles.</p>
+                <p className='noTipoAlojamientos'>No hay tipos de alojamientos disponibles.</p>
             )}
         </div>
     );
