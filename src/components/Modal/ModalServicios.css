@@ -19,7 +19,7 @@
     width: 100%;
     max-height: 400px;
     overflow-y: auto;
-    box-shadow: #ee0cd0 0 0 5px, #ee0cd0 0 0 10px, #ee0cd0 0 0 20px;
+    box-shadow: #020202 0 0 5px, #020202 0 0 10px, #020202 0 0 20px;
 }
 
 .modal h2 {
@@ -65,20 +65,4 @@
 
 #btnCloseModal:hover {
     color: #ee0cd0;
-}
-
-
-/* Estilos para el scrollbar dentro del modal */
-.modal::-webkit-scrollbar {
-    width: 10px;
-}
-
-.modal::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(28, 1, 59));
-    border-radius: 10px;
-}
-
-.modal::-webkit-scrollbar-thumb {
-    background: #ee0cd0;
-    border-radius: 10px;
 }
