@@ -10,7 +10,7 @@ import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailC
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 import { AdministrarAlojamientos } from "./pages/AdministrarAlojamientos/AdministrarAlojamientos";
 import { UsuarioAddAlojamiento } from "./pages/UsuarioAddAlojamiento/UsuarioAddAlojamiento";
-import { AgregarAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAlojamiento";
+import { AgregarTipoAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAlojamiento";
 import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
 import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAlojamientos";
 import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/EliminarTipoAlojamiento";
@@ -30,7 +30,7 @@ function App() {
           <Route path="/AdministrarAlojamientos" element={<AdministrarAlojamientos />} />
           <Route path="/UsuarioAddAlojamiento" element={<UsuarioAddAlojamiento />} />
           <Route path="/idAlojamiento/:idAlojamiento" element={<AlojamientoDetailContainer />} />
-          <Route path="/AgregarTipoAlojamiento" element={<AgregarAlojamiento />} />
+          <Route path="/AgregarTipoAlojamiento" element={<AgregarTipoAlojamiento />} />
           <Route path="/GetTipoAlojamiento" element={<GetTipoAlojamiento />} />
           <Route path="/AllTiposAlojamientos" element={<AllTiposAlojamientos />} />
           <Route path="/EliminarTipoAlojamiento" element={<EliminarTipoAlojamiento />} />
