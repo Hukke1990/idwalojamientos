@@ -1,5 +1,5 @@
 import React from 'react'
-import './UsuarioAddAlojamiento.css'
+import './UsuarioAlojamiento.css'
 import { NavLink } from 'react-router-dom'
 
 export const UsuarioAlojamiento = () => {

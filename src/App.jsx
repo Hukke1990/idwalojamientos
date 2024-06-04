@@ -9,7 +9,7 @@ import { About } from "./pages/About/About";
 import { AlojamientoDetailContainer } from "./components/Body/AlojamientoDetailContainer/AlojamientoDetailContainer";
 import { AlojamientoContenedor } from "./components/Body/AlojamientoContenedor/AlojamientoContenedor";
 import { AdministrarAlojamientos } from "./pages/AdministrarAlojamientos/AdministrarAlojamientos";
-import { UsuarioAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioAddAlojamiento/UsuarioAddAlojamiento";
+import { UsuarioAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioAlojamiento";
 import { AgregarTipoAlojamiento } from "./pages/AgregarTipoAlojamiento/AgregarTipoAlojamiento";
 import { GetTipoAlojamiento } from "./pages/GetTipoAlojamiento/GetTipoAlojamiento";
 import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAlojamientos";
