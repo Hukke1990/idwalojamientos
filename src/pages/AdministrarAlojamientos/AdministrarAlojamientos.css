@@ -36,4 +36,5 @@
 .adminAlojamiento:hover {
     color: #ee0cd0;
     text-shadow: #ee0cd0 0 0 5px;
+    transition: 0.5s;
 }
