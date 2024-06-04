@@ -23,7 +23,7 @@ export const DeleteTipoAlojamiento = () => {
 
             console.log('Response status:', response.status);
 
-            if (response.status === 204) {
+            if (response.ok) {
                 setAlertMessage('Alojamiento eliminado con éxito.');
                 setAlertType('success');
             } else {
