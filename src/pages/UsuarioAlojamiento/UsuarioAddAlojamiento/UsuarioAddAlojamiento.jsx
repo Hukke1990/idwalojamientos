@@ -2,7 +2,7 @@ import React from 'react'
 import './UsuarioAddAlojamiento.css'
 import { NavLink } from 'react-router-dom'
 
-export const UsuarioAddAlojamiento = () => {
+export const UsuarioAlojamiento = () => {
     return (
         <div className='contenedorUsuarioAddAlojamiento'>
             <h2>Alojamientos</h2>
