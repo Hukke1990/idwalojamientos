@@ -41,13 +41,16 @@ export const GetTipoAlojamiento = () => {
     return (
         <div className='contenedorGetTipoAlojamientos'>
             <h2>Obtener Alojamiento por ID</h2>
-            <input
-                type="text"
-                value={alojamientoId}
-                onChange={handleInputChange} // Usar la nueva función para manejar el cambio
-                placeholder="Ingrese el ID del alojamiento"
-                className='inputGetAlojamiento'
-            />
+            <fieldset className='fieldset'>
+                <legend>Buscar</legend>
+                <input
+                    type="text"
+                    value={alojamientoId}
+                    onChange={handleInputChange} // Usar la nueva función para manejar el cambio
+                    placeholder="Ingrese el ID del alojamiento"
+                    className='inputGetAlojamiento'
+                />
+            </fieldset>
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
             <button className='btn btnGetAlojamiento' onClick={obtenerTipoAlojamientos}>

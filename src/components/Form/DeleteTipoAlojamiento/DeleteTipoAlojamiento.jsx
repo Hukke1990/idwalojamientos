@@ -41,13 +41,16 @@ export const DeleteTipoAlojamiento = () => {
 
     return (
         <div className='contenedorDeleteAlojamiento'>
-            <input
-                type="text"
-                value={alojamientoId}
-                onChange={handleInputChange}
-                placeholder="Ingrese el ID del alojamiento"
-                className='inputDeleteAlojamiento'
-            />
+            <fieldset className='fieldset'>
+                <legend>Eliminar</legend>
+                <input
+                    type="text"
+                    value={alojamientoId}
+                    onChange={handleInputChange}
+                    placeholder="Ingrese el ID del alojamiento"
+                    className='inputDeleteAlojamiento'
+                />
+            </fieldset>
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
             <button className='btn btnDeleteAlojamiento' onClick={eliminarAlojamiento}>

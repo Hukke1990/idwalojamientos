@@ -68,22 +68,25 @@ export const AddTipoAlojamiento = () => {
 
     return (
         <form className='contenedorForm' onSubmit={enviar}>
-            <div>
-                <label htmlFor="descripcion"></label>
-                <input
-                    type="text"
-                    id='descripcion'
-                    name='descripcion'
-                    placeholder='Descripción'
-                    className='inputTipoAlojamiento'
-                    required
-                    value={descripcion}
-                    onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
-                />
-            </div>
-            <div>
-                {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
-            </div>
+            <fieldset className='fieldset'>
+                <legend>Agregar</legend>
+                <div>
+                    <label htmlFor="descripcion"></label>
+                    <input
+                        type="text"
+                        id='descripcion'
+                        name='descripcion'
+                        placeholder='Descripción'
+                        className='inputTipoAlojamiento'
+                        required
+                        value={descripcion}
+                        onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
+                    />
+                </div>
+                <div>
+                    {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
+                </div>
+            </fieldset>
             <div>
                 <button className='btn enviarForm' type='submit'>
                     <span className='span1'></span>

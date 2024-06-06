@@ -61,79 +61,82 @@ export const UsuarioAddAlojamiento = () => {
     return (
         <div>
             <form className='contenedorAgregarAlojamiento' onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="Titulo"
-                    placeholder="Título"
-                    value={formData.Titulo}
-                    onChange={handleInputChange}
-                    required
-                />
-                <textarea
-                    name="Descripcion"
-                    placeholder="Descripcion"
-                    value={formData.Descripcion}
-                    onChange={handleInputChange}>
-                </textarea>
-                <select
-                    name="TipoAlojamiento"
-                    value={formData.TipoAlojamiento}
-                    onChange={handleInputChange}>
-                    <option value="">Seleccione un tipo de alojamiento</option>
-                    {alojamientos.map(alojamiento => (
-                        <option key={alojamiento.idTipoAlojamiento} value={alojamiento.idTipoAlojamiento}>
-                            {alojamiento.Descripcion}
-                        </option>
-                    ))}
-                </select>
-                <input
-                    type="text"
-                    name="Latitud"
-                    placeholder="Latitud"
-                    value={formData.Latitud}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="Longitud"
-                    placeholder="Longitud"
-                    value={formData.Longitud}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="number"
-                    name="PrecioPorDia"
-                    placeholder="Precio por día"
-                    value={formData.PrecioPorDia}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="number"
-                    name="CantidadDormitorios"
-                    placeholder="Cantidad de dormitorios"
-                    value={formData.CantidadDormitorios}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="number"
-                    name="CantidadBanios"
-                    placeholder="Cantidad de baños"
-                    value={formData.CantidadBanios}
-                    onChange={handleInputChange}
-                    required
-                />
-                <select
-                    name="Estado"
-                    value={formData.Estado}
-                    onChange={handleInputChange}>
-                    <option value="">Seleccione un estado</option>
-                    <option value="Disponible">Disponible</option>
-                    <option value="Reservado">Reservado</option>
-                </select>
+                <fieldset className='fieldset'>
+                    <legend>Agregar</legend>
+                    <input
+                        type="text"
+                        name="Titulo"
+                        placeholder="Título"
+                        value={formData.Titulo}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <textarea
+                        name="Descripcion"
+                        placeholder="Descripcion"
+                        value={formData.Descripcion}
+                        onChange={handleInputChange}>
+                    </textarea>
+                    <select
+                        name="TipoAlojamiento"
+                        value={formData.TipoAlojamiento}
+                        onChange={handleInputChange}>
+                        <option value="">Seleccione un tipo de alojamiento</option>
+                        {alojamientos.map(alojamiento => (
+                            <option key={alojamiento.idTipoAlojamiento} value={alojamiento.idTipoAlojamiento}>
+                                {alojamiento.Descripcion}
+                            </option>
+                        ))}
+                    </select>
+                    <input
+                        type="text"
+                        name="Latitud"
+                        placeholder="Latitud"
+                        value={formData.Latitud}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="Longitud"
+                        placeholder="Longitud"
+                        value={formData.Longitud}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="number"
+                        name="PrecioPorDia"
+                        placeholder="Precio por día"
+                        value={formData.PrecioPorDia}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="number"
+                        name="CantidadDormitorios"
+                        placeholder="Cantidad de dormitorios"
+                        value={formData.CantidadDormitorios}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="number"
+                        name="CantidadBanios"
+                        placeholder="Cantidad de baños"
+                        value={formData.CantidadBanios}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <select
+                        name="Estado"
+                        value={formData.Estado}
+                        onChange={handleInputChange}>
+                        <option value="">Seleccione un estado</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Reservado">Reservado</option>
+                    </select>
+                </fieldset>
                 <button
                     className='btn btnAgregarAlojamiento'
                     type="submit">
