@@ -18,7 +18,7 @@ export const GetTipoAlojamiento = () => {
         }
     };
 
-    const obtenerAlojamiento = async () => {
+    const obtenerTipoAlojamientos = async () => {
         try {
             const response = await fetch(`http://localhost:3001/tiposAlojamiento/getTipoAlojamiento/${alojamientoId}`);
             if (response.ok) {
@@ -39,7 +39,7 @@ export const GetTipoAlojamiento = () => {
     }
 
     return (
-        <div className='contenedorGetAlojamiento'>
+        <div className='contenedorGetTipoAlojamientos'>
             <h2>Obtener Alojamiento por ID</h2>
             <input
                 type="text"
@@ -50,7 +50,7 @@ export const GetTipoAlojamiento = () => {
             />
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
-            <button className='btn btnGetAlojamiento' onClick={obtenerAlojamiento}>
+            <button className='btn btnGetAlojamiento' onClick={obtenerTipoAlojamientos}>
                 <span className='span1'></span>
                 <span className='span2'></span>
                 <span className='span3'></span>

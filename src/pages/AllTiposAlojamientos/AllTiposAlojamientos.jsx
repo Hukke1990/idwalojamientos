@@ -7,7 +7,7 @@ export const AllTiposAlojamientos = () => {
 
 
     return (
-        <div className='contenedorGetAlojamientos'>
+        <div className='contenedorGetTipoAlojamientos'>
             <h2>Tipos de Alojamientos</h2>
             <GetAllTiposAlojamiento />
             <button className='btnVolver'>

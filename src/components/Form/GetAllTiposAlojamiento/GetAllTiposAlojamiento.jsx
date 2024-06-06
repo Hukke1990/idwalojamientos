@@ -1,4 +1,3 @@
-// src/components/GetAllTiposAlojamiento/GetAllTiposAlojamiento.js
 import React from 'react';
 import './GetAllTiposAlojamiento.css';
 import { TipoAlojamientoDetail } from '../TipoAlojamientoDetail/TipoAlojamientoDetail';
@@ -7,7 +6,7 @@ export const GetAllTiposAlojamiento = () => {
     const { alojamientos } = TipoAlojamientoDetail();
 
     return (
-        <div className='contenedorGetAlojamientos'>
+        <div className='contenedorGetTipoAlojamientos'>
             {alojamientos.length > 0 ? (
                 <ul>
                     <div className='contenedorAlojamientos'>

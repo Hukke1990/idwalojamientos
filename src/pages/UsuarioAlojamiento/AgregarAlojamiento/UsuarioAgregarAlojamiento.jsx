@@ -1,6 +1,6 @@
 import React from 'react'
 import './UsusarioAgregarAlojamiento.css'
-import { UsuarioAddAlojamiento } from '../../../components/Form/UsuarioAddAlojamiento/UsuarioAddAlojamiento'
+import { UsuarioAddAlojamiento } from '../../../components/Form/FormUsuario/UsuarioAddAlojamiento/UsuarioAddAlojamiento'
 
 export const UsuarioAgregarAlojamiento = () => {
     return (

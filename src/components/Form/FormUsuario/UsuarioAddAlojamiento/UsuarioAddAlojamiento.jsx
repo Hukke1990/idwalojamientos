@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './UsuarioAddAlojamiento.css';
-import { TipoAlojamientoDetail } from '../TipoAlojamientoDetail/TipoAlojamientoDetail';
-import { Alert } from '../../Alert/Alert';
+import { TipoAlojamientoDetail } from '../../TipoAlojamientoDetail/TipoAlojamientoDetail';
+import { Alert } from '../../../Alert/Alert';
 
 export const UsuarioAddAlojamiento = () => {
     const [alertMessage, setAlertMessage] = useState('');
