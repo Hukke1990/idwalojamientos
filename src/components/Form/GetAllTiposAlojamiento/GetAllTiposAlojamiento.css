@@ -1,4 +1,4 @@
-.contenedorGetAlojamientos {
+.contenedorGetTipoAlojamientos {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     padding: 20px;
 }
 
-.contenedorGetAlojamientos h2 {
+.contenedorGetTipoAlojamientos h2 {
     font-family: 'Pacifico';
     font-weight: 100;
     font-size: 50px;

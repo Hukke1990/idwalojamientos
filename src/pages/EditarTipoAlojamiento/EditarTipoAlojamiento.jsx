@@ -65,22 +65,25 @@ export const EditarTipoAlojamiento = () => {
             <div className='moduloAllTipoAlojamiento'>
                 <GetAllTiposAlojamiento />
             </div>
-            <input
-                type="text"
-                name="alojamientoId"
-                value={alojamientoId}
-                onChange={handleInputChange}
-                placeholder="Ingrese el ID del alojamiento"
-                className='inputEditAlojamiento'
-            />
-            <input
-                type="text"
-                name="descripcion"
-                value={descripcion}
-                onChange={handleInputChange}
-                placeholder="Ingrese la nueva descripción"
-                className='inputEditAlojamiento'
-            />
+            <fieldset className='fieldset'>
+                <legend>Editar</legend>
+                <input
+                    type="text"
+                    name="alojamientoId"
+                    value={alojamientoId}
+                    onChange={handleInputChange}
+                    placeholder="Ingrese el ID del alojamiento"
+                    className='inputEditAlojamiento'
+                />
+                <input
+                    type="text"
+                    name="descripcion"
+                    value={descripcion}
+                    onChange={handleInputChange}
+                    placeholder="Ingrese la nueva descripción"
+                    className='inputEditAlojamiento'
+                />
+            </fieldset>
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
             <button className='btn btnEditAlojamiento' onClick={editarAlojamiento}>

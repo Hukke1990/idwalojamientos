@@ -4,6 +4,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .contenedorEditAlojamiento h2 {
@@ -11,7 +12,6 @@
     font-weight: 100;
     font-size: 50px;
     text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
-    color: #ffffff;
 }
 
 .moduloAllTipoAlojamiento {

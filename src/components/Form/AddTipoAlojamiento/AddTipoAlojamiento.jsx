@@ -21,12 +21,11 @@ export const AddTipoAlojamiento = () => {
         e.preventDefault();
 
         try {
-            // Obtener todos los tipos de alojamientos para verificar si ya existe
             const obtenerResponse = await fetch('http://localhost:3001/tiposAlojamiento/getTiposAlojamiento');
             if (obtenerResponse.ok) {
                 const alojamientos = await obtenerResponse.json();
 
-                // Verificar si la descripción ya existe
+
                 const existeAlojamiento = alojamientos.some(alojamiento => alojamiento.Descripcion.toLowerCase() === descripcion.toLowerCase());
 
                 if (existeAlojamiento) {
@@ -41,7 +40,7 @@ export const AddTipoAlojamiento = () => {
                 return;
             }
 
-            // Si no existe, proceder a agregar el nuevo tipo de alojamiento
+            // Si no existe, agrega el nuevo tipo de alojamiento
             const newAlojamiento = { Descripcion: descripcion };
 
             const response = await fetch('http://localhost:3001/tiposAlojamiento/createTipoAlojamiento', {
@@ -69,22 +68,25 @@ export const AddTipoAlojamiento = () => {
 
     return (
         <form className='contenedorForm' onSubmit={enviar}>
-            <div>
-                <label htmlFor="descripcion"></label>
-                <input
-                    type="text"
-                    id='descripcion'
-                    name='descripcion'
-                    placeholder='Descripción'
-                    className='inputTipoAlojamiento'
-                    required
-                    value={descripcion}
-                    onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
-                />
-            </div>
-            <div>
-                {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
-            </div>
+            <fieldset className='fieldset'>
+                <legend>Agregar</legend>
+                <div>
+                    <label htmlFor="descripcion"></label>
+                    <input
+                        type="text"
+                        id='descripcion'
+                        name='descripcion'
+                        placeholder='Descripción'
+                        className='inputTipoAlojamiento'
+                        required
+                        value={descripcion}
+                        onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
+                    />
+                </div>
+                <div>
+                    {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
+                </div>
+            </fieldset>
             <div>
                 <button className='btn enviarForm' type='submit'>
                     <span className='span1'></span>
