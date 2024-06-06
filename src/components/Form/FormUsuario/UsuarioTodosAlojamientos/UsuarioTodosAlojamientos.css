@@ -19,7 +19,7 @@
     border-bottom: #ee0cd093 1px solid;
 }
 
-.contenedorGetAlojamientos ul li span {
+.label {
     color: #ee0cd0;
 }
 
@@ -28,4 +28,12 @@
     font-weight: 100;
     font-size: 30px;
     margin-bottom: 20px;
+}
+
+.estadoDisponible {
+    color: #00ff40;
+}
+
+.estadoReservado {
+    color: #ff0000;
 }
