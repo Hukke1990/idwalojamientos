@@ -16,7 +16,7 @@ import { AllTiposAlojamientos } from "./pages/AllTiposAlojamientos/AllTiposAloja
 import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/EliminarTipoAlojamiento";
 import { EditarTipoAlojamiento } from "./pages/EditarTipoAlojamiento/EditarTipoAlojamiento";
 import { UsuarioAgregarAlojamiento } from "./pages/UsuarioAlojamiento/AgregarAlojamiento/UsuarioAgregarAlojamiento";
-import { UsuarioTodosAlojamientos } from "./components/Form/FormUsuario/UsuarioTodosAlojamientos/UsuarioTodosAlojamientos";
+import { TodosAlojamientos } from "./pages/UsuarioAlojamiento/TodosAlojamientos/TodosAlojamientos";
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
           <Route path="/EliminarTipoAlojamiento" element={<EliminarTipoAlojamiento />} />
           <Route path="/EditarTipoAlojamiento" element={<EditarTipoAlojamiento />} />
           <Route path="/UsuarioAgregarAlojamiento" element={<UsuarioAgregarAlojamiento />} />
-          <Route path="/UsuarioTodosAlojamientos" element={<UsuarioTodosAlojamientos />} />
+          <Route path="/TodosAlojamientos" element={<TodosAlojamientos />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 

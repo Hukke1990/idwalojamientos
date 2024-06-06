@@ -16,6 +16,9 @@ export const AdministrarAlojamientos = () => {
                 <NavLink to="/EditarTipoAlojamiento" className={'adminAlojamiento'}><i class="bi bi-pencil-square"></i>Editar Tipo Alojamiento</NavLink>
                 <NavLink to="/EliminarTipoAlojamiento" className={'adminAlojamiento'}><i class="bi bi-house-dash-fill"></i>Eliminar Tipo Alojamiento</NavLink>
             </div>
+            <button className='btnVolver'>
+                <NavLink to="/" className='linkAdminAlojamiento'>Volver</NavLink>
+            </button>
         </div>
     )
 }
