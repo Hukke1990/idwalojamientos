@@ -4,7 +4,7 @@ import { UsuarioAddAlojamiento } from '../../../components/Form/UsuarioAddAlojam
 
 export const UsuarioAgregarAlojamiento = () => {
     return (
-        <div>
+        <div className='contenedorUsuarioAgregarAlojamiento'>
             <h1>Agregar Alojamiento</h1>
             <p>Agrega un nuevo alojamiento</p>
             <UsuarioAddAlojamiento />
