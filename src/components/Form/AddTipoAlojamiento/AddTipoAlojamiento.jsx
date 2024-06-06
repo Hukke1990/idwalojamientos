@@ -21,12 +21,11 @@ export const AddTipoAlojamiento = () => {
         e.preventDefault();
 
         try {
-            // Obtener todos los tipos de alojamientos para verificar si ya existe
             const obtenerResponse = await fetch('http://localhost:3001/tiposAlojamiento/getTiposAlojamiento');
             if (obtenerResponse.ok) {
                 const alojamientos = await obtenerResponse.json();
 
-                // Verificar si la descripción ya existe
+
                 const existeAlojamiento = alojamientos.some(alojamiento => alojamiento.Descripcion.toLowerCase() === descripcion.toLowerCase());
 
                 if (existeAlojamiento) {
@@ -41,7 +40,7 @@ export const AddTipoAlojamiento = () => {
                 return;
             }
 
-            // Si no existe, proceder a agregar el nuevo tipo de alojamiento
+            // Si no existe, agrega el nuevo tipo de alojamiento
             const newAlojamiento = { Descripcion: descripcion };
 
             const response = await fetch('http://localhost:3001/tiposAlojamiento/createTipoAlojamiento', {

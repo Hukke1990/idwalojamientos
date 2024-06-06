@@ -1,29 +1,10 @@
-import React, { useEffect, useState } from 'react';
+// src/components/GetAllTiposAlojamiento/GetAllTiposAlojamiento.js
+import React from 'react';
 import './GetAllTiposAlojamiento.css';
+import { TipoAlojamientoDetail } from '../TipoAlojamientoDetail/TipoAlojamientoDetail';
 
 export const GetAllTiposAlojamiento = () => {
-    const [alojamientos, setAlojamientos] = useState([]);
-
-    const obtenerAlojamientos = async () => {
-        try {
-            const response = await fetch('http://localhost:3001/tiposAlojamiento/getTiposAlojamiento');
-            if (response.ok) {
-                const data = await response.json();
-                console.log('Datos recibidos:', data);
-                setAlojamientos(data);
-            } else {
-                console.error('Error al obtener los alojamientos');
-                alert('Error al obtener los alojamientos');
-            }
-        } catch (error) {
-            console.error('Error: ', error);
-            alert('Error al establecer el servicio. Por favor, intente de nuevo.');
-        }
-    }
-
-    useEffect(() => {
-        obtenerAlojamientos();
-    }, []);
+    const { alojamientos } = TipoAlojamientoDetail();
 
     return (
         <div className='contenedorGetAlojamientos'>
