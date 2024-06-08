@@ -32,7 +32,7 @@
 
 .logo-p1 {
     margin: 0;
-    font-family: 'Poetsen One';
+    font-family: 'neon';    
     font-style: italic;
     font-size: 50px;
     letter-spacing: 2px;
@@ -41,7 +41,7 @@
 }
 
 .logo span {
-    font-family: 'Poetsen One';
+    font-family: 'neon';
 }
 
 .logo ul {
@@ -72,4 +72,9 @@
         text-shadow: none;
     }
 
+}
+
+@font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
 }
