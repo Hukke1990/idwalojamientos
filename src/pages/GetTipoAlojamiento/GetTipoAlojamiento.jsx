@@ -75,5 +75,3 @@ export const GetTipoAlojamiento = () => {
         </div>
     );
 }
-
-export default GetTipoAlojamiento;

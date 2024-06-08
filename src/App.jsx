@@ -17,6 +17,7 @@ import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/Elimina
 import { EditarTipoAlojamiento } from "./pages/EditarTipoAlojamiento/EditarTipoAlojamiento";
 import { UsuarioAgregarAlojamiento } from "./pages/UsuarioAlojamiento/AgregarAlojamiento/UsuarioAgregarAlojamiento";
 import { TodosAlojamientos } from "./pages/UsuarioAlojamiento/TodosAlojamientos/TodosAlojamientos";
+import { GetAlojamientoId } from "./pages/UsuarioAlojamiento/GetAlojamientoId/GetAlojamientoId";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/EditarTipoAlojamiento" element={<EditarTipoAlojamiento />} />
           <Route path="/UsuarioAgregarAlojamiento" element={<UsuarioAgregarAlojamiento />} />
           <Route path="/TodosAlojamientos" element={<TodosAlojamientos />} />
+          <Route path="GetAlojamientoId" element={<GetAlojamientoId />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 
