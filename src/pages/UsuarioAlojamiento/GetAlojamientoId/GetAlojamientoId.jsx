@@ -46,7 +46,7 @@ export const GetAlojamientoId = () => {
     }
 
     return (
-        <div className='contenedorGetAlojamiento'>
+        <div className='contenedorGetAlojamientoId'>
             <h2>Obtener Alojamiento por ID</h2>
             <form onSubmit={handleSubmit}>
                 <fieldset className='fieldset'>
@@ -59,7 +59,7 @@ export const GetAlojamientoId = () => {
                         className='inputGetAlojamiento'
                     />
                 </fieldset>
-                {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
+                {alertMessage && <Alert message={alertMessage} type={alertType} onClick={obtenerAlojamiento} />}
                 <button type='submit' className='btn btnGetAlojamiento'>
                     <span className='span1'></span>
                     <span className='span2'></span>

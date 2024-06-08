@@ -11,7 +11,6 @@ export const GetTipoAlojamiento = () => {
 
     const handleInputChange = (e) => {
         setAlojamientoId(e.target.value);
-        // Borra el mensaje de alerta al escribir en el input
         if (alertMessage) {
             setAlertMessage('');
             setAlertType('');
