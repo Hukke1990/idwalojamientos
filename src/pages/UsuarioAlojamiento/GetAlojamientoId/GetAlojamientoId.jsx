@@ -48,7 +48,7 @@ export const GetAlojamientoId = () => {
     return (
         <div className='contenedorGetAlojamientoId'>
             <h2>Obtener Alojamiento por ID</h2>
-            <form onSubmit={handleSubmit}>
+            <form className='formGetAlojamientoId' onSubmit={handleSubmit}>
                 <fieldset className='fieldset'>
                     <legend>Buscar</legend>
                     <input
@@ -67,29 +67,30 @@ export const GetAlojamientoId = () => {
                     <span className='span4'></span>
                     Obtener Alojamiento
                 </button>
+                {alojamientoData && (
+                    <div className='contenedorAlojamientoInfo'>
+                        <h3>Información del Alojamiento</h3>
+                        <p>ID: <span>{alojamientoData.idAlojamiento}</span></p>
+                        <p>Título: <span>{alojamientoData.Titulo}</span></p>
+                        <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
+                        <p>Tipo: <span>{alojamientoData.TipoAlojamiento}</span></p>
+                        <p>Latitud: <span>{alojamientoData.Latitud}</span></p>
+                        <p>Longitud: <span>{alojamientoData.Longitud}</span></p>
+                        <p>Precio por día: <span>${alojamientoData.PrecioPorDia}</span></p>
+                        <p>Cantidad dormitorios: <span>{alojamientoData.CantidadDormitorios}</span></p>
+                        <p>Cantidad baños: <span>{alojamientoData.CantidadBanios}</span></p>
+                        <p>Estado: <span className={alojamientoData.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>
+                            {alojamientoData.Estado}
+                        </span></p>
+                    </div>
+                )}
             </form>
 
             <button className='btnVolver'>
-                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
+                <NavLink to="/UsuarioAddAlojamiento" className='linkAdminAlojamiento'>Volver</NavLink>
             </button>
 
-            {alojamientoData && (
-                <div className='contenedorAlojamientoInfo'>
-                    <h3>Información del Alojamiento</h3>
-                    <p>ID: <span>{alojamientoData.idAlojamiento}</span></p>
-                    <p>Título: <span>{alojamientoData.Titulo}</span></p>
-                    <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
-                    <p>Tipo: <span>{alojamientoData.TipoAlojamiento}</span></p>
-                    <p>Latitud: <span>{alojamientoData.Latitud}</span></p>
-                    <p>Longitud: <span>{alojamientoData.Longitud}</span></p>
-                    <p>Precio por día: <span>${alojamientoData.PrecioPorDia}</span></p>
-                    <p>Cantidad dormitorios: <span>{alojamientoData.CantidadDormitorios}</span></p>
-                    <p>Cantidad baños: <span>{alojamientoData.CantidadBanios}</span></p>
-                    <p>Estado: <span className={alojamientoData.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>
-                        {alojamientoData.Estado}
-                    </span></p>
-                </div>
-            )}
+
         </div>
     );
 }

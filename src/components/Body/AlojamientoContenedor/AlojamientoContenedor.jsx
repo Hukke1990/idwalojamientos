@@ -27,7 +27,7 @@ export const AlojamientoContenedor = () => {
   console.log(alojamiento, "componenete contenedor")
   return (
     <>
-      {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p className='cargando'>cargando...</p>}
+      {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p className='cargando'>Cargando...</p>}
     </>
   )
 }
