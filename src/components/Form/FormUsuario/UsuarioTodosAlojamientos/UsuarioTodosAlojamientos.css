@@ -15,6 +15,13 @@
     color: #ffffff;
 }
 
+.contenedorGetAlojamientos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 250px;
+}
+
 .contenedorGetAlojamientos ul li {
     border-bottom: #ee0cd093 1px solid;
 }
