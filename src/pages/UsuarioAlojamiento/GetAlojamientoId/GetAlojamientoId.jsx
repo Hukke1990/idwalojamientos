@@ -78,7 +78,7 @@ export const GetAlojamientoId = () => {
                     <h3>Información del Alojamiento</h3>
                     <p>ID: <span>{alojamientoData.idAlojamiento}</span></p>
                     <p>Título: <span>{alojamientoData.Titulo}</span></p>
-                    <p>Descripción: <span>{alojamientoData.Descripción}</span></p>
+                    <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
                     <p>Tipo: <span>{alojamientoData.TipoAlojamiento}</span></p>
                     <p>Latitud: <span>{alojamientoData.Latitud}</span></p>
                     <p>Longitud: <span>{alojamientoData.Longitud}</span></p>
