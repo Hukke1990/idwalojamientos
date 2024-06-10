@@ -71,7 +71,7 @@ export const UsuarioEditarAlojamiento = () => {
         <div className='contenedorEditAlojamiento'>
             <h2>Editar Alojamiento</h2>
             {alojamientoData ? (
-                <form onSubmit={handleSubmit}>
+                <form className='formEditAlojamiento' onSubmit={handleSubmit}>
                     <fieldset className='fieldset'>
                         <legend>Información del Alojamiento</legend>
                         <label>
@@ -157,7 +157,7 @@ export const UsuarioEditarAlojamiento = () => {
                                 className='inputEditAlojamiento'
                             />
                         </label>
-                        <label>
+                        <label className='labelSelect'>
                             Estado:
                             <select
                                 name="Estado"
