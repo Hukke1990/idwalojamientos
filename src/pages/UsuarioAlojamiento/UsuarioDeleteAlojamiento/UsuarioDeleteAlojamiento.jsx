@@ -2,11 +2,14 @@ import React from 'react'
 import './UsuarioDeleteAlojamiento.css'
 import { GetAllAlojamientosDetail } from '../../../components/Form/FormUsuario/GetAllAlojamientosDetail/GetAllAlojamientosDetail'
 import { UsuarioEliminarAlojamiento } from '../../../components/Form/FormUsuario/UsuarioEliminarAlojamiento/UsuarioEliminarAlojamiento'
+import { NavLink } from 'react-router-dom'
+
 
 export const UsuarioDeleteAlojamiento = () => {
     return (
         <GetAllAlojamientosDetail render={({ alojamientos, alertMessage, alertType }) => (
             <div className='contenedorDeleteAlojamientos'>
+                <h2>Eliminar Alojamiento</h2>
                 <div className='contenedorGetAlojamientos contenedorGetAlojamientosDelete'>
                     <ul>
                         {alojamientos.map((alojamiento) => (
@@ -21,6 +24,9 @@ export const UsuarioDeleteAlojamiento = () => {
                     <div className={`alert ${alertType}`}>{alertMessage}</div>
                 )}
                 <UsuarioEliminarAlojamiento />
+                <button className='btnVolver'>
+                    <NavLink to="/" className='linkAdminAlojamiento'>Volver</NavLink>
+                </button>
             </div>
         )} />
     )
