@@ -18,6 +18,8 @@ import { EditarTipoAlojamiento } from "./pages/EditarTipoAlojamiento/EditarTipoA
 import { UsuarioAgregarAlojamiento } from "./pages/UsuarioAlojamiento/AgregarAlojamiento/UsuarioAgregarAlojamiento";
 import { TodosAlojamientos } from "./pages/UsuarioAlojamiento/TodosAlojamientos/TodosAlojamientos";
 import { GetAlojamientoId } from "./pages/UsuarioAlojamiento/GetAlojamientoId/GetAlojamientoId";
+import { ListaAlojamientos } from "./pages/UsuarioAlojamiento/ListaAlojamientos/ListaAlojamientos";
+import { UsuarioEditarAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioEditarAlojamiento/UsuarioEditarAlojamiento"; // Importa el componente
 
 function App() {
   return (
@@ -40,7 +42,9 @@ function App() {
           <Route path="/EditarTipoAlojamiento" element={<EditarTipoAlojamiento />} />
           <Route path="/UsuarioAgregarAlojamiento" element={<UsuarioAgregarAlojamiento />} />
           <Route path="/TodosAlojamientos" element={<TodosAlojamientos />} />
-          <Route path="GetAlojamientoId" element={<GetAlojamientoId />} />
+          <Route path="/GetAlojamientoId" element={<GetAlojamientoId />} />
+          <Route path="/ListaAlojamientos" element={<ListaAlojamientos />} />
+          <Route path="/UsuarioEditarAlojamiento/:id" element={<UsuarioEditarAlojamiento />} /> {/* Asegúrate de usar :id */}
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 

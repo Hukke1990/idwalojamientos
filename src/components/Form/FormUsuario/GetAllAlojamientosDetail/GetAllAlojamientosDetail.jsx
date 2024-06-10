@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const GetAllAlojamientosDetail = () => {
+export const GetAllAlojamientosDetail = ({ render }) => {
     const [alojamientos, setAlojamientos] = useState([]);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
@@ -29,5 +29,5 @@ export const GetAllAlojamientosDetail = () => {
         obtenerAlojamientos();
     }, []);
 
-    return { alojamientos, alertMessage, alertType, obtenerAlojamientos };
+    return render ? render({ alojamientos, alertMessage, alertType }) : null;
 };
