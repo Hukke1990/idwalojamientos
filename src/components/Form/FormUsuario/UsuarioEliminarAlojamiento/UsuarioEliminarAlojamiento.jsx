@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './DeleteTipoAlojamiento.css';
-import { Alert } from '../../Alert/Alert';
+import './UsuarioEliminarAlojamiento.css';
+import { Alert } from '../../../Alert/Alert';
 
-export const DeleteTipoAlojamiento = () => {
+export const UsuarioEliminarAlojamiento = () => {
     const [alojamientoId, setAlojamientoId] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
@@ -17,19 +17,19 @@ export const DeleteTipoAlojamiento = () => {
 
     const eliminarAlojamiento = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/tiposAlojamiento/deleteTipoAlojamiento/${alojamientoId}`, {
+            const response = await fetch(`http://localhost:3001/alojamiento/deleteAlojamiento/${alojamientoId}`, {
                 method: 'DELETE',
             });
 
             console.log('Response status:', response.status);
 
             if (response.ok) {
-                setAlertMessage('Tipo de Alojamiento eliminado con éxito.');
+                setAlertMessage('Alojamiento eliminado con éxito.');
                 setAlertType('success');
             } else {
                 const errorText = await response.text();
-                console.error('Error al eliminar el tipo de alojamiento:', errorText);
-                setAlertMessage('Error al eliminar el tipo de alojamiento');
+                console.error('Error al eliminar el alojamiento:', errorText);
+                setAlertMessage('Error al eliminar el alojamiento');
                 setAlertType('error');
             }
         } catch (error) {
@@ -63,5 +63,3 @@ export const DeleteTipoAlojamiento = () => {
         </div>
     );
 }
-
-export default DeleteTipoAlojamiento;

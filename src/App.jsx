@@ -20,6 +20,7 @@ import { TodosAlojamientos } from "./pages/UsuarioAlojamiento/TodosAlojamientos/
 import { GetAlojamientoId } from "./pages/UsuarioAlojamiento/GetAlojamientoId/GetAlojamientoId";
 import { ListaAlojamientos } from "./pages/UsuarioAlojamiento/ListaAlojamientos/ListaAlojamientos";
 import { UsuarioEditarAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioEditarAlojamiento/UsuarioEditarAlojamiento"; // Importa el componente
+import { UsuarioDeleteAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioDeleteAlojamiento/UsuarioDeleteAlojamiento";
 
 function App() {
   return (
@@ -44,7 +45,8 @@ function App() {
           <Route path="/TodosAlojamientos" element={<TodosAlojamientos />} />
           <Route path="/GetAlojamientoId" element={<GetAlojamientoId />} />
           <Route path="/ListaAlojamientos" element={<ListaAlojamientos />} />
-          <Route path="/UsuarioEditarAlojamiento/:id" element={<UsuarioEditarAlojamiento />} /> {/* Asegúrate de usar :id */}
+          <Route path="/UsuarioEditarAlojamiento/:id" element={<UsuarioEditarAlojamiento />} />
+          <Route path="/UsuarioDeleteAlojamiento" element={<UsuarioDeleteAlojamiento />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 
