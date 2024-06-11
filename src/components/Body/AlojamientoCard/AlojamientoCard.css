@@ -19,6 +19,10 @@
     animation: none;
 }
 
+.card {
+    text-decoration: none;
+}
+
 .card h3 {
     font-family: "Pacifico";
     font-weight: 100;

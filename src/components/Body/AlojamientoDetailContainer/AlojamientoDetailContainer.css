@@ -116,6 +116,8 @@ li::marker { /* elimina color ::marker de + servicios */
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 
 .contenedorMasDetalles h4 {
