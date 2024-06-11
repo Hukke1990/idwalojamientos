@@ -1,33 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import { AlojamientoList } from '../AlojamientoList/AlojamientoList'
-import alojamientoJson from '../../../Data/data.json'
-import './AlojamientoContenedor.css'
-import { useParams } from 'react-router-dom'
+import React, { useState } from 'react';
+import { AlojamientoList } from '../AlojamientoList/AlojamientoList';
+import { GetAllAlojamientosDetail } from '../../Form/FormUsuario/GetAllAlojamientosDetail/GetAllAlojamientosDetail';
+import './AlojamientoContenedor.css';
 
 export const AlojamientoContenedor = () => {
+  const [alojamientos, setAlojamientos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const [alojamiento, setAlojamiento] = useState([]);
+  const renderAlojamientos = ({ alojamientos, alertMessage, alertType }) => {
+    if (alertType === 'error') {
+      setError(alertMessage);
+    } else {
+      setAlojamientos(alojamientos);
+    }
+    setIsLoading(false);
+  };
 
-
-  useEffect(() => {
-    const getAlojamiento = (alojamientoList) => new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (alojamientoList.length) {
-          resolve(alojamientoList);
-        } else {
-          reject("No se encontraron alojamientos")
-        }
-
-      }, 2000);
-    });
-    getAlojamiento(alojamientoJson).
-      then(res => setAlojamiento(res)).catch(err => console.log(`${err} No hay alojamientos`));
-  }, [])
-
-  console.log(alojamiento, "componenete contenedor")
   return (
     <>
-      {alojamiento.length ? <AlojamientoList alojamientoInfo={alojamiento} /> : <p className='cargando'>Cargando...</p>}
+      <GetAllAlojamientosDetail render={renderAlojamientos} />
+      {!isLoading && !error && alojamientos.length > 0 && (
+        <AlojamientoList alojamientoInfo={alojamientos} />
+      )}
     </>
-  )
-}
+  );
+};
