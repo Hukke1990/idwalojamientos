@@ -1,14 +1,15 @@
-// EditAlojamiento.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import './UsuarioEditarAlojamiento.css';
 import { Alert } from '../../../components/Alert/Alert';
+import { TipoAlojamientoDetail } from '../../../components/Form/TipoAlojamientoDetail/TipoAlojamientoDetail';
 
 export const UsuarioEditarAlojamiento = () => {
     const { id } = useParams();
     const [alojamientoData, setAlojamientoData] = useState(null);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
+    const { alojamientos } = TipoAlojamientoDetail();
 
     useEffect(() => {
         const fetchAlojamiento = async () => {
@@ -94,18 +95,21 @@ export const UsuarioEditarAlojamiento = () => {
                                 className='inputEditAlojamiento'
                             />
                         </label>
-                        {/* <label>
+                        <label>
                             Tipo alojamiento:
                             <select
                                 name="TipoAlojamiento"
                                 value={alojamientoData.TipoAlojamiento}
                                 onChange={handleInputChange}
-                                className='inputEditAlojamiento'
+                                className='labelSelect'
                             >
-                                <option value="Disponible">Disponible</option>
-                                <option value="Reservado">Reservado</option>
+                                {alojamientos.map((tipo) => (
+                                    <option key={tipo.idTipoAlojamiento} value={tipo.idTipoAlojamiento}>
+                                        {tipo.Descripcion}
+                                    </option>
+                                ))}
                             </select>
-                        </label> */}
+                        </label>
                         <label>
                             Latitud:
                             <input

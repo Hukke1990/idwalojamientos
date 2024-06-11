@@ -25,7 +25,7 @@ export const UsuarioDeleteAlojamiento = () => {
                 )}
                 <UsuarioEliminarAlojamiento />
                 <button className='btnVolver'>
-                    <NavLink to="/" className='linkAdminAlojamiento'>Volver</NavLink>
+                    <NavLink to="/UsuarioAddAlojamiento" className='linkAdminAlojamiento'>Volver</NavLink>
                 </button>
             </div>
         )} />
