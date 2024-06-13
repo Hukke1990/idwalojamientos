@@ -25,6 +25,7 @@ import { AgregarServicio } from "./pages/Servicios/AgregarServicio/AgregarServic
 import { AllServicios } from "./pages/Servicios/AllServicios/AllServicios";
 import { GetServicio } from "./pages/Servicios/GetServicio/GetServicio";
 import { EditarServicio } from "./pages/Servicios/EditarServicio/EditarServicio";
+import { EliminarServicio } from "./pages/Servicios/EliminarServicio/EliminarServicio";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/AllServicios" element={<AllServicios />} />
           <Route path="/GetServicio" element={<GetServicio />} />
           <Route path="/EditarServicio" element={<EditarServicio />} />
+          <Route path="/EliminarServicio" element={<EliminarServicio />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './EditarServicio.css';
 import { Alert } from '../../../components/Alert/Alert';
 import { NavLink } from 'react-router-dom';
-import { AllServicios } from '../AllServicios/AllServicios';
+import { GetAllServicios } from '../../../components/Form/FromServicios/GetAllServicio/GetAllServicios';
 
 export const EditarServicio = () => {
     const [servicioId, setServicioId] = useState('');
@@ -63,7 +63,7 @@ export const EditarServicio = () => {
         <div className='contenedorEditAlojamiento'>
             <h2>Editar Servicio</h2>
             <div className='moduloAllTipoAlojamiento'>
-                <AllServicios />
+                <GetAllServicios />
             </div>
             <fieldset className='fieldset'>
                 <legend>Editar</legend>

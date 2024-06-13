@@ -1,35 +1,35 @@
 import React, { useState } from 'react';
-import './DeleteTipoAlojamiento.css';
-import { Alert } from '../../Alert/Alert';
+import './DeleteServicio.css';
+import { Alert } from '../../../Alert/Alert';
 
-export const DeleteTipoAlojamiento = () => {
-    const [alojamientoId, setAlojamientoId] = useState('');
+export const DeleteServicio = () => {
+    const [servicioId, setServicioId] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
 
     const handleInputChange = (e) => {
-        setAlojamientoId(e.target.value);
+        setServicioId(e.target.value);
         if (alertMessage) {
             setAlertMessage('');
             setAlertType('');
         }
     };
 
-    const eliminarAlojamiento = async () => {
+    const eliminarServicio = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/tiposAlojamiento/deleteTipoAlojamiento/${alojamientoId}`, {
+            const response = await fetch(`http://localhost:3001/servicio/deleteServicio/${servicioId}`, {
                 method: 'DELETE',
             });
 
             console.log('Response status:', response.status);
 
             if (response.ok) {
-                setAlertMessage('Tipo de Alojamiento eliminado con éxito.');
+                setAlertMessage('Servicio eliminado con éxito.');
                 setAlertType('success');
             } else {
                 const errorText = await response.text();
-                console.error('Error al eliminar el tipo de alojamiento:', errorText);
-                setAlertMessage('Error al eliminar el tipo de alojamiento');
+                console.error('Error al eliminar el servicio:', errorText);
+                setAlertMessage('Error al eliminar el servicio');
                 setAlertType('error');
             }
         } catch (error) {
@@ -45,23 +45,21 @@ export const DeleteTipoAlojamiento = () => {
                 <legend>Eliminar</legend>
                 <input
                     type="text"
-                    value={alojamientoId}
+                    value={servicioId}
                     onChange={handleInputChange}
-                    placeholder="Ingrese el ID del alojamiento"
+                    placeholder="Ingrese el ID del servicio"
                     className='inputDeleteAlojamiento'
                 />
             </fieldset>
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
-            <button className='btn btnDeleteAlojamiento' onClick={eliminarAlojamiento}>
+            <button className='btn btnDeleteAlojamiento' onClick={eliminarServicio}>
                 <span className='span1'></span>
                 <span className='span2'></span>
                 <span className='span3'></span>
                 <span className='span4'></span>
-                Eliminar Tipo Alojamiento
+                Eliminar Servicio
             </button>
         </div>
     );
 }
-
-export default DeleteTipoAlojamiento;

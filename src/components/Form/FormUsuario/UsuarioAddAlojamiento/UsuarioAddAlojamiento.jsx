@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './UsuarioAddAlojamiento.css';
 import { TipoAlojamientoDetail } from '../../TipoAlojamientoDetail/TipoAlojamientoDetail';
+import { ServiciosDetail } from '../../FromServicios/ServicioDetail/ServicioDetail';
 import { Alert } from '../../../Alert/Alert';
 
 export const UsuarioAddAlojamiento = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
     const { alojamientos } = TipoAlojamientoDetail();
+    const { servicios } = ServiciosDetail();
+    const [selectedServices, setSelectedServices] = useState([]);
     const [formData, setFormData] = useState({
         Titulo: '',
         Descripcion: '',
@@ -24,15 +27,20 @@ export const UsuarioAddAlojamiento = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-        agregarAlojamiento();
+    const handleServiceChange = (e) => {
+        const { value, checked } = e.target;
+        if (checked) {
+            setSelectedServices([...selectedServices, value]);
+        } else {
+            setSelectedServices(selectedServices.filter(service => service !== value));
+        }
     };
 
-    const agregarAlojamiento = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log('Form Data:', formData);
         try {
-            const response = await fetch('http://localhost:3001/alojamiento/createAlojamiento', {
+            const alojamientoResponse = await fetch('http://localhost:3001/alojamiento/createAlojamiento', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -40,13 +48,38 @@ export const UsuarioAddAlojamiento = () => {
                 body: JSON.stringify(formData)
             });
 
-            if (response.ok) {
-                const data = await response.json();
-                console.log('Alojamiento agregado:', data);
-                setAlertMessage('Alojamiento agregado con éxito.');
+            if (alojamientoResponse.ok) {
+                const alojamientoData = await alojamientoResponse.json();
+                console.log('Alojamiento agregado:', alojamientoData);
+
+                const idAlojamiento = alojamientoData.id;
+                console.log('ID del Alojamiento:', idAlojamiento);
+
+                // Agregar servicios al alojamiento
+                for (const idServicio of selectedServices) {
+                    console.log('Agregando servicio:', idServicio, 'al alojamiento:', idAlojamiento);
+                    const servicioResponse = await fetch('http://localhost:3001/alojamientosServicios/createAlojamientoServicio', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            idAlojamiento: idAlojamiento,  // Utiliza el id del alojamiento creado
+                            idServicio: idServicio
+                        })
+                    });
+
+                    if (!servicioResponse.ok) {
+                        throw new Error('Error al agregar el servicio al alojamiento');
+                    } else {
+                        console.log('Servicio agregado correctamente:', idServicio);
+                    }
+                }
+
+                setAlertMessage('Alojamiento y servicios agregados con éxito.');
                 setAlertType('success');
             } else {
-                const errorData = await response.json();
+                const errorData = await alojamientoResponse.json();
                 console.error('Error al agregar el alojamiento:', errorData);
                 setAlertMessage('Error al agregar el alojamiento.');
                 setAlertType('error');
@@ -136,6 +169,18 @@ export const UsuarioAddAlojamiento = () => {
                         <option value="Disponible">Disponible</option>
                         <option value="Reservado">Reservado</option>
                     </select>
+                    <div className='fieldsetServiciosAlojamiento'>
+                        {servicios.map(servicio => (
+                            <label className='serviciosAlojamientoLabel' key={servicio.idServicio}>
+                                <input
+                                    type="checkbox"
+                                    value={servicio.idServicio}
+                                    onChange={handleServiceChange}
+                                />
+                                <span>{servicio.Nombre}</span>
+                            </label>
+                        ))}
+                    </div>
                 </fieldset>
                 <button
                     className='btn btnAgregarAlojamiento'
@@ -150,4 +195,4 @@ export const UsuarioAddAlojamiento = () => {
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
         </div>
     );
-}
+};

@@ -38,3 +38,33 @@
 .btnAgregarAlojamiento {
     margin-top: 20px;
 }
+
+.fieldsetServiciosAlojamiento {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ee0cd0;
+    box-shadow: #ee0cd0 0px 0px 5px, #ee0cd0 0px 0px 5px;
+    flex-direction: row;
+}
+
+.serviciosAlojamientoLabel {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 10px;
+    max-width: 300px;
+    align-items: center;
+}
+
+.serviciosAlojamientoLabel span {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.serviciosAlojamientoLabel input {    
+    cursor: pointer;
+}
