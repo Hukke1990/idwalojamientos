@@ -172,11 +172,13 @@ export const UsuarioAddAlojamiento = () => {
                     <div className='fieldsetServiciosAlojamiento'>
                         {servicios.map(servicio => (
                             <label className='serviciosAlojamientoLabel' key={servicio.idServicio}>
-                                <input
-                                    type="checkbox"
-                                    value={servicio.idServicio}
-                                    onChange={handleServiceChange}
-                                />
+                                <div className='checkbox'>
+                                    <input
+                                        type="checkbox"
+                                        value={servicio.idServicio}
+                                        onChange={handleServiceChange}
+                                    />
+                                </div>
                                 <span>{servicio.Nombre}</span>
                             </label>
                         ))}
