@@ -21,7 +21,7 @@ export const AdministrarAlojamientos = () => {
             <div className='contenedorLinks'>
                 <NavLink to="/AgregarServicio" className='adminAlojamiento'><i class="bi bi-house-add-fill"></i>Agregar Servicio</NavLink>
                 <NavLink to="/GetServicio" className='adminAlojamiento'><i class="bi bi-card-text"></i>Obtener Servicio</NavLink>
-                <NavLink to="/AllTiposServicios" className='adminAlojamiento'><i class="bi bi-houses-fill"></i>Obtener todos los Servicio</NavLink>
+                <NavLink to="/AllServicios" className='adminAlojamiento'><i class="bi bi-houses-fill"></i>Obtener todos los Servicio</NavLink>
                 <NavLink to="/EditarServicio" className={'adminAlojamiento'}><i class="bi bi-pencil-square"></i>Editar Servicio</NavLink>
                 <NavLink to="/EliminarServicio" className={'adminAlojamiento'}><i class="bi bi-house-dash-fill"></i>Eliminar Servicio</NavLink>
             </div>

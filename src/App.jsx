@@ -22,6 +22,7 @@ import { ListaAlojamientos } from "./pages/UsuarioAlojamiento/ListaAlojamientos/
 import { UsuarioEditarAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioEditarAlojamiento/UsuarioEditarAlojamiento"; // Importa el componente
 import { UsuarioDeleteAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioDeleteAlojamiento/UsuarioDeleteAlojamiento";
 import { AgregarServicio } from "./pages/Servicios/AgregarServicio/AgregarServicio";
+import { AllServicios } from "./pages/Servicios/AllServicios/AllServicios";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path="/UsuarioEditarAlojamiento/:id" element={<UsuarioEditarAlojamiento />} />
           <Route path="/UsuarioDeleteAlojamiento" element={<UsuarioDeleteAlojamiento />} />
           <Route path="/AgregarServicio" element={<AgregarServicio />} />
+          <Route path="/AllServicios" element={<AllServicios />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 
