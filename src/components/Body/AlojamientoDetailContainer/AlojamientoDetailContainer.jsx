@@ -74,7 +74,7 @@ export const AlojamientoDetailContainer = () => {
                         </div>
                         <div className='contenedorCaracteristicas'>
                             <h4>Características</h4>
-                            <p><span>Tipo de alojamiento: </span>{alojamiento.TipoAlojamiento}</p>
+                            <p><span>Tipo de alojamiento: </span>{alojamiento.idTipoAlojamiento}</p>
                             <p><span>Descripción: </span>{alojamiento.Descripcion}</p>
                             <p><span>Precio por dia: </span>{alojamiento.PrecioPorDia}</p>
                             <p><span>Cantidad de dormitorios: </span>{alojamiento.CantidadDormitorios}</p>

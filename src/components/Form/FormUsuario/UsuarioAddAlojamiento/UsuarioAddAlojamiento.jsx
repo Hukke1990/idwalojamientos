@@ -10,7 +10,7 @@ export const UsuarioAddAlojamiento = () => {
     const [formData, setFormData] = useState({
         Titulo: '',
         Descripcion: '',
-        TipoAlojamiento: '',
+        idTipoAlojamiento: '',
         Latitud: '',
         Longitud: '',
         PrecioPorDia: '',
@@ -78,8 +78,8 @@ export const UsuarioAddAlojamiento = () => {
                         onChange={handleInputChange}>
                     </textarea>
                     <select
-                        name="TipoAlojamiento"
-                        value={formData.TipoAlojamiento}
+                        name="idTipoAlojamiento"
+                        value={formData.idTipoAlojamiento}
                         onChange={handleInputChange}>
                         <option value="">Seleccione un tipo de alojamiento</option>
                         {alojamientos.map(alojamiento => (

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
 .contenedorAdministrador h2 {
@@ -10,6 +11,14 @@
     font-size: 50px;
     text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
     color: #ffffff;
+}
+
+.contenedorAdministrador h3 {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 20px;
 }
 
 .contenedorLinks {
@@ -37,4 +46,8 @@
     color: #ee0cd0;
     text-shadow: #ee0cd0 0 0 5px;
     transition: 0.5s;
+}
+
+.btnAdminAlojamiento {
+    margin-top: 20px;
 }

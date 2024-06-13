@@ -14,7 +14,7 @@ export const UsuarioTodosAlojamientos = () => {
                             <h2>{alojamiento.Titulo}</h2>
                             <p><span className='label'>ID:</span> {alojamiento.idAlojamiento}</p>
                             <p><span className='label'>Descripcion:</span> {alojamiento.Descripcion}</p>
-                            <p><span className='label'>Tipo alojamiento:</span> {alojamiento.TipoAlojamiento}</p>
+                            <p><span className='label'>Tipo alojamiento:</span> {alojamiento.idTipoAlojamiento}</p>
                             <p><span className='label'>Latitud:</span> {alojamiento.Latitud}</p>
                             <p><span className='label'>Longitud:</span> {alojamiento.Longitud}</p>
                             <p><span className='label'>Precio por día:</span> ${alojamiento.PrecioPorDia}</p>

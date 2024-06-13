@@ -99,7 +99,7 @@ export const UsuarioEditarAlojamiento = () => {
                             Tipo alojamiento:
                             <select
                                 name="TipoAlojamiento"
-                                value={alojamientoData.TipoAlojamiento}
+                                value={alojamientoData.idTipoAlojamiento}
                                 onChange={handleInputChange}
                                 className='labelSelect'
                             >
@@ -136,7 +136,6 @@ export const UsuarioEditarAlojamiento = () => {
                                 type="number"
                                 name="PrecioPorDia"
                                 placeholder={alojamientoData.PrecioPorDia}
-                                // value={alojamientoData.PrecioPorDia}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
@@ -173,8 +172,6 @@ export const UsuarioEditarAlojamiento = () => {
                                 <option value="Reservado">Reservado</option>
                             </select>
                         </label>
-
-                        {/* Añadir otros campos según sea necesario */}
                     </fieldset>
                     {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
                     <button type='submit' className='btn btnEditAlojamiento'>
