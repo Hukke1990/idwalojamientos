@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
-import './GetTipoAlojamiento.css';
+import './GetServicio.css';
 import { NavLink } from 'react-router-dom';
-import { Alert } from '../../components/Alert/Alert';
+import { Alert } from '../../../components/Alert/Alert';
 
-export const GetTipoAlojamiento = () => {
-    const [alojamientoId, setAlojamientoId] = useState('');
-    const [alojamientoData, setAlojamientoData] = useState(null);
+export const GetServicio = () => {
+    const [servicioId, setServicioId] = useState('');
+    const [servicioData, setServicioData] = useState(null);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
 
     const handleInputChange = (e) => {
-        setAlojamientoId(e.target.value);
+        setServicioId(e.target.value);
         if (alertMessage) {
             setAlertMessage('');
             setAlertType('');
         }
     };
 
-    const obtenerTipoAlojamientos = async () => {
+    const obtenerServicio = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/tiposAlojamiento/getTipoAlojamiento/${alojamientoId}`);
+            const response = await fetch(`http://localhost:3001/servicio/getServicio/${servicioId}`);
             if (response.ok) {
                 const data = await response.json();
-                setAlojamientoData(data);
+                setServicioData(data);
                 setAlertMessage('Alojamiento obtenido con éxito.');
                 setAlertType('success');
             } else {
@@ -39,31 +39,31 @@ export const GetTipoAlojamiento = () => {
 
     return (
         <div className='contenedorGetTipoAlojamientos'>
-            <h2>Obtener Tipo Alojamiento por ID</h2>
+            <h2>Obtener Servicio por ID</h2>
             <fieldset className='fieldset'>
                 <legend>Buscar</legend>
                 <input
                     type="text"
-                    value={alojamientoId}
-                    onChange={handleInputChange} // Usar la nueva función para manejar el cambio
-                    placeholder="Ingrese el ID del alojamiento"
+                    value={servicioId}
+                    onChange={handleInputChange}
+                    placeholder="Ingrese el ID del servicio"
                     className='inputGetAlojamiento'
                 />
             </fieldset>
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
-            <button className='btn btnGetAlojamiento' onClick={obtenerTipoAlojamientos}>
+            <button className='btn btnGetAlojamiento' onClick={obtenerServicio}>
                 <span className='span1'></span>
                 <span className='span2'></span>
                 <span className='span3'></span>
                 <span className='span4'></span>
-                Obtener Tipo Alojamiento
+                Obtener Servicio
             </button>
-            {alojamientoData && (
+            {servicioData && (
                 <div className='contenedorAlojamientoInfo'>
                     <h3>Información del Alojamiento</h3>
-                    <p>ID: <span>{alojamientoData.idTipoAlojamiento}</span></p>
-                    <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
+                    <p>ID: <span>{servicioData.idServicio}</span></p>
+                    <p>Descripción: <span>{servicioData.Nombre}</span></p>
                 </div>
             )}
             <button className='btnVolver'>
