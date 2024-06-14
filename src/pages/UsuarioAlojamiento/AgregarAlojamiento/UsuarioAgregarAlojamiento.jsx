@@ -10,7 +10,7 @@ export const UsuarioAgregarAlojamiento = () => {
             <p>Agrega un nuevo alojamiento</p>
             <UsuarioAddAlojamiento />
             <button className='btnVolver'>
-                <NavLink to="/UsuarioAddAlojamiento" className='linkAdminAlojamiento'>Volver</NavLink>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
             </button>
         </div>
     )

@@ -87,7 +87,7 @@ export const GetAlojamientoId = () => {
             </form>
 
             <button className='btnVolver'>
-                <NavLink to="/UsuarioAddAlojamiento" className='linkAdminAlojamiento'>Volver</NavLink>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
             </button>
 
 

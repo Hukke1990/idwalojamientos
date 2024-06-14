@@ -8,7 +8,7 @@ export const TodosAlojamientos = () => {
         <div className='contenedorTodosAlojamientos'>
             <UsuarioTodosAlojamientos />
             <button className='btnVolver'>
-                <NavLink to="/UsuarioAddAlojamiento" className='linkAdminAlojamiento'>Volver</NavLink>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
             </button>
         </div>
 

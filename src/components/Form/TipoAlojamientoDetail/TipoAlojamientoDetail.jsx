@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 
 export const TipoAlojamientoDetail = () => {
-    const [alojamientos, setAlojamientos] = useState([]);
+    const [tiposAlojamiento, setTiposAlojamiento] = useState([]);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
 
-    const obtenerTipoAlojamientos = async () => {
+    const obtenerTiposAlojamiento = async () => {
         try {
             const response = await fetch('http://localhost:3001/tiposAlojamiento/getTiposAlojamiento');
             if (response.ok) {
                 const data = await response.json();
-                setAlojamientos(data);
-                setAlertMessage('Tipo de Alojamiento obtenedios.');
+                setTiposAlojamiento(data);
+                setAlertMessage('Tipos de Alojamiento obtenidos.');
                 setAlertType('success');
             } else {
-                console.error('Error al obtener los tipos de alojamientos');
-                setAlertMessage('Error al obtener los tipos de alojamientos.');
+                console.error('Error al obtener los tipos de alojamiento');
+                setAlertMessage('Error al obtener los tipos de alojamiento.');
                 setAlertType('error');
             }
         } catch (error) {
@@ -23,11 +23,11 @@ export const TipoAlojamientoDetail = () => {
             setAlertMessage('Error al establecer el servicio. Por favor, intente de nuevo.');
             setAlertType('error');
         }
-    }
+    };
 
     useEffect(() => {
-        obtenerTipoAlojamientos();
+        obtenerTiposAlojamiento();
     }, []);
 
-    return { alojamientos, alertMessage, alertType, obtenerTipoAlojamientos };
+    return { tiposAlojamiento, alertMessage, alertType, obtenerTiposAlojamiento };
 };
