@@ -19,3 +19,8 @@
 .contenedorGetAlojamientosDelete ul li {
     padding-top: 10px;
 }
+
+.deleteAlojamientos {
+    display: flex;
+    flex-direction: row; 
+}

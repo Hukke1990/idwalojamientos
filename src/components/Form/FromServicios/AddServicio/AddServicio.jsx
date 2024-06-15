@@ -83,10 +83,8 @@ export const AddServicio = () => {
                         onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
                     />
                 </div>
-                <div>
-                    {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
-                </div>
             </fieldset>
+            {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
             <div>
                 <button className='btn enviarForm' type='submit'>
                     <span className='span1'></span>

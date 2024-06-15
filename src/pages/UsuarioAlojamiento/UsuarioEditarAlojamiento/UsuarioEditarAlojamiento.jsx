@@ -9,7 +9,7 @@ export const UsuarioEditarAlojamiento = () => {
     const [alojamientoData, setAlojamientoData] = useState(null);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
-    const { alojamientos } = TipoAlojamientoDetail();
+    const { tiposAlojamiento } = TipoAlojamientoDetail();
 
     useEffect(() => {
         const fetchAlojamiento = async () => {
@@ -80,17 +80,18 @@ export const UsuarioEditarAlojamiento = () => {
                             <input
                                 type="text"
                                 name="Titulo"
-                                placeholder={alojamientoData.Titulo}
+                                placeholder="Título del alojamiento"
+                                value={alojamientoData.Titulo}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
                         </label>
                         <label>
-                            Descripcion:
+                            Descripción:
                             <textarea
-                                type="number"
                                 name="Descripcion"
-                                placeholder={alojamientoData.Descripcion}
+                                placeholder="Descripción del alojamiento"
+                                value={alojamientoData.Descripcion}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
@@ -98,12 +99,13 @@ export const UsuarioEditarAlojamiento = () => {
                         <label>
                             Tipo alojamiento:
                             <select
-                                name="TipoAlojamiento"
+                                name="idTipoAlojamiento"
                                 value={alojamientoData.idTipoAlojamiento}
                                 onChange={handleInputChange}
                                 className='labelSelect'
                             >
-                                {alojamientos.map((tipo) => (
+                                <option value="" disabled>Seleccione un tipo</option>
+                                {tiposAlojamiento.map((tipo) => (
                                     <option key={tipo.idTipoAlojamiento} value={tipo.idTipoAlojamiento}>
                                         {tipo.Descripcion}
                                     </option>
@@ -115,7 +117,8 @@ export const UsuarioEditarAlojamiento = () => {
                             <input
                                 type="number"
                                 name="Latitud"
-                                placeholder={alojamientoData.Latitud}
+                                placeholder="Latitud"
+                                value={alojamientoData.Latitud}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
@@ -124,8 +127,9 @@ export const UsuarioEditarAlojamiento = () => {
                             Longitud:
                             <input
                                 type="number"
-                                name="Latitud"
-                                placeholder={alojamientoData.Longitud}
+                                name="Longitud"
+                                placeholder="Longitud"
+                                value={alojamientoData.Longitud}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
@@ -135,7 +139,8 @@ export const UsuarioEditarAlojamiento = () => {
                             <input
                                 type="number"
                                 name="PrecioPorDia"
-                                placeholder={alojamientoData.PrecioPorDia}
+                                placeholder="Precio por día"
+                                value={alojamientoData.PrecioPorDia}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
@@ -144,8 +149,9 @@ export const UsuarioEditarAlojamiento = () => {
                             Cantidad de dormitorios:
                             <input
                                 type="number"
-                                name="Latitud"
-                                placeholder={alojamientoData.CantidadDormitorios}
+                                name="CantidadDormitorios"
+                                placeholder="Cantidad de dormitorios"
+                                value={alojamientoData.CantidadDormitorios}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />
@@ -154,8 +160,9 @@ export const UsuarioEditarAlojamiento = () => {
                             Cantidad de baños:
                             <input
                                 type="number"
-                                name="Latitud"
-                                placeholder={alojamientoData.CantidadBanios}
+                                name="CantidadBanios"
+                                placeholder="Cantidad de baños"
+                                value={alojamientoData.CantidadBanios}
                                 onChange={handleInputChange}
                                 className='inputEditAlojamiento'
                             />

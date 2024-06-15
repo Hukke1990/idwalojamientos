@@ -58,8 +58,9 @@
 .contenedorFiltrosAlojamiento input, select {
     margin-right: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
     font-size: 16px;
     width: 300px;
     box-sizing: border-box;
+    border: none;
+    box-shadow:#ee0cd0 0px 0px 15px;
 }

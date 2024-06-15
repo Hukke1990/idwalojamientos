@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Modal from '../../Modal/ModalServicios';
 import { NavLink } from 'react-router-dom';
+import { TipoAlojamientoDetail } from '../../Form/TipoAlojamientoDetail/TipoAlojamientoDetail';
 import './AlojamientoDetailContainer.css';
 
 export const AlojamientoDetailContainer = () => {
     const [alojamiento, setAlojamiento] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const { idAlojamiento } = useParams();
+    const { tiposAlojamiento } = TipoAlojamientoDetail();
 
     const obtenerAlojamiento = async () => {
         try {
@@ -21,6 +23,11 @@ export const AlojamientoDetailContainer = () => {
         } catch (error) {
             console.error('Error: ', error);
         }
+    };
+
+    const getTipoAlojamientoDescripcion = (idTipoAlojamiento) => {
+        const tipo = tiposAlojamiento.find(tipo => tipo.idTipoAlojamiento === idTipoAlojamiento);
+        return tipo ? tipo.Descripcion : 'Desconocido';
     };
 
     useEffect(() => {
@@ -74,7 +81,7 @@ export const AlojamientoDetailContainer = () => {
                         </div>
                         <div className='contenedorCaracteristicas'>
                             <h4>Características</h4>
-                            <p><span>Tipo de alojamiento: </span>{alojamiento.TipoAlojamiento}</p>
+                            <p><span>Tipo de alojamiento: </span>{getTipoAlojamientoDescripcion(alojamiento.idTipoAlojamiento)}</p>
                             <p><span>Descripción: </span>{alojamiento.Descripcion}</p>
                             <p><span>Precio por dia: </span>{alojamiento.PrecioPorDia}</p>
                             <p><span>Cantidad de dormitorios: </span>{alojamiento.CantidadDormitorios}</p>

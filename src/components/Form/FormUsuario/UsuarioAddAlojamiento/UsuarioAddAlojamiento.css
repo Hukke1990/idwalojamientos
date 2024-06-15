@@ -44,7 +44,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 300px;
-    max-height: 300px;
+    max-height: 100px;
+    overflow-y: auto;
     border: none;
     background-color: #ee0cd0;
     box-shadow: #ee0cd0 0px 0px 5px, #ee0cd0 0px 0px 5px;
