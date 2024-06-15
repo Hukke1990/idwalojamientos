@@ -10,12 +10,14 @@ export const UsuarioDeleteAlojamiento = () => {
         <GetAllAlojamientosDetail render={({ alojamientos, alertMessage, alertType }) => (
             <div className='contenedorDeleteAlojamientos'>
                 <h2>Eliminar Alojamiento</h2>
-                <div className='deleteAlojamientos'>
+                <div className='contenedorGetAlojamientosDelete'>
                     <ul>
                         {alojamientos.map((alojamiento) => (
                             <li key={alojamiento.idAlojamiento}>
-                                <p><span className='label'>ID:</span> {alojamiento.idAlojamiento}</p>
-                                <p><span className='label'>Titulo:</span> {alojamiento.Titulo}</p>
+                                <p>
+                                    <span className='label'>ID:</span> {alojamiento.idAlojamiento}
+                                    <span className='label'>Titulo:</span> {alojamiento.Titulo}
+                                </p>
                             </li>
                         ))}
                     </ul>

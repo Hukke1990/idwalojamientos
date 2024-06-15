@@ -18,9 +18,9 @@
 
 .contenedorGetAlojamientosDelete ul li {
     padding-top: 10px;
+    border-bottom: #ee0cd08a 1px solid;
 }
 
-.deleteAlojamientos {
-    display: flex;
-    flex-direction: row; 
+.contenedorGetAlojamientosDelete span {
+    margin-left: 0px;
 }
