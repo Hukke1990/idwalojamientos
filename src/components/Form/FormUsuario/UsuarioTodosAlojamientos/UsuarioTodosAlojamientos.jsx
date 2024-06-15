@@ -36,7 +36,7 @@ export const UsuarioTodosAlojamientos = () => {
         <GetAllAlojamientosDetail render={({ alojamientos, alertMessage, alertType }) => (
             <div className='contenedorGetAlojamientos'>
                 <h1>{alojamientos.length} Alojamientos encontrados</h1>
-                <div className='searchForm'>
+                <div className='contenedorFiltrosAlojamiento'>
                     <input
                         type='text'
                         name='Titulo'

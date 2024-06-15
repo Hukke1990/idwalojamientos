@@ -7,7 +7,7 @@ import { Alert } from '../../../Alert/Alert';
 export const UsuarioAddAlojamiento = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
-    const { alojamientos } = TipoAlojamientoDetail();
+    const { tiposAlojamiento } = TipoAlojamientoDetail();
     const { servicios } = ServiciosDetail();
     const [selectedServices, setSelectedServices] = useState([]);
     const [formData, setFormData] = useState({
@@ -91,6 +91,10 @@ export const UsuarioAddAlojamiento = () => {
         }
     };
 
+    if (!tiposAlojamiento || !servicios) {
+        return <div>Cargando...</div>; // Puedes mostrar un spinner de carga o un mensaje aquí
+    }
+
     return (
         <div>
             <form className='contenedorAgregarAlojamiento' onSubmit={handleSubmit}>
@@ -115,7 +119,7 @@ export const UsuarioAddAlojamiento = () => {
                         value={formData.idTipoAlojamiento}
                         onChange={handleInputChange}>
                         <option value="">Seleccione un tipo de alojamiento</option>
-                        {alojamientos.map(alojamiento => (
+                        {tiposAlojamiento.map(alojamiento => (
                             <option key={alojamiento.idTipoAlojamiento} value={alojamiento.idTipoAlojamiento}>
                                 {alojamiento.Descripcion}
                             </option>
