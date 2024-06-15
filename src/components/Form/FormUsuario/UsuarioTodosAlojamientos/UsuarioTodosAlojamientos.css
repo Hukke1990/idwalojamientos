@@ -26,6 +26,10 @@
     border-bottom: #ee0cd093 1px solid;
 }
 
+.contenedorGetAlojamientos .servicios {
+    border-bottom: none;
+}
+
 .label {
     color: #ee0cd0;
 }

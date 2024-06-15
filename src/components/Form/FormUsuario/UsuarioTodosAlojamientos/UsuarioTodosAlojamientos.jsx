@@ -73,6 +73,19 @@ export const UsuarioTodosAlojamientos = () => {
                             <p><span className='label'>ID:</span> {alojamiento.idAlojamiento}</p>
                             <p><span className='label'>Descripcion:</span> {alojamiento.Descripcion}</p>
                             <p><span className='label'>Tipo alojamiento:</span> {getTipoAlojamientoDescripcion(alojamiento.idTipoAlojamiento)}</p>
+                            <p><span className='label'>Servicios: </span>
+                                {alojamiento.servicios && alojamiento.servicios.length > 0 ? (
+                                    <ul>
+                                        {alojamiento.servicios.map(servicio => (
+                                            <li className='servicios' key={servicio.idServicio}>
+                                                {servicio.Nombre}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    'No hay servicios disponibles'
+                                )}
+                            </p>
                             <p><span className='label'>Latitud:</span> {alojamiento.Latitud}</p>
                             <p><span className='label'>Longitud:</span> {alojamiento.Longitud}</p>
                             <p><span className='label'>Precio por día:</span> ${alojamiento.PrecioPorDia}</p>

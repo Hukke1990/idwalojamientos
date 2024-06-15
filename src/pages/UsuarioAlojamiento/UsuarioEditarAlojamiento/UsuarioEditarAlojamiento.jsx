@@ -7,6 +7,8 @@ import { TipoAlojamientoDetail } from '../../../components/Form/TipoAlojamientoD
 export const UsuarioEditarAlojamiento = () => {
     const { id } = useParams();
     const [alojamientoData, setAlojamientoData] = useState(null);
+    const [serviciosDisponibles, setServiciosDisponibles] = useState([]);
+    const [serviciosAlojamiento, setServiciosAlojamiento] = useState([]);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
     const { tiposAlojamiento } = TipoAlojamientoDetail();
@@ -29,7 +31,38 @@ export const UsuarioEditarAlojamiento = () => {
                 setAlertType('error');
             }
         };
+
+        const obtenerServiciosDisponibles = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/servicio/getAllServicios`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setServiciosDisponibles(data);
+                } else {
+                    console.error('Error al obtener los servicios disponibles:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error: ', error);
+            }
+        };
+
+        const obtenerServiciosAlojamiento = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${id}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setServiciosAlojamiento(data.map(servicio => servicio.idServicio));
+                } else {
+                    console.error('Error al obtener los servicios del alojamiento:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error: ', error);
+            }
+        };
+
         fetchAlojamiento();
+        obtenerServiciosDisponibles();
+        obtenerServiciosAlojamiento();
     }, [id]);
 
     const handleInputChange = (e) => {
@@ -41,12 +74,21 @@ export const UsuarioEditarAlojamiento = () => {
         }
     };
 
+    const handleCheckboxChange = (e) => {
+        const { name, checked } = e.target;
+        if (checked) {
+            setServiciosAlojamiento([...serviciosAlojamiento, parseInt(name)]);
+        } else {
+            setServiciosAlojamiento(serviciosAlojamiento.filter(servicio => servicio !== parseInt(name)));
+        }
+    };
+
     const actualizarAlojamiento = async () => {
         try {
             const response = await fetch(`http://localhost:3001/alojamiento/putAlojamiento/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(alojamientoData),
+                body: JSON.stringify({ ...alojamientoData, servicios: serviciosAlojamiento }),
             });
             if (response.ok) {
                 setAlertMessage('Alojamiento actualizado con éxito.');
@@ -179,6 +221,25 @@ export const UsuarioEditarAlojamiento = () => {
                                 <option value="Reservado">Reservado</option>
                             </select>
                         </label>
+                        <div className='fieldsetServiciosAlojamiento'>
+                            {serviciosDisponibles && serviciosDisponibles.length > 0 ? (
+                                serviciosDisponibles.map((servicio) => (
+                                    <label className='serviciosAlojamientoLabel' key={servicio.idServicio}>
+                                        <div className='checkbox'>
+                                            <input
+                                                type="checkbox"
+                                                name={servicio.idServicio}
+                                                checked={serviciosAlojamiento.includes(servicio.idServicio)}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
+                                        {servicio.Nombre}
+                                    </label>
+                                ))
+                            ) : (
+                                <p>No hay servicios disponibles.</p>
+                            )}
+                        </div>
                     </fieldset>
                     {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
                     <button type='submit' className='btn btnEditAlojamiento'>

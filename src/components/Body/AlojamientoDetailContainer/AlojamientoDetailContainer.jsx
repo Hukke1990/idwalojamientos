@@ -7,6 +7,7 @@ import './AlojamientoDetailContainer.css';
 
 export const AlojamientoDetailContainer = () => {
     const [alojamiento, setAlojamiento] = useState(null);
+    const [servicios, setServicios] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const { idAlojamiento } = useParams();
     const { tiposAlojamiento } = TipoAlojamientoDetail();
@@ -17,8 +18,38 @@ export const AlojamientoDetailContainer = () => {
             if (response.ok) {
                 const data = await response.json();
                 setAlojamiento(data);
+                console.log('Alojamiento data:', data);
             } else {
                 console.error('Error al obtener el alojamiento:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error: ', error);
+        }
+    };
+
+    const obtenerServicios = async () => {
+        try {
+            const response = await fetch(`http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${idAlojamiento}`);
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Servicios data:', data);
+
+                // Obtén los detalles completos de cada servicio
+                const serviciosDetalles = await Promise.all(data.map(async (servicio) => {
+                    const responseServicio = await fetch(`http://localhost:3001/servicio/getServicio/${servicio.idServicio}`);
+                    if (responseServicio.ok) {
+                        const servicioData = await responseServicio.json();
+                        return { ...servicio, ...servicioData };
+                    } else {
+                        console.error('Error al obtener el detalle del servicio:', responseServicio.statusText);
+                        return null;
+                    }
+                }));
+
+                // Filtra los servicios que no se pudieron obtener
+                setServicios(serviciosDetalles.filter(servicio => servicio !== null));
+            } else {
+                console.error('Error al obtener los servicios:', response.statusText);
             }
         } catch (error) {
             console.error('Error: ', error);
@@ -32,6 +63,7 @@ export const AlojamientoDetailContainer = () => {
 
     useEffect(() => {
         obtenerAlojamiento();
+        obtenerServicios();
     }, [idAlojamiento]);
 
     const openModal = () => setModalOpen(true);
@@ -45,7 +77,7 @@ export const AlojamientoDetailContainer = () => {
                         <h2>{alojamiento.Titulo}</h2>
                         <p>{alojamiento.Descripcion}</p>
                     </div>
-                    <h3>Conoce nuestro alojameinto</h3>
+                    <h3>Conoce nuestro alojamiento</h3>
                     <div className="contenedorImages">
                         {alojamiento.imagenes && alojamiento.imagenes.map((imagen) => (
                             <img key={imagen.idImagen} src={imagen.img} alt={imagen.idImagen} />
@@ -54,12 +86,15 @@ export const AlojamientoDetailContainer = () => {
                     <h4>¿Qué ofrece este lugar?</h4>
                     <div className="contenedorDetalles">
                         <ul className='contenedorServicios'>
-                            {alojamiento.servicios && alojamiento.servicios.map((servicio) => (
-                                <li key={servicio.idServicio}>
-                                    <i className={servicio.icono}></i>
-                                    {servicio.nombre}
-                                </li>
-                            ))}
+                            {servicios && servicios.length > 0 ? (
+                                servicios.map((servicio) => (
+                                    <li key={servicio.idServicio}>
+                                        {servicio.Nombre}
+                                    </li>
+                                ))
+                            ) : (
+                                <p>No hay servicios disponibles para este alojamiento.</p>
+                            )}
                         </ul>
                         <div className='masServicios'>
                             <button className="btn" onClick={openModal}>
@@ -83,20 +118,19 @@ export const AlojamientoDetailContainer = () => {
                             <h4>Características</h4>
                             <p><span>Tipo de alojamiento: </span>{getTipoAlojamientoDescripcion(alojamiento.idTipoAlojamiento)}</p>
                             <p><span>Descripción: </span>{alojamiento.Descripcion}</p>
-                            <p><span>Precio por dia: </span>{alojamiento.PrecioPorDia}</p>
+                            <p><span>Precio por día: </span>{alojamiento.PrecioPorDia}</p>
                             <p><span>Cantidad de dormitorios: </span>{alojamiento.CantidadDormitorios}</p>
-                            <p><span>Cantidad de banios: </span>{alojamiento.CantidadBanios}</p>
+                            <p><span>Cantidad de baños: </span>{alojamiento.CantidadBanios}</p>
                             <p><span>Estado: </span>{alojamiento.Estado}</p>
                         </div>
-                        <button className='btnVolver'>
-                            <NavLink to="/" className='linkAdminAlojamiento'>Volver</NavLink>
-                        </button>
                     </div>
+                    <button className='btnVolver'>
+                        <NavLink to="/" className='linkAdminAlojamiento'>Volver</NavLink>
+                    </button>
                 </div>
             ) : (
                 <p className='cargandoCard'>Buscando ...</p>
             )}
-
         </section>
     );
 };
