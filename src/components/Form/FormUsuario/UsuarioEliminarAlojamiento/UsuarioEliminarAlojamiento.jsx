@@ -15,25 +15,66 @@ export const UsuarioEliminarAlojamiento = () => {
         }
     };
 
+    const eliminarServiciosAsociados = async (idAlojamiento) => {
+        try {
+            const response = await fetch(`http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${idAlojamiento}`, {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                console.error('Error al obtener servicios asociados:', response.statusText);
+                return false;
+            }
+
+            const servicios = await response.json();
+
+            if (!Array.isArray(servicios)) {
+                console.error('La respuesta no es un array:', servicios);
+                return false;
+            }
+
+            for (const servicio of servicios) {
+                const deleteResponse = await fetch(`http://localhost:3001/alojamientosServicios/deleteAlojamientoServicio/${servicio.idAlojamientoServicio}`, {
+                    method: 'DELETE',
+                });
+
+                if (!deleteResponse.ok) {
+                    console.error('Error al eliminar el servicio asociado:', deleteResponse.statusText);
+                    return false;
+                }
+            }
+
+            return true;
+        } catch (error) {
+            console.error('Error al obtener o eliminar servicios asociados:', error);
+            return false;
+        }
+    };
+
     const eliminarAlojamiento = async () => {
         try {
+            const serviciosEliminados = await eliminarServiciosAsociados(alojamientoId);
+            if (!serviciosEliminados) {
+                setAlertMessage('Error al eliminar los servicios asociados.');
+                setAlertType('error');
+                return;
+            }
+
             const response = await fetch(`http://localhost:3001/alojamiento/deleteAlojamiento/${alojamientoId}`, {
                 method: 'DELETE',
             });
 
-            console.log('Response status:', response.status);
-
             if (response.ok) {
-                setAlertMessage('Alojamiento eliminado con éxito.');
+                setAlertMessage('Alojamiento y servicios asociados eliminados con éxito.');
                 setAlertType('success');
             } else {
                 const errorText = await response.text();
                 console.error('Error al eliminar el alojamiento:', errorText);
-                setAlertMessage('Error al eliminar el alojamiento');
+                setAlertMessage('Error al eliminar el alojamiento.');
                 setAlertType('error');
             }
         } catch (error) {
-            console.error('Error: ', error);
+            console.error('Error:', error);
             setAlertMessage('Error al establecer el servicio. Por favor, intente de nuevo.');
             setAlertType('error');
         }
@@ -62,4 +103,4 @@ export const UsuarioEliminarAlojamiento = () => {
             </button>
         </div>
     );
-}
+};
