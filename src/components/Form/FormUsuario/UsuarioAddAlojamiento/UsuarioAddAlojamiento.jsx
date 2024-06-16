@@ -174,6 +174,7 @@ export const UsuarioAddAlojamiento = () => {
                         <option value="Reservado">Reservado</option>
                     </select>
                     <div className='fieldsetServiciosAlojamiento'>
+                        Servicios:
                         {servicios.map(servicio => (
                             <label className='serviciosAlojamientoLabel' key={servicio.idServicio}>
                                 <div className='checkbox'>

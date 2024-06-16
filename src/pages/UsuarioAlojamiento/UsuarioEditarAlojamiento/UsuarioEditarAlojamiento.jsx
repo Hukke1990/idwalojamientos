@@ -12,11 +12,12 @@ export const UsuarioEditarAlojamiento = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
     const { tiposAlojamiento } = TipoAlojamientoDetail();
+    const fetchUrl = "http://localhost:3001"; // Ajusta la URL base según sea necesario
 
     useEffect(() => {
         const fetchAlojamiento = async () => {
             try {
-                const response = await fetch(`http://localhost:3001/alojamiento/getAlojamiento/${id}`);
+                const response = await fetch(`${fetchUrl}/alojamiento/getAlojamiento/${id}`);
                 if (response.ok) {
                     const data = await response.json();
                     setAlojamientoData(data);
@@ -32,7 +33,7 @@ export const UsuarioEditarAlojamiento = () => {
 
         const obtenerServiciosDisponibles = async () => {
             try {
-                const response = await fetch(`http://localhost:3001/servicio/getAllServicios`);
+                const response = await fetch(`${fetchUrl}/servicio/getAllServicios`);
                 if (response.ok) {
                     const data = await response.json();
                     setServiciosDisponibles(data);
@@ -46,7 +47,7 @@ export const UsuarioEditarAlojamiento = () => {
 
         const obtenerServiciosAlojamiento = async () => {
             try {
-                const response = await fetch(`http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${id}`);
+                const response = await fetch(`${fetchUrl}/alojamientosServicios/getAlojamientoServicio/${id}`);
                 if (response.ok) {
                     const data = await response.json();
                     setSelectedServices(data.map(service => service.idServicio));
@@ -88,7 +89,7 @@ export const UsuarioEditarAlojamiento = () => {
         if (id) {
             try {
                 // Actualizar alojamiento
-                const response = await fetch(`http://localhost:3001/alojamiento/putAlojamiento/${id}`, {
+                const response = await fetch(`${fetchUrl}/alojamiento/putAlojamiento/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -102,7 +103,7 @@ export const UsuarioEditarAlojamiento = () => {
 
                 // Obtener servicios asociados inicialmente
                 const initialSelectedServices = await fetch(
-                    `http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${id}`
+                    `${fetchUrl}/alojamientosServicios/getAlojamientoServicio/${id}`
                 ).then((res) => res.json());
 
                 // Guardar los idAlojamientoServicios
@@ -123,7 +124,7 @@ export const UsuarioEditarAlojamiento = () => {
                 // Eliminar las asociaciones de servicios desmarcados (por idAlojamientoServicio)
                 const deleteRequests = servicesToDelete.map((service) =>
                     fetch(
-                        `http://localhost:3001/alojamientosServicios/deleteAlojamientoServicio/${service.idAlojamientoServicio}`,
+                        `${fetchUrl}/alojamientosServicios/deleteAlojamientoServicio/${service.idAlojamientoServicio}`,
                         { method: 'DELETE' }
                     )
                 );
@@ -135,7 +136,7 @@ export const UsuarioEditarAlojamiento = () => {
                         idServicio: parseInt(idServicio),
                     };
                     return fetch(
-                        `http://localhost:3001/alojamientosServicios/createAlojamientoServicio`,
+                        `${fetchUrl}/alojamientosServicios/createAlojamientoServicio`,
                         {
                             method: 'POST',
                             headers: {
@@ -158,7 +159,7 @@ export const UsuarioEditarAlojamiento = () => {
             }
         } else {
             try {
-                const response = await fetch(`http://localhost:3001/alojamiento/createAlojamiento`, {
+                const response = await fetch(`${fetchUrl}/alojamiento/createAlojamiento`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -182,7 +183,7 @@ export const UsuarioEditarAlojamiento = () => {
                     };
 
                     return fetch(
-                        `http://localhost:3001/alojamientosServicios/createAlojamientoServicio`,
+                        `${fetchUrl}/alojamientosServicios/createAlojamientoServicio`,
                         {
                             method: 'POST',
                             headers: {
@@ -241,7 +242,6 @@ export const UsuarioEditarAlojamiento = () => {
                                 onChange={handleInputChange}
                                 className='labelSelect'
                             >
-                                <option value="" disabled>Seleccione un tipo</option>
                                 {tiposAlojamiento.map((tipo) => (
                                     <option key={tipo.idTipoAlojamiento} value={tipo.idTipoAlojamiento}>
                                         {tipo.Descripcion}
@@ -282,25 +282,68 @@ export const UsuarioEditarAlojamiento = () => {
                                 className='inputEditAlojamiento'
                             />
                         </label>
-                        <fieldset className='fieldset'>
-                            <legend>Servicios</legend>
-                            {serviciosDisponibles.map((servicio) => (
-                                <div key={servicio.idServicio}>
-                                    <input
-                                        type="checkbox"
-                                        id={servicio.idServicio}
-                                        name={servicio.idServicio}
-                                        checked={selectedServices.includes(servicio.idServicio)}
-                                        onChange={handleCheckboxChange}
-                                    />
-                                    <label htmlFor={servicio.idServicio}>{servicio.Nombre}</label>
-                                </div>
-                            ))}
-                        </fieldset>
+                        <label>
+                            Cantidad de dormitorios:
+                            <input
+                                type="number"
+                                name="CantidadDormitorios"
+                                placeholder="Cantidad de dormitorios"
+                                value={alojamientoData.CantidadDormitorios}
+                                onChange={handleInputChange}
+                                className='inputEditAlojamiento'
+                            />
+                        </label>
+                        <label>
+                            Cantidad de baños:
+                            <input
+                                type="number"
+                                name="CantidadBanios"
+                                placeholder="Cantidad de baños"
+                                value={alojamientoData.CantidadBanios}
+                                onChange={handleInputChange}
+                                className='inputEditAlojamiento'
+                            />
+                        </label>
+                        <label>
+                            Disponibilidad:
+                            <select
+                                name="Estado"
+                                value={alojamientoData.Estado}
+                                onChange={handleInputChange}
+                                className='labelSelect'
+                            >
+                                <option value="Disponible">Disponible</option>
+                                <option value="Reservado">Reservado</option>
+                            </select>
+                        </label>
+                        <div>
+                            <label>Servicios:</label>
+                            <div className='fieldsetServiciosAlojamiento'>
+                                {serviciosDisponibles.map((servicio) => (
+                                    <div className='serviciosAlojamientoLabel EditarServicio' key={servicio.idServicio}>
+                                        <div className='checkboxEditarServicio'>
+                                            <input
+                                                type="checkbox"
+                                                id={servicio.idServicio}
+                                                name={servicio.idServicio}
+                                                checked={selectedServices.includes(servicio.idServicio)}
+                                                onChange={handleCheckboxChange}
+                                            />
+                                        </div>
+                                        <label htmlFor={servicio.idServicio}><span>{servicio.Nombre}</span></label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </fieldset>
-                    <button type="submit" className='btnEditAlojamiento'>Guardar cambios</button>
+                    <button type="submit" className='btn'>
+                        <span className='span1'></span>
+                        <span className='span2'></span>
+                        <span className='span3'></span>
+                        <span className='span4'></span>
+                        Guardar cambios</button>
                     {alertMessage && <Alert message={alertMessage} type={alertType} />}
-                    <NavLink to="/usuario-alojamientos" className='btnCancelAlojamiento'>Cancelar</NavLink>
+                    <NavLink to="/ListaAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
                 </form>
             ) : (
                 <p>Cargando datos del alojamiento...</p>

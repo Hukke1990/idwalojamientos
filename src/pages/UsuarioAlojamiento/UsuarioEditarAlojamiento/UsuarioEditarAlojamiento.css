@@ -13,3 +13,11 @@
     flex-direction: column;
     width: 300px;
 }
+
+.checkboxEditarServicio {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding-top: 25px;
+}

@@ -117,7 +117,7 @@ li::marker { /* elimina color ::marker de + servicios */
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    max-width: 500px;
+    max-width: 1000px;
     margin-bottom: 20px;
 }
 
