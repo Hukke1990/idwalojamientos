@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { AlojamientoList } from '../AlojamientoList/AlojamientoList'
-import './AlojamientoContenedor.css'
-import { GetAllAlojamientosDetail } from '../../Form/FormUsuario/GetAllAlojamientosDetail/GetAllAlojamientosDetail'
+import React, { useState } from 'react';
+import { AlojamientoList } from '../AlojamientoList/AlojamientoList';
+import './AlojamientoContenedor.css';
+import { GetAllAlojamientosDetail } from '../../Form/FormUsuario/GetAllAlojamientosDetail/GetAllAlojamientosDetail';
 
 export const AlojamientoContenedor = () => {
   const [alojamiento, setAlojamiento] = useState([]);
@@ -23,4 +23,4 @@ export const AlojamientoContenedor = () => {
       }}
     />
   );
-}
+};

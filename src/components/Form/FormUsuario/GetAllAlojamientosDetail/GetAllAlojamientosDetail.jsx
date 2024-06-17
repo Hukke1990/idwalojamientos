@@ -11,13 +11,15 @@ export const GetAllAlojamientosDetail = ({ render }) => {
             if (response.ok) {
                 const data = await response.json();
 
-                // Obtener servicios para cada alojamiento
-                const alojamientosConServicios = await Promise.all(data.map(async alojamiento => {
+                // Obtener servicios y imágenes para cada alojamiento
+                const alojamientosConDetalles = await Promise.all(data.map(async alojamiento => {
                     try {
+                        // Obtener servicios
                         const serviciosResponse = await fetch(`http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${alojamiento.idAlojamiento}`);
+                        let serviciosDetalles = [];
                         if (serviciosResponse.ok) {
                             const servicios = await serviciosResponse.json();
-                            const serviciosDetalles = await Promise.all(
+                            serviciosDetalles = await Promise.all(
                                 servicios.map(async servicio => {
                                     const servicioResponse = await fetch(`http://localhost:3001/servicio/getServicio/${servicio.idServicio}`);
                                     if (servicioResponse.ok) {
@@ -28,18 +30,29 @@ export const GetAllAlojamientosDetail = ({ render }) => {
                                     }
                                 })
                             );
-                            return { ...alojamiento, servicios: serviciosDetalles.filter(servicio => servicio !== null) };
+                            serviciosDetalles = serviciosDetalles.filter(servicio => servicio !== null);
                         } else {
                             console.error('Error al obtener los servicios:', serviciosResponse.statusText);
-                            return { ...alojamiento, servicios: [] };
                         }
+
+                        // Obtener imágenes
+                        const imagenesResponse = await fetch(`http://localhost:3001/imagen/getAllImagenes`);
+                        let imagenes = [];
+                        if (imagenesResponse.ok) {
+                            const imagenesData = await imagenesResponse.json();
+                            imagenes = imagenesData.filter(img => img.idAlojamiento === alojamiento.idAlojamiento);
+                        } else {
+                            console.error('Error al obtener las imágenes:', imagenesResponse.statusText);
+                        }
+
+                        return { ...alojamiento, servicios: serviciosDetalles, imagenes };
                     } catch (error) {
-                        console.error('Error al obtener los servicios:', error);
-                        return { ...alojamiento, servicios: [] };
+                        console.error('Error al obtener los servicios o imágenes:', error);
+                        return { ...alojamiento, servicios: [], imagenes: [] };
                     }
                 }));
 
-                setAlojamientos(alojamientosConServicios);
+                setAlojamientos(alojamientosConDetalles);
                 setAlertMessage('Alojamientos obtenidos.');
                 setAlertType('success');
             } else {

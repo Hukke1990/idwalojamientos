@@ -1,17 +1,19 @@
-import React from 'react'
-import './AlojamientoCard.css'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import './AlojamientoCard.css';
+import { NavLink } from 'react-router-dom';
 
 export const AlojamientoCard = ({ card }) => {
   return (
     <figure className='contenedorCard'>
       <NavLink to={`/idAlojamiento/${card.idAlojamiento}`} className='card'>
-        {/* <Link to={`/idAlojamiento/${card.idAlojamiento}`}><img src={card.imagenCover.img} alt="imagen casa" /></Link> */}
+        {card.imagenes && card.imagenes.length > 0 && (
+          <img src={card.imagenes[0].RutaArchivo} alt="Imagen del alojamiento" />
+        )}
         <h3>{card.Titulo}</h3>
-        <p><span>L<span className='quesi-queno-1'>o</span>cal<span className='quesi-queno-3'>id</span>a<span className='quesi-queno-2'>d</span>: </span>{card.Latitud}, {card.Longitud}</p>
-        <p><span>Dis<span className='quesi-queno-2'>pon</span>ibi<span className='quesi-queno-2'>l</span>idad: </span>{card.Estado}</p>
-        <p><span>Pr<span className='quesi-queno-3'>e</span>cio <span className='quesi-queno-1'>por</span> di<span className='quesi-queno-2'>a</span>: $</span>{card.PrecioPorDia}</p>
+        <p><span>Localidad: </span>{card.Latitud}, {card.Longitud}</p>
+        <p><span>Disponibilidad: </span>{card.Estado}</p>
+        <p><span>Precio por día: $</span>{card.PrecioPorDia}</p>
       </NavLink>
     </figure>
-  )
-}
+  );
+};
