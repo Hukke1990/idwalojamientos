@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './UsuarioAddAlojamiento.css';
 import { TipoAlojamientoDetail } from '../../TipoAlojamientoDetail/TipoAlojamientoDetail';
 import { ServiciosDetail } from '../../FromServicios/ServicioDetail/ServicioDetail';
@@ -10,6 +10,7 @@ export const UsuarioAddAlojamiento = () => {
     const { tiposAlojamiento } = TipoAlojamientoDetail();
     const { servicios } = ServiciosDetail();
     const [selectedServices, setSelectedServices] = useState([]);
+    const [selectedImages, setSelectedImages] = useState([]);
     const [formData, setFormData] = useState({
         Titulo: '',
         Descripcion: '',
@@ -36,6 +37,10 @@ export const UsuarioAddAlojamiento = () => {
         }
     };
 
+    const handleImageChange = (e) => {
+        setSelectedImages([...e.target.files]);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Form Data:', formData);
@@ -55,28 +60,58 @@ export const UsuarioAddAlojamiento = () => {
                 const idAlojamiento = alojamientoData.id;
                 console.log('ID del Alojamiento:', idAlojamiento);
 
-                // Agregar servicios al alojamiento
-                for (const idServicio of selectedServices) {
-                    console.log('Agregando servicio:', idServicio, 'al alojamiento:', idAlojamiento);
-                    const servicioResponse = await fetch('http://localhost:3001/alojamientosServicios/createAlojamientoServicio', {
+                // Agregar servicios al alojamiento en paralelo
+                const servicePromises = selectedServices.map(idServicio =>
+                    fetch('http://localhost:3001/alojamientosServicios/createAlojamientoServicio', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            idAlojamiento: idAlojamiento,  // Utiliza el id del alojamiento creado
+                            idAlojamiento: idAlojamiento,
                             idServicio: idServicio
                         })
+                    })
+                );
+                await Promise.all(servicePromises);
+
+                // Agregar imágenes al alojamiento en paralelo
+                const uploadImageToImgbb = async (image) => {
+                    const formData = new FormData();
+                    formData.append('image', image);
+                    formData.append('key', '971a1f0fa405d96967977102289517a9');
+
+                    const response = await fetch('https://api.imgbb.com/1/upload', {
+                        method: 'POST',
+                        body: formData
                     });
 
-                    if (!servicioResponse.ok) {
-                        throw new Error('Error al agregar el servicio al alojamiento');
-                    } else {
-                        console.log('Servicio agregado correctamente:', idServicio);
+                    if (!response.ok) {
+                        throw new Error('Error al subir la imagen a imgBB');
                     }
-                }
 
-                setAlertMessage('Alojamiento y servicios agregados con éxito.');
+                    const data = await response.json();
+                    return data.data.url;
+                };
+
+                const imageUrls = await Promise.all(selectedImages.map(uploadImageToImgbb));
+
+                const imagePromises = imageUrls.map(imageUrl =>
+                    fetch('http://localhost:3001/imagen/createImagen', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            idAlojamiento: idAlojamiento,
+                            RutaArchivo: imageUrl
+                        })
+                    })
+                );
+
+                await Promise.all(imagePromises);
+
+                setAlertMessage('Alojamiento, servicios e imágenes agregados con éxito.');
                 setAlertType('success');
             } else {
                 const errorData = await alojamientoResponse.json();
@@ -92,7 +127,7 @@ export const UsuarioAddAlojamiento = () => {
     };
 
     if (!tiposAlojamiento || !servicios) {
-        return <div>Cargando...</div>; // Puedes mostrar un spinner de carga o un mensaje aquí
+        return <div>Cargando...</div>;
     }
 
     return (
@@ -169,7 +204,6 @@ export const UsuarioAddAlojamiento = () => {
                         name="Estado"
                         value={formData.Estado}
                         onChange={handleInputChange}>
-                        <option value="">Seleccione un estado</option>
                         <option value="Disponible">Disponible</option>
                         <option value="Reservado">Reservado</option>
                     </select>
@@ -187,6 +221,15 @@ export const UsuarioAddAlojamiento = () => {
                                 <span>{servicio.Nombre}</span>
                             </label>
                         ))}
+                    </div>
+                    <div className='fieldset'>
+                        <legend>Imágenes</legend>
+                        <input
+                            type="file"
+                            name="images"
+                            multiple
+                            onChange={handleImageChange}
+                        />
                     </div>
                 </fieldset>
                 <button
