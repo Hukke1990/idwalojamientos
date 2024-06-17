@@ -222,8 +222,8 @@ export const UsuarioAddAlojamiento = () => {
                             </label>
                         ))}
                     </div>
-                    <div className='fieldset'>
-                        <legend>Imágenes</legend>
+                    <div className='fieldsetServiciosAlojamiento'>
+                        Imagenes:
                         <input
                             type="file"
                             name="images"

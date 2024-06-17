@@ -8,6 +8,7 @@ import './AlojamientoDetailContainer.css';
 export const AlojamientoDetailContainer = () => {
     const [alojamiento, setAlojamiento] = useState(null);
     const [servicios, setServicios] = useState([]);
+    const [imagenes, setImagenes] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const { idAlojamiento } = useParams();
     const { tiposAlojamiento } = TipoAlojamientoDetail();
@@ -56,6 +57,22 @@ export const AlojamientoDetailContainer = () => {
         }
     };
 
+    const obtenerImagenes = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/imagen/getAllImagenes');
+            if (response.ok) {
+                const data = await response.json();
+                const imagenesFiltradas = data.filter(imagen => imagen.idAlojamiento === parseInt(idAlojamiento));
+                setImagenes(imagenesFiltradas);
+                console.log('Imagenes data:', imagenesFiltradas);
+            } else {
+                console.error('Error al obtener las imágenes:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error: ', error);
+        }
+    };
+
     const getTipoAlojamientoDescripcion = (idTipoAlojamiento) => {
         const tipo = tiposAlojamiento.find(tipo => tipo.idTipoAlojamiento === idTipoAlojamiento);
         return tipo ? tipo.Descripcion : 'Desconocido';
@@ -64,6 +81,7 @@ export const AlojamientoDetailContainer = () => {
     useEffect(() => {
         obtenerAlojamiento();
         obtenerServicios();
+        obtenerImagenes();
     }, [idAlojamiento]);
 
     const openModal = () => setModalOpen(true);
@@ -79,8 +97,8 @@ export const AlojamientoDetailContainer = () => {
                     </div>
                     <h3>Conoce nuestro alojamiento</h3>
                     <div className="contenedorImages">
-                        {alojamiento.imagenes && alojamiento.imagenes.map((imagen) => (
-                            <img key={imagen.idImagen} src={imagen.img} alt={imagen.idImagen} />
+                        {imagenes && imagenes.map((imagen) => (
+                            <img key={imagen.idImagen} src={imagen.RutaArchivo} alt={`Imagen ${imagen.idImagen}`} />
                         ))}
                     </div>
                     <h4>¿Qué ofrece este lugar?</h4>
