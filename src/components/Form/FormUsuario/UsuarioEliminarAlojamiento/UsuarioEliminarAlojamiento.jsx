@@ -15,6 +15,51 @@ export const UsuarioEliminarAlojamiento = () => {
         }
     };
 
+    const obtenerImagenesAlojamiento = async (idAlojamiento) => {
+        try {
+            const response = await fetch(`http://localhost:3001/imagen/getAllImagenes`);
+
+            if (!response.ok) {
+                console.error('Error al obtener las imágenes:', response.statusText);
+                return [];
+            }
+
+            const imagenes = await response.json();
+            console.log('Imágenes obtenidas del servidor:', imagenes);
+
+            const idAlojamientoNumber = Number(idAlojamiento);
+            const imagenesFiltradas = imagenes.filter(imagen => {
+                console.log(`Comparando idAlojamiento de la imagen: ${imagen.idAlojamiento} con idAlojamiento proporcionado: ${idAlojamientoNumber}`);
+                return imagen.idAlojamiento === idAlojamientoNumber;
+            });
+
+            console.log('Imágenes filtradas por idAlojamiento:', imagenesFiltradas);
+            return imagenesFiltradas;
+        } catch (error) {
+            console.error('Error al obtener las imágenes:', error);
+            return [];
+        }
+    };
+
+    const eliminarImagen = async (idImagen) => {
+        try {
+            const response = await fetch(`http://localhost:3001/imagen/deleteImagen/${idImagen}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                console.error('Error al eliminar la imagen:', response.statusText);
+                return false;
+            }
+
+            console.log(`Imagen con id ${idImagen} eliminada correctamente.`);
+            return true;
+        } catch (error) {
+            console.error('Error al eliminar la imagen:', error);
+            return false;
+        }
+    };
+
     const eliminarServiciosAsociados = async (idAlojamiento) => {
         try {
             const response = await fetch(`http://localhost:3001/alojamientosServicios/getAlojamientoServicio/${idAlojamiento}`, {
@@ -44,6 +89,7 @@ export const UsuarioEliminarAlojamiento = () => {
                 }
             }
 
+            console.log('Servicios asociados eliminados correctamente.');
             return true;
         } catch (error) {
             console.error('Error al obtener o eliminar servicios asociados:', error);
@@ -53,6 +99,27 @@ export const UsuarioEliminarAlojamiento = () => {
 
     const eliminarAlojamiento = async () => {
         try {
+            // Obtener todas las imágenes asociadas al alojamiento
+            const imagenes = await obtenerImagenesAlojamiento(alojamientoId);
+            console.log('Imágenes obtenidas:', imagenes);
+
+            if (imagenes.length === 0) {
+                setAlertMessage('No se encontraron imágenes asociadas al alojamiento.');
+                setAlertType('warning');
+                return;
+            }
+
+            // Eliminar cada imagen asociada
+            for (const imagen of imagenes) {
+                const eliminacionImagen = await eliminarImagen(imagen.idImagen);
+                if (!eliminacionImagen) {
+                    setAlertMessage('Error al eliminar las imágenes asociadas.');
+                    setAlertType('error');
+                    return;
+                }
+            }
+
+            // Luego de eliminar las imágenes, eliminar los servicios asociados
             const serviciosEliminados = await eliminarServiciosAsociados(alojamientoId);
             if (!serviciosEliminados) {
                 setAlertMessage('Error al eliminar los servicios asociados.');
@@ -60,13 +127,15 @@ export const UsuarioEliminarAlojamiento = () => {
                 return;
             }
 
+            // Finalmente, eliminar el alojamiento
             const response = await fetch(`http://localhost:3001/alojamiento/deleteAlojamiento/${alojamientoId}`, {
                 method: 'DELETE',
             });
 
             if (response.ok) {
-                setAlertMessage('Alojamiento y servicios asociados eliminados con éxito.');
+                setAlertMessage('Alojamiento y todos los datos asociados eliminados con éxito.');
                 setAlertType('success');
+                console.log(`Alojamiento con id ${alojamientoId} eliminado correctamente.`);
             } else {
                 const errorText = await response.text();
                 console.error('Error al eliminar el alojamiento:', errorText);
