@@ -229,6 +229,7 @@ export const UsuarioAddAlojamiento = () => {
                             name="images"
                             multiple
                             onChange={handleImageChange}
+                            required
                         />
                     </div>
                 </fieldset>

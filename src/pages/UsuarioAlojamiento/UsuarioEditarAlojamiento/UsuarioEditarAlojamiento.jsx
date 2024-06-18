@@ -9,6 +9,7 @@ export const UsuarioEditarAlojamiento = () => {
     const [alojamientoData, setAlojamientoData] = useState(null);
     const [serviciosDisponibles, setServiciosDisponibles] = useState([]);
     const [selectedServices, setSelectedServices] = useState([]);
+    const [imagenes, setImagenes] = useState([]); // Estado para las imágenes
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
     const { tiposAlojamiento } = TipoAlojamientoDetail();
@@ -59,9 +60,26 @@ export const UsuarioEditarAlojamiento = () => {
             }
         };
 
+        const obtenerImagenesAlojamiento = async () => {
+            try {
+                const response = await fetch(`${fetchUrl}/imagen/getAllImagenes`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const imagenesAlojamiento = data.filter(img => img.idAlojamiento === parseInt(id));
+                    setImagenes(imagenesAlojamiento);
+                    console.log('Imágenes obtenidas:', imagenesAlojamiento);
+                } else {
+                    throw new Error('Error al obtener las imágenes');
+                }
+            } catch (error) {
+                console.error('Error al obtener las imágenes:', error);
+            }
+        };
+
         fetchAlojamiento();
         obtenerServiciosDisponibles();
         obtenerServiciosAlojamiento();
+        obtenerImagenesAlojamiento();
     }, [id]);
 
     const handleInputChange = (e) => {
@@ -83,6 +101,36 @@ export const UsuarioEditarAlojamiento = () => {
         }
     };
 
+    const handleImageChange = (e, imageId) => {
+        const file = e.target.files[0];
+        if (file) {
+            console.log(`Archivo seleccionado para la imagen ${imageId}:`, file);
+            const updatedImages = imagenes.map(img =>
+                img.id === imageId ? { ...img, file } : img
+            );
+            setImagenes(updatedImages);
+        }
+    };
+
+    const handleImageUpload = async (file) => {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        console.log('Subiendo imagen:', file);
+        const response = await fetch(`https://api.imgbb.com/1/upload?key=971a1f0fa405d96967977102289517a9`, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Imagen subida con éxito:', data.data.url);
+            return data.data.url;
+        } else {
+            throw new Error('Error al subir la imagen');
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -101,59 +149,49 @@ export const UsuarioEditarAlojamiento = () => {
                     throw new Error('Error al actualizar el alojamiento');
                 }
 
-                // Obtener servicios asociados inicialmente
-                const initialSelectedServices = await fetch(
-                    `${fetchUrl}/alojamientosServicios/getAlojamientoServicio/${id}`
-                ).then((res) => res.json());
+                console.log('Alojamiento actualizado con éxito');
 
-                // Guardar los idAlojamientoServicios
-                const initialServiceIds = initialSelectedServices.map(
-                    (service) => service.idServicio
-                );
+                // Actualizar servicios
+                const initialSelectedServices = await fetch(`${fetchUrl}/alojamientosServicios/getAlojamientoServicio/${id}`).then(res => res.json());
+                const initialServiceIds = initialSelectedServices.map(service => service.idServicio);
+                const servicesToDelete = initialSelectedServices.filter(service => !selectedServices.includes(service.idServicio));
+                const servicesToAdd = selectedServices.filter(serviceId => !initialServiceIds.includes(serviceId));
 
-                // Encontrar los servicios que se han desmarcado (eliminar)
-                const servicesToDelete = initialSelectedServices.filter(
-                    (service) => !selectedServices.includes(service.idServicio)
-                );
-
-                // Encontrar los nuevos servicios que se han marcado (agregar)
-                const servicesToAdd = selectedServices.filter(
-                    (serviceId) => !initialServiceIds.includes(serviceId)
-                );
-
-                // Eliminar las asociaciones de servicios desmarcados (por idAlojamientoServicio)
-                const deleteRequests = servicesToDelete.map((service) =>
-                    fetch(
-                        `${fetchUrl}/alojamientosServicios/deleteAlojamientoServicio/${service.idAlojamientoServicio}`,
-                        { method: 'DELETE' }
-                    )
-                );
-
-                // Crear nuevas asociaciones de servicios marcados (post)
-                const addRequests = servicesToAdd.map((idServicio) => {
-                    const servicioSeleccionado = {
-                        idAlojamiento: parseInt(id),
-                        idServicio: parseInt(idServicio),
-                    };
-                    return fetch(
-                        `${fetchUrl}/alojamientosServicios/createAlojamientoServicio`,
-                        {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(servicioSeleccionado),
-                        }
-                    );
+                const deleteRequests = servicesToDelete.map(service => fetch(`${fetchUrl}/alojamientosServicios/deleteAlojamientoServicio/${service.idAlojamientoServicio}`, { method: 'DELETE' }));
+                const addRequests = servicesToAdd.map(idServicio => {
+                    const servicioSeleccionado = { idAlojamiento: parseInt(id), idServicio: parseInt(idServicio) };
+                    return fetch(`${fetchUrl}/alojamientosServicios/createAlojamientoServicio`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(servicioSeleccionado),
+                    });
                 });
 
-                // Esperar a que todas las solicitudes se completen
                 await Promise.all([...deleteRequests, ...addRequests]);
 
-                setAlertMessage('Alojamiento y servicios actualizados con éxito');
+                console.log('Servicios actualizados con éxito');
+
+                // Actualizar imágenes
+                const imageUploadRequests = imagenes.map(async img => {
+                    if (img.file) {
+                        console.log(`---------------->`, img.file);
+                        const imageUrl = await handleImageUpload(img.file);
+                        console.log(`Actualizando imagen ${img.idImagen} con URL:`, imageUrl);
+                        return fetch(`${fetchUrl}/imagen/updateImagen/${img.idImagen}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ RutaArchivo: imageUrl, idAlojamiento: parseInt(id) }),
+                        });
+                    }
+                });
+
+                await Promise.all(imageUploadRequests);
+
+                console.log('Imágenes actualizadas con éxito');
+                setAlertMessage('Alojamiento, servicios e imágenes actualizados con éxito');
                 setAlertType('success');
             } catch (error) {
-                setAlertMessage('Ocurrió un error al actualizar el alojamiento y servicios');
+                setAlertMessage('Ocurrió un error al actualizar el alojamiento, servicios o imágenes');
                 setAlertType('error');
                 console.error("Hubo un error al realizar la solicitud PUT:", error);
             }
@@ -161,9 +199,7 @@ export const UsuarioEditarAlojamiento = () => {
             try {
                 const response = await fetch(`${fetchUrl}/alojamiento/createAlojamiento`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(alojamientoData),
                 });
 
@@ -172,30 +208,22 @@ export const UsuarioEditarAlojamiento = () => {
                 }
 
                 const res = await response.json();
-                // El ID del alojamiento se devuelve en la respuesta
                 const alojamientoId = res.id;
 
-                // Crear servicios asociados
-                const requests = selectedServices.map((idServicio) => {
-                    const servicioSeleccionado = {
-                        idAlojamiento: parseInt(alojamientoId),
-                        idServicio: parseInt(idServicio),
-                    };
+                console.log('Alojamiento creado con éxito:', alojamientoId);
 
-                    return fetch(
-                        `${fetchUrl}/alojamientosServicios/createAlojamientoServicio`,
-                        {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(servicioSeleccionado),
-                        }
-                    );
+                const serviceRequests = selectedServices.map(idServicio => {
+                    const servicioSeleccionado = { idAlojamiento: parseInt(alojamientoId), idServicio: parseInt(idServicio) };
+                    return fetch(`${fetchUrl}/alojamientosServicios/createAlojamientoServicio`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(servicioSeleccionado),
+                    });
                 });
 
-                await Promise.all(requests);
+                await Promise.all(serviceRequests);
 
+                console.log('Servicios creados con éxito');
                 setAlertMessage('Alojamiento y servicios creados con éxito');
                 setAlertType('success');
             } catch (error) {
@@ -331,6 +359,20 @@ export const UsuarioEditarAlojamiento = () => {
                                             />
                                         </div>
                                         <label htmlFor={servicio.idServicio}><span>{servicio.Nombre}</span></label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset className='fieldset'>
+                        <legend>Imagenes</legend>
+                        <div>
+                            <label>Imágenes:</label>
+                            <div className='fieldsetImagenesAlojamiento'>
+                                {imagenes.map((imagen) => (
+                                    <div key={imagen.id} className='imagenAlojamiento'>
+                                        <img src={imagen.RutaArchivo} alt={`Imagen ${imagen.idImagen}`} className='imagenEditar' />
+                                        <input type="file" onChange={(e) => handleImageChange(e, imagen.id)} />
                                     </div>
                                 ))}
                             </div>
