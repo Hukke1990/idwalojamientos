@@ -1,12 +1,11 @@
-import React from 'react'
-import { AlojamientoCard } from '../AlojamientoCard/AlojamientoCard'
+import React from 'react';
+import { AlojamientoCard } from '../AlojamientoCard/AlojamientoCard';
 
 export const AlojamientoList = ({ alojamientoInfo }) => {
-    console.log(alojamientoInfo, "componenete alojaminetoLost")
+    console.log(alojamientoInfo, "componente AlojamientoList");
     return (
         <>
             {alojamientoInfo.map(alojamiento => <AlojamientoCard key={alojamiento.idAlojamiento} card={alojamiento} />)}
         </>
-    )
-}
-
+    );
+};

@@ -1,0 +1,26 @@
+.contenedorDeleteAlojamientos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.contenedorDeleteAlojamientos h2 {
+    font-family: 'Pacifico';
+    text-align: center;
+    font-weight: 100;
+    font-size: 50px;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
+    white-space: wrap;
+}
+
+.contenedorGetAlojamientosDelete ul li {
+    padding-top: 10px;
+    border-bottom: #ee0cd08a 1px solid;
+}
+
+.contenedorGetAlojamientosDelete span {
+    margin-left: 0px;
+}

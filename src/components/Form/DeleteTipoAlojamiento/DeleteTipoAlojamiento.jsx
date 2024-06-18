@@ -24,12 +24,12 @@ export const DeleteTipoAlojamiento = () => {
             console.log('Response status:', response.status);
 
             if (response.ok) {
-                setAlertMessage('Alojamiento eliminado con éxito.');
+                setAlertMessage('Tipo de Alojamiento eliminado con éxito.');
                 setAlertType('success');
             } else {
                 const errorText = await response.text();
-                console.error('Error al eliminar el alojamiento:', errorText);
-                setAlertMessage('Error al eliminar el alojamiento');
+                console.error('Error al eliminar el tipo de alojamiento:', errorText);
+                setAlertMessage('Error al eliminar el tipo de alojamiento');
                 setAlertType('error');
             }
         } catch (error) {
@@ -58,7 +58,7 @@ export const DeleteTipoAlojamiento = () => {
                 <span className='span2'></span>
                 <span className='span3'></span>
                 <span className='span4'></span>
-                Eliminar Alojamiento
+                Eliminar Tipo Alojamiento
             </button>
         </div>
     );

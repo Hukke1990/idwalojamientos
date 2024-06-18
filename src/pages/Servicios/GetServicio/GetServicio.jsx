@@ -1,0 +1,74 @@
+import React, { useState } from 'react';
+import './GetServicio.css';
+import { NavLink } from 'react-router-dom';
+import { Alert } from '../../../components/Alert/Alert';
+
+export const GetServicio = () => {
+    const [servicioId, setServicioId] = useState('');
+    const [servicioData, setServicioData] = useState(null);
+    const [alertMessage, setAlertMessage] = useState('');
+    const [alertType, setAlertType] = useState('');
+
+    const handleInputChange = (e) => {
+        setServicioId(e.target.value);
+        if (alertMessage) {
+            setAlertMessage('');
+            setAlertType('');
+        }
+    };
+
+    const obtenerServicio = async () => {
+        try {
+            const response = await fetch(`http://localhost:3001/servicio/getServicio/${servicioId}`);
+            if (response.ok) {
+                const data = await response.json();
+                setServicioData(data);
+                setAlertMessage('Alojamiento obtenido con éxito.');
+                setAlertType('success');
+            } else {
+                console.error('Error al obtener el alojamiento');
+                setAlertMessage('Error al obtener el alojamiento.');
+                setAlertType('error');
+            }
+        } catch (error) {
+            console.error('Error: ', error);
+            setAlertMessage('Error al establecer el servicio. Por favor, intente de nuevo.');
+            setAlertType('error');
+        }
+    }
+
+    return (
+        <div className='contenedorGetTipoAlojamientos'>
+            <h2>Obtener Servicio por ID</h2>
+            <fieldset className='fieldset'>
+                <legend>Buscar</legend>
+                <input
+                    type="text"
+                    value={servicioId}
+                    onChange={handleInputChange}
+                    placeholder="Ingrese el ID del servicio"
+                    className='inputGetAlojamiento'
+                />
+            </fieldset>
+            {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
+
+            <button className='btn btnGetAlojamiento' onClick={obtenerServicio}>
+                <span className='span1'></span>
+                <span className='span2'></span>
+                <span className='span3'></span>
+                <span className='span4'></span>
+                Obtener Servicio
+            </button>
+            {servicioData && (
+                <div className='contenedorAlojamientoInfo'>
+                    <h3>Información del Alojamiento</h3>
+                    <p>ID: <span>{servicioData.idServicio}</span></p>
+                    <p>Descripción: <span>{servicioData.Nombre}</span></p>
+                </div>
+            )}
+            <button className='btnVolver'>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
+            </button>
+        </div>
+    );
+}

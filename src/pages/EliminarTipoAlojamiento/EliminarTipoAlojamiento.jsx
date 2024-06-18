@@ -7,7 +7,7 @@ import { GetAllTiposAlojamiento } from '../../components/Form/GetAllTiposAlojami
 export const EliminarTipoAlojamiento = () => {
     return (
         <div className='contenedorEliminarAlojamiento'>
-            <h2>Eliminar Alojamiento por ID</h2>
+            <h2>Eliminar Tipo Alojamiento por ID</h2>
             <GetAllTiposAlojamiento />
             <DeleteTipoAlojamiento />
             <button className='btnVolver'>

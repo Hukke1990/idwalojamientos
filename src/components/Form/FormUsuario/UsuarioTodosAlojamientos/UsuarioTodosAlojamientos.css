@@ -15,8 +15,19 @@
     color: #ffffff;
 }
 
+.contenedorGetAlojamientos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 250px;
+}
+
 .contenedorGetAlojamientos ul li {
     border-bottom: #ee0cd093 1px solid;
+}
+
+.contenedorGetAlojamientos .servicios {
+    border-bottom: none;
 }
 
 .label {
@@ -36,4 +47,24 @@
 
 .estadoReservado {
     color: #ff0000;
+}
+
+/* FILTRO ALOJAMIENTOS */
+
+.contenedorFiltrosAlojamiento {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contenedorFiltrosAlojamiento input, select {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow:#ee0cd0 0px 0px 15px;
 }

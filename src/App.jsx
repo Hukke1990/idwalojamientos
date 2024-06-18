@@ -17,6 +17,15 @@ import { EliminarTipoAlojamiento } from "./pages/EliminarTipoAlojamiento/Elimina
 import { EditarTipoAlojamiento } from "./pages/EditarTipoAlojamiento/EditarTipoAlojamiento";
 import { UsuarioAgregarAlojamiento } from "./pages/UsuarioAlojamiento/AgregarAlojamiento/UsuarioAgregarAlojamiento";
 import { TodosAlojamientos } from "./pages/UsuarioAlojamiento/TodosAlojamientos/TodosAlojamientos";
+import { GetAlojamientoId } from "./pages/UsuarioAlojamiento/GetAlojamientoId/GetAlojamientoId";
+import { ListaAlojamientos } from "./pages/UsuarioAlojamiento/ListaAlojamientos/ListaAlojamientos";
+import { UsuarioEditarAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioEditarAlojamiento/UsuarioEditarAlojamiento"; // Importa el componente
+import { UsuarioDeleteAlojamiento } from "./pages/UsuarioAlojamiento/UsuarioDeleteAlojamiento/UsuarioDeleteAlojamiento";
+import { AgregarServicio } from "./pages/Servicios/AgregarServicio/AgregarServicio";
+import { AllServicios } from "./pages/Servicios/AllServicios/AllServicios";
+import { GetServicio } from "./pages/Servicios/GetServicio/GetServicio";
+import { EditarServicio } from "./pages/Servicios/EditarServicio/EditarServicio";
+import { EliminarServicio } from "./pages/Servicios/EliminarServicio/EliminarServicio";
 
 function App() {
   return (
@@ -39,6 +48,15 @@ function App() {
           <Route path="/EditarTipoAlojamiento" element={<EditarTipoAlojamiento />} />
           <Route path="/UsuarioAgregarAlojamiento" element={<UsuarioAgregarAlojamiento />} />
           <Route path="/TodosAlojamientos" element={<TodosAlojamientos />} />
+          <Route path="/GetAlojamientoId" element={<GetAlojamientoId />} />
+          <Route path="/ListaAlojamientos" element={<ListaAlojamientos />} />
+          <Route path="/UsuarioEditarAlojamiento/:id" element={<UsuarioEditarAlojamiento />} />
+          <Route path="/UsuarioDeleteAlojamiento" element={<UsuarioDeleteAlojamiento />} />
+          <Route path="/AgregarServicio" element={<AgregarServicio />} />
+          <Route path="/AllServicios" element={<AllServicios />} />
+          <Route path="/GetServicio" element={<GetServicio />} />
+          <Route path="/EditarServicio" element={<EditarServicio />} />
+          <Route path="/EliminarServicio" element={<EliminarServicio />} />
           <Route path="Login" element={<AlojamientoContenedor />} />
         </Routes>
 

@@ -23,7 +23,7 @@ export const EditarTipoAlojamiento = () => {
         }
     };
 
-    const editarAlojamiento = async () => {
+    const editarTipoAlojamiento = async () => {
         try {
             const response = await fetch(`http://localhost:3001/tiposAlojamiento/putTipoAlojamiento/${alojamientoId}`, {
                 method: 'PUT',
@@ -39,16 +39,16 @@ export const EditarTipoAlojamiento = () => {
                 const result = await response.json();
                 console.log('Result:', result);
                 if (result.success) {
-                    setAlertMessage('Alojamiento actualizado con éxito.');
+                    setAlertMessage('Tipo alojamiento actualizado con éxito.');
                     setAlertType('success');
                 } else {
-                    setAlertMessage(result.message || 'Error al actualizar el alojamiento.');
+                    setAlertMessage(result.message || 'Error al actualizar el tipo alojamiento.');
                     setAlertType('error');
                 }
             } else {
                 const errorText = await response.text();
-                console.error('Error al actualizar el alojamiento:', errorText);
-                setAlertMessage(`Error al actualizar el alojamiento`);
+                console.error('Error al actualizar el tipo alojamiento:', errorText);
+                setAlertMessage(`Error al actualizar el tipo alojamiento`);
                 setAlertType('error');
             }
         } catch (error) {
@@ -61,7 +61,7 @@ export const EditarTipoAlojamiento = () => {
 
     return (
         <div className='contenedorEditAlojamiento'>
-            <h2>Editar Alojamiento</h2>
+            <h2>Editar Tipo Alojamiento</h2>
             <div className='moduloAllTipoAlojamiento'>
                 <GetAllTiposAlojamiento />
             </div>
@@ -72,7 +72,7 @@ export const EditarTipoAlojamiento = () => {
                     name="alojamientoId"
                     value={alojamientoId}
                     onChange={handleInputChange}
-                    placeholder="Ingrese el ID del alojamiento"
+                    placeholder="Ingrese el ID del tipo alojamiento"
                     className='inputEditAlojamiento'
                 />
                 <input
@@ -86,12 +86,12 @@ export const EditarTipoAlojamiento = () => {
             </fieldset>
             {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
 
-            <button className='btn btnEditAlojamiento' onClick={editarAlojamiento}>
+            <button className='btn btnEditAlojamiento' onClick={editarTipoAlojamiento}>
                 <span className='span1'></span>
                 <span className='span2'></span>
                 <span className='span3'></span>
                 <span className='span4'></span>
-                Editar Alojamiento
+                Editar Tipo Alojamiento
             </button>
             <button className='btnVolver'>
                 <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>

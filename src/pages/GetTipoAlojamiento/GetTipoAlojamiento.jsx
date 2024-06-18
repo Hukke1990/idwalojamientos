@@ -11,7 +11,6 @@ export const GetTipoAlojamiento = () => {
 
     const handleInputChange = (e) => {
         setAlojamientoId(e.target.value);
-        // Borra el mensaje de alerta al escribir en el input
         if (alertMessage) {
             setAlertMessage('');
             setAlertType('');
@@ -40,7 +39,7 @@ export const GetTipoAlojamiento = () => {
 
     return (
         <div className='contenedorGetTipoAlojamientos'>
-            <h2>Obtener Alojamiento por ID</h2>
+            <h2>Obtener Tipo Alojamiento por ID</h2>
             <fieldset className='fieldset'>
                 <legend>Buscar</legend>
                 <input
@@ -58,13 +57,8 @@ export const GetTipoAlojamiento = () => {
                 <span className='span2'></span>
                 <span className='span3'></span>
                 <span className='span4'></span>
-                Obtener Alojamiento
+                Obtener Tipo Alojamiento
             </button>
-
-            <button className='btnVolver'>
-                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
-            </button>
-
             {alojamientoData && (
                 <div className='contenedorAlojamientoInfo'>
                     <h3>Información del Alojamiento</h3>
@@ -72,8 +66,9 @@ export const GetTipoAlojamiento = () => {
                     <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
                 </div>
             )}
+            <button className='btnVolver'>
+                <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
+            </button>
         </div>
     );
 }
-
-export default GetTipoAlojamiento;
