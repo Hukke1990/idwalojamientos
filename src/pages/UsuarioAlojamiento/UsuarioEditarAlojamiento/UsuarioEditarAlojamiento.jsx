@@ -106,7 +106,7 @@ export const UsuarioEditarAlojamiento = () => {
         if (file) {
             console.log(`Archivo seleccionado para la imagen ${imageId}:`, file);
             const updatedImages = imagenes.map(img =>
-                img.id === imageId ? { ...img, file } : img
+                img.idImagen === imageId ? { ...img, file } : img
             );
             setImagenes(updatedImages);
         }
@@ -370,9 +370,9 @@ export const UsuarioEditarAlojamiento = () => {
                             <label>Imágenes:</label>
                             <div className='fieldsetImagenesAlojamiento'>
                                 {imagenes.map((imagen) => (
-                                    <div key={imagen.id} className='imagenAlojamiento'>
+                                    <div key={imagen.idImagen} className='imagenAlojamiento'>
                                         <img src={imagen.RutaArchivo} alt={`Imagen ${imagen.idImagen}`} className='imagenEditar' />
-                                        <input type="file" onChange={(e) => handleImageChange(e, imagen.id)} />
+                                        <input type="file" onChange={(e) => handleImageChange(e, imagen.idImagen)} />
                                     </div>
                                 ))}
                             </div>
