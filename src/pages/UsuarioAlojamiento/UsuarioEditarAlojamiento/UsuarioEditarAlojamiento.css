@@ -21,3 +21,22 @@
     height: 20px;
     padding-top: 25px;
 }
+
+.contenedorImagenesEditar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.imagenEditar {
+    height: 90px;
+    max-width: 120px;    
+}
+
+.inputEditImagenAlojamiento {
+    background-color: #ee0cd0;
+    box-shadow: #ee0cd0 0px 0px 5px, #ee0cd0 0px 0px 5px;
+}
