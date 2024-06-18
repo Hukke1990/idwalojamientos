@@ -60,7 +60,7 @@ export const UsuarioAddAlojamiento = () => {
                 const idAlojamiento = alojamientoData.id;
                 console.log('ID del Alojamiento:', idAlojamiento);
 
-                // Agregar servicios al alojamiento en paralelo
+                // Agregar servicios al alojamiento
                 const servicePromises = selectedServices.map(idServicio =>
                     fetch('http://localhost:3001/alojamientosServicios/createAlojamientoServicio', {
                         method: 'POST',
@@ -75,7 +75,7 @@ export const UsuarioAddAlojamiento = () => {
                 );
                 await Promise.all(servicePromises);
 
-                // Agregar imágenes al alojamiento en paralelo
+                // Agregar imágenes al alojamiento
                 const uploadImageToImgbb = async (image) => {
                     const formData = new FormData();
                     formData.append('image', image);
