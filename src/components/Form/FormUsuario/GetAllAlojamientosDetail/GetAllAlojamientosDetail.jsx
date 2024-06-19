@@ -11,7 +11,7 @@ export const GetAllAlojamientosDetail = ({ render }) => {
             if (response.ok) {
                 const data = await response.json();
 
-                // Obtener servicios y imágenes para cada alojamiento
+                // Obtener servicios, imágenes y tipo de alojamiento para cada alojamiento
                 const alojamientosConDetalles = await Promise.all(data.map(async alojamiento => {
                     try {
                         // Obtener servicios
@@ -45,10 +45,19 @@ export const GetAllAlojamientosDetail = ({ render }) => {
                             console.error('Error al obtener las imágenes:', imagenesResponse.statusText);
                         }
 
-                        return { ...alojamiento, servicios: serviciosDetalles, imagenes };
+                        // Obtener tipo de alojamiento
+                        const tipoAlojamientoResponse = await fetch(`http://localhost:3001/tiposAlojamiento/getTipoAlojamiento/${alojamiento.idTipoAlojamiento}`);
+                        let tipoAlojamiento = null;
+                        if (tipoAlojamientoResponse.ok) {
+                            tipoAlojamiento = await tipoAlojamientoResponse.json();
+                        } else {
+                            console.error('Error al obtener el tipo de alojamiento:', tipoAlojamientoResponse.statusText);
+                        }
+
+                        return { ...alojamiento, servicios: serviciosDetalles, imagenes, tipoAlojamiento };
                     } catch (error) {
-                        console.error('Error al obtener los servicios o imágenes:', error);
-                        return { ...alojamiento, servicios: [], imagenes: [] };
+                        console.error('Error al obtener los servicios, imágenes o tipo de alojamiento:', error);
+                        return { ...alojamiento, servicios: [], imagenes: [], tipoAlojamiento: null };
                     }
                 }));
 
