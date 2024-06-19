@@ -9,11 +9,12 @@ export const UsuarioEditarAlojamiento = () => {
     const [alojamientoData, setAlojamientoData] = useState(null);
     const [serviciosDisponibles, setServiciosDisponibles] = useState([]);
     const [selectedServices, setSelectedServices] = useState([]);
-    const [imagenes, setImagenes] = useState([]); // Estado para las imágenes
+    const [imagenes, setImagenes] = useState([]);
+    const [newImages, setNewImages] = useState([]);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
     const { tiposAlojamiento } = TipoAlojamientoDetail();
-    const fetchUrl = "http://localhost:3001"; // Ajusta la URL base según sea necesario
+    const fetchUrl = "http://localhost:3001";
 
     useEffect(() => {
         const fetchAlojamiento = async () => {
@@ -67,7 +68,6 @@ export const UsuarioEditarAlojamiento = () => {
                     const data = await response.json();
                     const imagenesAlojamiento = data.filter(img => img.idAlojamiento === parseInt(id));
                     setImagenes(imagenesAlojamiento);
-                    console.log('Imágenes obtenidas:', imagenesAlojamiento);
                 } else {
                     throw new Error('Error al obtener las imágenes');
                 }
@@ -104,7 +104,6 @@ export const UsuarioEditarAlojamiento = () => {
     const handleImageChange = (e, imageId) => {
         const file = e.target.files[0];
         if (file) {
-            console.log(`Archivo seleccionado para la imagen ${imageId}:`, file);
             const updatedImages = imagenes.map(img =>
                 img.idImagen === imageId ? { ...img, file } : img
             );
@@ -112,11 +111,15 @@ export const UsuarioEditarAlojamiento = () => {
         }
     };
 
+    const handleNewImagesChange = (e) => {
+        const files = Array.from(e.target.files);
+        setNewImages(files);
+    };
+
     const handleImageUpload = async (file) => {
         const formData = new FormData();
         formData.append('image', file);
 
-        console.log('Subiendo imagen:', file);
         const response = await fetch(`https://api.imgbb.com/1/upload?key=971a1f0fa405d96967977102289517a9`, {
             method: 'POST',
             body: formData,
@@ -124,10 +127,26 @@ export const UsuarioEditarAlojamiento = () => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Imagen subida con éxito:', data.data.url);
             return data.data.url;
         } else {
             throw new Error('Error al subir la imagen');
+        }
+    };
+
+    const handleDeleteImage = async (imageId) => {
+        try {
+            const response = await fetch(`${fetchUrl}/imagen/deleteImagen/${imageId}`, { method: 'DELETE' });
+            if (response.ok) {
+                setImagenes(imagenes.filter(img => img.idImagen !== imageId));
+                setAlertMessage('Imagen eliminada con éxito');
+                setAlertType('success');
+            } else {
+                throw new Error('Error al eliminar la imagen');
+            }
+        } catch (error) {
+            setAlertMessage('Ocurrió un error al eliminar la imagen');
+            setAlertType('error');
+            console.error("Hubo un error al eliminar la imagen:", error);
         }
     };
 
@@ -136,7 +155,6 @@ export const UsuarioEditarAlojamiento = () => {
 
         if (id) {
             try {
-                // Actualizar alojamiento
                 const response = await fetch(`${fetchUrl}/alojamiento/putAlojamiento/${id}`, {
                     method: 'PUT',
                     headers: {
@@ -149,9 +167,6 @@ export const UsuarioEditarAlojamiento = () => {
                     throw new Error('Error al actualizar el alojamiento');
                 }
 
-                console.log('Alojamiento actualizado con éxito');
-
-                // Actualizar servicios
                 const initialSelectedServices = await fetch(`${fetchUrl}/alojamientosServicios/getAlojamientoServicio/${id}`).then(res => res.json());
                 const initialServiceIds = initialSelectedServices.map(service => service.idServicio);
                 const servicesToDelete = initialSelectedServices.filter(service => !selectedServices.includes(service.idServicio));
@@ -169,14 +184,9 @@ export const UsuarioEditarAlojamiento = () => {
 
                 await Promise.all([...deleteRequests, ...addRequests]);
 
-                console.log('Servicios actualizados con éxito');
-
-                // Actualizar imágenes
                 const imageUploadRequests = imagenes.map(async img => {
                     if (img.file) {
-                        console.log(`---------------->`, img.file);
                         const imageUrl = await handleImageUpload(img.file);
-                        console.log(`Actualizando imagen ${img.idImagen} con URL:`, imageUrl);
                         return fetch(`${fetchUrl}/imagen/updateImagen/${img.idImagen}`, {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
@@ -187,7 +197,16 @@ export const UsuarioEditarAlojamiento = () => {
 
                 await Promise.all(imageUploadRequests);
 
-                console.log('Imágenes actualizadas con éxito');
+                if (newImages.length > 0) {
+                    const newImageUrls = await Promise.all(newImages.map(img => handleImageUpload(img)));
+                    const newImageRequests = newImageUrls.map(url => fetch(`${fetchUrl}/imagen/createImagen`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ RutaArchivo: url, idAlojamiento: parseInt(id) }),
+                    }));
+                    await Promise.all(newImageRequests);
+                }
+
                 setAlertMessage('Alojamiento, servicios e imágenes actualizados con éxito');
                 setAlertType('success');
             } catch (error) {
@@ -210,8 +229,6 @@ export const UsuarioEditarAlojamiento = () => {
                 const res = await response.json();
                 const alojamientoId = res.id;
 
-                console.log('Alojamiento creado con éxito:', alojamientoId);
-
                 const serviceRequests = selectedServices.map(idServicio => {
                     const servicioSeleccionado = { idAlojamiento: parseInt(alojamientoId), idServicio: parseInt(idServicio) };
                     return fetch(`${fetchUrl}/alojamientosServicios/createAlojamientoServicio`, {
@@ -223,13 +240,35 @@ export const UsuarioEditarAlojamiento = () => {
 
                 await Promise.all(serviceRequests);
 
-                console.log('Servicios creados con éxito');
-                setAlertMessage('Alojamiento y servicios creados con éxito');
+                const imageUploadRequests = imagenes.map(async img => {
+                    if (img.file) {
+                        const imageUrl = await handleImageUpload(img.file);
+                        return fetch(`${fetchUrl}/imagen/createImagen`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ RutaArchivo: imageUrl, idAlojamiento: parseInt(alojamientoId) }),
+                        });
+                    }
+                });
+
+                await Promise.all(imageUploadRequests);
+
+                if (newImages.length > 0) {
+                    const newImageUrls = await Promise.all(newImages.map(img => handleImageUpload(img)));
+                    const newImageRequests = newImageUrls.map(url => fetch(`${fetchUrl}/imagen/createImagen`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ RutaArchivo: url, idAlojamiento: parseInt(alojamientoId) }),
+                    }));
+                    await Promise.all(newImageRequests);
+                }
+
+                setAlertMessage('Alojamiento, servicios e imágenes creados con éxito');
                 setAlertType('success');
             } catch (error) {
-                setAlertMessage('Ocurrió un error al crear el alojamiento y servicios');
+                setAlertMessage('Ocurrió un error al crear el alojamiento, servicios o imágenes');
                 setAlertType('error');
-                console.error("Hubo un error:", error);
+                console.error("Hubo un error al realizar la solicitud POST:", error);
             }
         }
     };
@@ -365,17 +404,22 @@ export const UsuarioEditarAlojamiento = () => {
                         </div>
                     </fieldset>
                     <fieldset className='fieldset'>
-                        <legend>Imagenes</legend>
+                        <legend>Imágenes</legend>
                         <div>
                             <label>Imágenes:</label>
                             <div className='fieldsetImagenesAlojamiento'>
                                 {imagenes.map((imagen) => (
                                     <div key={imagen.idImagen} className='imagenAlojamiento'>
                                         <img src={imagen.RutaArchivo} alt={`Imagen ${imagen.idImagen}`} className='imagenEditar' />
+                                        <button type="button" onClick={() => handleDeleteImage(imagen.idImagen)}>Eliminar</button>
                                         <input type="file" onChange={(e) => handleImageChange(e, imagen.idImagen)} />
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                        <div>
+                            <label>Agregar nuevas imágenes:</label>
+                            <input type="file" multiple onChange={handleNewImagesChange} />
                         </div>
                     </fieldset>
                     <button type="submit" className='btn'>
@@ -383,7 +427,8 @@ export const UsuarioEditarAlojamiento = () => {
                         <span className='span2'></span>
                         <span className='span3'></span>
                         <span className='span4'></span>
-                        Guardar cambios</button>
+                        Guardar cambios
+                    </button>
                     {alertMessage && <Alert message={alertMessage} type={alertType} />}
                     <NavLink to="/ListaAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
                 </form>

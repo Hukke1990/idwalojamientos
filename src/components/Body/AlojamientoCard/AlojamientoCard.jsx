@@ -11,8 +11,9 @@ export const AlojamientoCard = ({ card }) => {
         )}
         <h3>{card.Titulo}</h3>
         <p><span>Localidad: </span>{card.Latitud}, {card.Longitud}</p>
+        <p><span>Tipo de alojamiento: </span>{card.Descripcion}</p>
         <p><span>Disponibilidad: </span>{card.Estado}</p>
-        <p><span>Precio por día: $</span>{card.PrecioPorDia}</p>
+        <p><span>Precio por día: </span>${card.PrecioPorDia}</p>
       </NavLink>
     </figure>
   );
