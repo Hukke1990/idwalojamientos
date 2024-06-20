@@ -34,9 +34,9 @@ export const AlojamientoContenedor = ({ searchCriteria }) => {
           return <p className='cargando'>Cargando...</p>;
         }
 
-        if (!filteredAlojamiento.length) {
-          return <p className='noResultados'>No se encontraron resultados</p>;
-        }
+        // if (!filteredAlojamiento.length) {
+        //   return <p className='noResultados'>No se encontraron resultados</p>;
+        // }
 
         setAlojamiento(alojamientos);
 
