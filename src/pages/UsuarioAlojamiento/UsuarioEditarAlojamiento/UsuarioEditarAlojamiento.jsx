@@ -406,13 +406,14 @@ export const UsuarioEditarAlojamiento = () => {
                     <fieldset className='fieldset'>
                         <legend>Imágenes</legend>
                         <div>
-                            <label>Imágenes:</label>
                             <div className='fieldsetImagenesAlojamiento'>
                                 {imagenes.map((imagen) => (
                                     <div key={imagen.idImagen} className='imagenAlojamiento'>
                                         <img src={imagen.RutaArchivo} alt={`Imagen ${imagen.idImagen}`} className='imagenEditar' />
-                                        <button type="button" onClick={() => handleDeleteImage(imagen.idImagen)}>Eliminar</button>
-                                        <input type="file" onChange={(e) => handleImageChange(e, imagen.idImagen)} />
+                                        <div className='botonesImagenesAlojamiento'>
+                                            <button type="button" onClick={() => handleDeleteImage(imagen.idImagen)}>Eliminar</button>
+                                            <input type="file" onChange={(e) => handleImageChange(e, imagen.idImagen)} />
+                                        </div>
                                     </div>
                                 ))}
                             </div>

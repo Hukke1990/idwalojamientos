@@ -21,3 +21,17 @@
     color: #ffffff;
     margin-top: -20px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorUsuarioAgregarAlojamiento {
+        width: 100%;
+    }
+
+    .contenedorUsuarioAgregarAlojamiento h1 {
+        font-size: 30px;
+    }
+    
+    .contenedorUsuarioAgregarAlojamiento p {
+        font-size: 15px;
+    }
+}

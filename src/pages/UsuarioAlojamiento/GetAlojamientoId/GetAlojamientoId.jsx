@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import './GetAlojamientoId.css';
 import { NavLink } from 'react-router-dom';
 import { Alert } from '../../../components/Alert/Alert';
+import { TipoAlojamientoDetail } from '../../../components/Form/TipoAlojamientoDetail/TipoAlojamientoDetail'
 
 export const GetAlojamientoId = () => {
     const [alojamientoId, setAlojamientoId] = useState('');
     const [alojamientoData, setAlojamientoData] = useState(null);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
+    const { tiposAlojamiento } = TipoAlojamientoDetail();
+
 
     const handleInputChange = (e) => {
         setAlojamientoId(e.target.value);
@@ -53,6 +56,11 @@ export const GetAlojamientoId = () => {
         obtenerAlojamiento();
     }
 
+    const getTipoAlojamientoDescripcion = (idTipoAlojamiento) => {
+        const tipo = tiposAlojamiento.find(tipo => tipo.idTipoAlojamiento === idTipoAlojamiento);
+        return tipo ? tipo.Descripcion : 'Desconocido';
+    };
+
     return (
         <div className='contenedorGetAlojamientoId'>
             <h2>Obtener Alojamiento por ID</h2>
@@ -81,24 +89,24 @@ export const GetAlojamientoId = () => {
                         <p>ID: <span>{alojamientoData.idAlojamiento}</span></p>
                         <p>Título: <span>{alojamientoData.Titulo}</span></p>
                         <p>Descripción: <span>{alojamientoData.Descripcion}</span></p>
-                        <p>Tipo: <span>{alojamientoData.TipoAlojamiento}</span></p>
+                        <p>Tipo: <span>{getTipoAlojamientoDescripcion(alojamientoData.idTipoAlojamiento)}</span></p>
                         <p>Latitud: <span>{alojamientoData.Latitud}</span></p>
                         <p>Longitud: <span>{alojamientoData.Longitud}</span></p>
                         <p>Precio por día: <span>${formatearPrecio(alojamientoData.PrecioPorDia)}</span></p>
                         <p>Cantidad dormitorios: <span>{alojamientoData.CantidadDormitorios}</span></p>
                         <p>Cantidad baños: <span>{alojamientoData.CantidadBanios}</span></p>
-                        <p>Estado: <span className={alojamientoData.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>
-                            {alojamientoData.Estado}
-                        </span></p>
+                        <p>Estado: <span className={alojamientoData.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>{alojamientoData.Estado}</span>
+                        </p>
                     </div>
-                )}
-            </form>
+                )
+                }
+            </form >
 
             <button className='btnVolver'>
                 <NavLink to="/AdministrarAlojamientos" className='linkAdminAlojamiento'>Volver</NavLink>
             </button>
 
 
-        </div>
+        </div >
     );
 }

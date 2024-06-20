@@ -51,3 +51,14 @@
 .btnAdminAlojamiento {
     margin-top: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorAdministrador {
+        width: 100%;
+    }
+
+    .contenedorAdministrador h2 {
+        font-size: 30px;
+    }
+    
+}

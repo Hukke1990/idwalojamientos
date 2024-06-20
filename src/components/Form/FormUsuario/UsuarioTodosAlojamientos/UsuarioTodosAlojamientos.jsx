@@ -69,7 +69,7 @@ export const UsuarioTodosAlojamientos = () => {
                         value={searchCriteria.idTipoAlojamiento}
                         onChange={handleInputChange}
                     >
-                        <option value=''>Todos los tipos de alojamiento</option>
+                        <option value=''>Tipos de alojamiento</option>
                         {tiposAlojamiento.map(tipo => (
                             <option key={tipo.idTipoAlojamiento} value={tipo.idTipoAlojamiento}>
                                 {tipo.Descripcion}

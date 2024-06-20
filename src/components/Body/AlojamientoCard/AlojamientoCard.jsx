@@ -20,8 +20,8 @@ export const AlojamientoCard = ({ card }) => {
         <h3>{card.Titulo}</h3>
         <p><span>Localidad: </span>{card.Latitud}, {card.Longitud}</p>
         <p><span>Tipo de alojamiento: </span>{card.tipoAlojamiento ? card.tipoAlojamiento.Descripcion : 'N/A'}</p>
-        <p><span>Disponibilidad: </span>{card.Estado}</p>
         <p><span>Precio por día: </span>${formatearPrecio(card.PrecioPorDia)}</p>
+        <p><span>Disponibilidad: </span><span className={card.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>{card.Estado}</span></p>
       </NavLink>
     </figure>
   );

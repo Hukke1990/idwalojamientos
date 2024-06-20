@@ -46,3 +46,11 @@
     color: #ee0cd0;
     text-shadow: 0 0 5px #ee0cd0;
 }
+
+@media screen and (max-width: 768px) {
+
+    .contenedorListaAlojamientos h2 {
+        font-size: 30px;
+    }
+    
+}

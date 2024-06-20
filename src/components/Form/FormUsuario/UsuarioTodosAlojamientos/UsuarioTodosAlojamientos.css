@@ -79,3 +79,19 @@
     background-color: #ee0cd0;
     color: #ffffff;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorGetAlojamientos h1 {
+        font-size: 30px;
+    }
+
+    .contenedorFiltrosAlojamiento {
+        flex-direction: column;
+    }
+
+    .inputFiltroAlojamiento  {
+        margin-bottom: 10px;
+        width: 230px;
+    }
+    
+}

@@ -7,3 +7,10 @@
     margin-bottom: 20px;
     width: 1000px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorBody {
+        width: 100%;
+    }
+    
+}

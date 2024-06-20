@@ -40,3 +40,51 @@
     background-color: #ee0cd0;
     box-shadow: #ee0cd0 0px 0px 5px, #ee0cd0 0px 0px 5px;
 }
+
+/* IMAGENES */
+
+.fieldsetImagenesAlojamiento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.fieldsetImagenesAlojamiento img {
+    border: #ffffff 2px solid;
+    box-shadow: #ee0cd0 0px 0px 5px;
+}
+
+.botonesImagenesAlojamiento {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-bottom: #ee0cd083 1px solid;
+    margin-bottom: 20px;
+}
+
+.botonesImagenesAlojamiento button {
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.botonesImagenesAlojamiento input[type="file"] {
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedorEditAlojamiento h2 {
+        font-size: 30px;
+    }
+    
+}
