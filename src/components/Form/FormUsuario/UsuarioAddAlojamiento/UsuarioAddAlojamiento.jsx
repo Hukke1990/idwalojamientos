@@ -152,6 +152,7 @@ export const UsuarioAddAlojamiento = () => {
                     <select
                         name="idTipoAlojamiento"
                         value={formData.idTipoAlojamiento}
+                        className='selectAgregarAlojamiento'
                         onChange={handleInputChange}>
                         <option value="">Seleccione un tipo de alojamiento</option>
                         {tiposAlojamiento.map(alojamiento => (

@@ -49,8 +49,6 @@
 .contenedorFiltrosAlojamientoHome input, select {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 230px;
-    max-width: 230px;
     padding: 10px;
     border: none;
     box-shadow: #ee0cd0 0px 0px 15px;
