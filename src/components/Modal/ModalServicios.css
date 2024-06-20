@@ -66,3 +66,17 @@
 #btnCloseModal:hover {
     color: #ee0cd0;
 }
+
+@media screen and (max-width: 768px) {
+    .modal {
+        padding: 10px;
+        font-size: 14px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    
+    #btnCloseModal {
+        top: -1300px;
+        right: -250px;
+    }
+}

@@ -139,3 +139,18 @@ li::marker { /* elimina color ::marker de + servicios */
     padding: 20px;
     max-width: 300px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorTituloDetail h2 {
+        font-size: 30px;
+    }
+
+    .contenedorTituloDetail p {
+        font-size: 14px;
+        margin-top: 0px;
+    }
+
+    .masServicios button {
+        font-size: 16px;
+    }
+}
