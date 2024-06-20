@@ -10,7 +10,6 @@ export const AddServicio = () => {
 
     const handleInputChange = (e) => {
         setNombre(e.target.value);
-        // Borra el mensaje de alerta al escribir en el input
         if (alertMessage) {
             setAlertMessage('');
             setAlertType('');
@@ -40,7 +39,6 @@ export const AddServicio = () => {
                 return;
             }
 
-            // Si no existe, agrega el nuevo tipo de alojamiento
             const newServicio = { Nombre: nombre };
 
             const response = await fetch('http://localhost:3001/servicio/createServicio', {
@@ -80,7 +78,7 @@ export const AddServicio = () => {
                         className='inputTipoAlojamiento'
                         required
                         value={nombre}
-                        onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
+                        onChange={handleInputChange}
                     />
                 </div>
             </fieldset>

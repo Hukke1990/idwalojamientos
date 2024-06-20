@@ -99,7 +99,6 @@ export const UsuarioEliminarAlojamiento = () => {
 
     const eliminarAlojamiento = async () => {
         try {
-            // Obtener todas las imágenes asociadas al alojamiento
             const imagenes = await obtenerImagenesAlojamiento(alojamientoId);
             console.log('Imágenes obtenidas:', imagenes);
 
@@ -109,7 +108,6 @@ export const UsuarioEliminarAlojamiento = () => {
                 return;
             }
 
-            // Eliminar cada imagen asociada
             for (const imagen of imagenes) {
                 const eliminacionImagen = await eliminarImagen(imagen.idImagen);
                 if (!eliminacionImagen) {
@@ -119,7 +117,6 @@ export const UsuarioEliminarAlojamiento = () => {
                 }
             }
 
-            // Luego de eliminar las imágenes, eliminar los servicios asociados
             const serviciosEliminados = await eliminarServiciosAsociados(alojamientoId);
             if (!serviciosEliminados) {
                 setAlertMessage('Error al eliminar los servicios asociados.');
@@ -127,7 +124,6 @@ export const UsuarioEliminarAlojamiento = () => {
                 return;
             }
 
-            // Finalmente, eliminar el alojamiento
             const response = await fetch(`http://localhost:3001/alojamiento/deleteAlojamiento/${alojamientoId}`, {
                 method: 'DELETE',
             });

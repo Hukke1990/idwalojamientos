@@ -22,7 +22,7 @@ export const Contact = () => {
     };
 
     const validateForm = () => {
-        const errors = {}; // Objeto para almacenar los errores
+        const errors = {};
         if (!formData.nombre) errors.nombre = 'Nombre completo es requerido';
         if (!formData.email) {
             errors.email = 'Correo electrónico es requerido';
@@ -32,18 +32,17 @@ export const Contact = () => {
         if (!formData.contraseña) errors.contraseña = 'Contraseña es requerida';
         if (!formData.telefono) errors.telefono = 'Teléfono es requerido';
         if (!formData.consulta) errors.consulta = 'Consulta es requerida';
-        return errors; // Retornamos el objeto de errores
+        return errors;
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevenimos el comportamiento por defecto del formulario
+        e.preventDefault();
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
             setIsSubmitted(true);
-            // Aquí podrías manejar el envío del formulario, por ejemplo, enviando los datos a un servidor
-            console.log('Formulario enviado:', formData); // Mostramos los datos en la consola
+            console.log('Formulario enviado:', formData);
         } else {
-            setFormErrors(errors); // Si hay errores, los almacenamos en el estado formErrors
+            setFormErrors(errors);
         }
     };
 
@@ -69,7 +68,7 @@ export const Contact = () => {
                 <p>Pongase en contacto con nosotros, recuerder que nuestro horario de atencion es de Lun a Vie de 9 a 18hs</p>
             </div>
             <div className='contenedorFieldset'>
-                <form onSubmit={handleSubmit}> {/* Maneja el envío del formulario */}
+                <form onSubmit={handleSubmit}>
                     <fieldset className='fieldset'>
                         <legend>Contactenos</legend>
                         <input
@@ -77,33 +76,33 @@ export const Contact = () => {
                             name="nombre"
                             placeholder="Nombre completo"
                             value={formData.nombre}
-                            onChange={handleChange} // Maneja el cambio en el campo
+                            onChange={handleChange}
                         />
-                        {formErrors.nombre && <p className="error">{formErrors.nombre}</p>} {/*Muestra el error si existe*/}
+                        {formErrors.nombre && <p className="error">{formErrors.nombre}</p>}
                         <input
                             type="email"
                             name="email"
                             placeholder="Email"
                             value={formData.email}
-                            onChange={handleChange} // Maneja el cambio en el campo
+                            onChange={handleChange}
                         />
-                        {formErrors.email && <p className="error">{formErrors.email}</p>} {/*Muestra el error si existe*/}
+                        {formErrors.email && <p className="error">{formErrors.email}</p>}
                         <input
                             type="password"
                             name="contraseña"
                             placeholder="Contraseña"
                             value={formData.contraseña}
-                            onChange={handleChange} // Maneja el cambio en el campo
+                            onChange={handleChange}
                         />
-                        {formErrors.contraseña && <p className="error">{formErrors.contraseña}</p>} {/*Muestra el error si existe*/}
+                        {formErrors.contraseña && <p className="error">{formErrors.contraseña}</p>}
                         <input
                             type="tel"
                             name="telefono"
                             placeholder="Telefono"
                             value={formData.telefono}
-                            onChange={handleChange} // Maneja el cambio en el campo
+                            onChange={handleChange}
                         />
-                        {formErrors.telefono && <p className="error">{formErrors.telefono}</p>} {/*Muestra el error si existe*/}
+                        {formErrors.telefono && <p className="error">{formErrors.telefono}</p>}
                         <label className="contacto" htmlFor="consulta">Consulta:</label>
                         <textarea
                             name="consulta"
@@ -112,19 +111,19 @@ export const Contact = () => {
                             onChange={handleChange}
                             required
                         ></textarea>
-                        {formErrors.consulta && <p className="error">{formErrors.consulta}</p>} {/*Muestra el error si existe*/}
+                        {formErrors.consulta && <p className="error">{formErrors.consulta}</p>}
                         <label htmlFor="preferencia">Preferencia de Contacto:</label>
                         <select
                             name="preferencia"
                             value={formData.preferencia}
-                            onChange={handleChange} // Maneja el cambio en el campo
+                            onChange={handleChange}
                         >
                             <option className='opcionPreferencia' value="email">Correo Electrónico</option>
                             <option className='opcionPreferencia' value="telefono">Teléfono</option>
                         </select>
                     </fieldset>
                     <div className='btnEnviar'>
-                        <button type="submit" className="btn"> {/* Botón para enviar el formulario */}
+                        <button type="submit" className="btn">
                             <span className="span1"></span>
                             <span className="span2"></span>
                             <span className="span3"></span>
@@ -133,7 +132,7 @@ export const Contact = () => {
                         </button>
                     </div>
                 </form>
-                {isSubmitted && <p className='enviado'>Gracias por tu mensaje!. Nos pondremos en contacto contigo pronto.</p>} {/* Mensaje de éxito */}
+                {isSubmitted && <p className='enviado'>Gracias por tu mensaje!. Nos pondremos en contacto contigo pronto.</p>}
             </div>
         </div>
     );
