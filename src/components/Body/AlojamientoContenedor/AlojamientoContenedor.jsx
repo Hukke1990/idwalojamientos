@@ -12,8 +12,8 @@ export const AlojamientoContenedor = ({ searchCriteria }) => {
       const filtered = alojamiento.filter(a => {
         const matchesTipoAlojamiento = searchCriteria.idTipoAlojamiento === '' || a.idTipoAlojamiento === parseInt(searchCriteria.idTipoAlojamiento);
         const matchesEstado = searchCriteria.Estado === '' || a.Estado === searchCriteria.Estado;
-        const matchesPrecioMin = searchCriteria.precioMin === '' || a.precio >= parseFloat(searchCriteria.precioMin);
-        const matchesPrecioMax = searchCriteria.precioMax === '' || a.precio <= parseFloat(searchCriteria.precioMax);
+        const matchesPrecioMin = searchCriteria.precioMin === '' || a.PrecioPorDia >= parseFloat(searchCriteria.precioMin);
+        const matchesPrecioMax = searchCriteria.precioMax === '' || a.PrecioPorDia <= parseFloat(searchCriteria.precioMax);
         const matchesDormitorios = searchCriteria.dormitorios === '' || a.CantidadDormitorios === parseInt(searchCriteria.dormitorios);
         const matchesBanos = searchCriteria.banos === '' || a.CantidadBanios === parseInt(searchCriteria.banos);
 
@@ -32,6 +32,10 @@ export const AlojamientoContenedor = ({ searchCriteria }) => {
 
         if (!alojamientos.length) {
           return <p className='cargando'>Cargando...</p>;
+        }
+
+        if (!filteredAlojamiento.length) {
+          return <p className='noResultados'>No se encontraron resultados</p>;
         }
 
         setAlojamiento(alojamientos);
