@@ -32,6 +32,14 @@ export const UsuarioTodosAlojamientos = () => {
         return tipo ? tipo.Descripcion : 'Desconocido';
     };
 
+    const formatearPrecio = (precio) => {
+        const numeroPrecio = Number(precio);
+        if (isNaN(numeroPrecio)) return 'Precio inválido';
+
+        const partes = numeroPrecio.toFixed(3).split('.');
+        return `${partes[0]}.${partes[1]},00`;
+    };
+
     return (
         <GetAllAlojamientosDetail render={({ alojamientos, alertMessage, alertType }) => (
             <div className='contenedorGetAlojamientos'>
@@ -88,7 +96,7 @@ export const UsuarioTodosAlojamientos = () => {
                             </p>
                             <p><span className='label'>Latitud:</span> {alojamiento.Latitud}</p>
                             <p><span className='label'>Longitud:</span> {alojamiento.Longitud}</p>
-                            <p><span className='label'>Precio por día:</span> ${alojamiento.PrecioPorDia}</p>
+                            <p><span className='label'>Precio por día:</span> ${formatearPrecio(alojamiento.PrecioPorDia)}</p>
                             <p><span className='label'>Cantidad dormitorios:</span> {alojamiento.CantidadDormitorios}</p>
                             <p><span className='label'>Cantidad baños:</span> {alojamiento.CantidadBanios}</p>
                             <p><span className='label'>Estado:</span> <span className={alojamiento.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>{alojamiento.Estado}</span></p>

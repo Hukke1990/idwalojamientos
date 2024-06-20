@@ -87,6 +87,14 @@ export const AlojamientoDetailContainer = () => {
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
 
+    const formatearPrecio = (precio) => {
+        const numeroPrecio = Number(precio);
+        if (isNaN(numeroPrecio)) return 'Precio inválido';
+
+        const partes = numeroPrecio.toFixed(3).split('.');
+        return `${partes[0]}.${partes[1]},00`;
+    };
+
     return (
         <section>
             {alojamiento ? (
@@ -136,7 +144,7 @@ export const AlojamientoDetailContainer = () => {
                             <h4>Características</h4>
                             <p><span>Tipo de alojamiento: </span>{getTipoAlojamientoDescripcion(alojamiento.idTipoAlojamiento)}</p>
                             <p><span>Descripción: </span>{alojamiento.Descripcion}</p>
-                            <p><span>Precio por día: </span>{alojamiento.PrecioPorDia}</p>
+                            <p><span>Precio por día: </span>{formatearPrecio(alojamiento.PrecioPorDia)}</p>
                             <p><span>Cantidad de dormitorios: </span>{alojamiento.CantidadDormitorios}</p>
                             <p><span>Cantidad de baños: </span>{alojamiento.CantidadBanios}</p>
                             <p><span>Estado: </span>{alojamiento.Estado}</p>

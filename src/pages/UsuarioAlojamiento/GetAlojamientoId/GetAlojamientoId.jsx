@@ -39,6 +39,14 @@ export const GetAlojamientoId = () => {
         }
     }
 
+    const formatearPrecio = (precio) => {
+        const numeroPrecio = Number(precio);
+        if (isNaN(numeroPrecio)) return 'Precio inválido';
+
+        const partes = numeroPrecio.toFixed(3).split('.');
+        return `${partes[0]}.${partes[1]},00`;
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('ID del alojamiento:', alojamientoId);
@@ -76,7 +84,7 @@ export const GetAlojamientoId = () => {
                         <p>Tipo: <span>{alojamientoData.TipoAlojamiento}</span></p>
                         <p>Latitud: <span>{alojamientoData.Latitud}</span></p>
                         <p>Longitud: <span>{alojamientoData.Longitud}</span></p>
-                        <p>Precio por día: <span>${alojamientoData.PrecioPorDia}</span></p>
+                        <p>Precio por día: <span>${formatearPrecio(alojamientoData.PrecioPorDia)}</span></p>
                         <p>Cantidad dormitorios: <span>{alojamientoData.CantidadDormitorios}</span></p>
                         <p>Cantidad baños: <span>{alojamientoData.CantidadBanios}</span></p>
                         <p>Estado: <span className={alojamientoData.Estado === 'Disponible' ? 'estadoDisponible' : 'estadoReservado'}>
