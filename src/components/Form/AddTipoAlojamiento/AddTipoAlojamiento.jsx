@@ -83,10 +83,10 @@ export const AddTipoAlojamiento = () => {
                         onChange={handleInputChange} // utiliza la funcion para borrar el alert al escribir
                     />
                 </div>
-                <div>
-                    {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
-                </div>
             </fieldset>
+            <div>
+                {alertMessage && <Alert message={alertMessage} type={alertType} className="custom-style" />}
+            </div>
             <div>
                 <button className='btn enviarForm' type='submit'>
                     <span className='span1'></span>
