@@ -14,3 +14,10 @@
     font-size: 50px;
     text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorEliminarAlojamiento h2 {
+        font-size: 30px;
+    }
+    
+}

@@ -72,3 +72,10 @@
     cursor: pointer;
     max-width: 30px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorAgregarAlojamiento h2 {
+        font-size: 30px;
+    }
+    
+}

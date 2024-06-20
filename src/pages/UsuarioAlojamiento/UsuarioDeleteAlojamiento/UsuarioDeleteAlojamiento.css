@@ -24,3 +24,10 @@
 .contenedorGetAlojamientosDelete span {
     margin-left: 0px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorDeleteAlojamientos h2 {
+        font-size: 30px;
+    }
+    
+}

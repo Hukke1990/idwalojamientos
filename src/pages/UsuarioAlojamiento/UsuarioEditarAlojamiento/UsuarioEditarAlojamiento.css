@@ -82,6 +82,14 @@
     margin-top: -10px;
 }
 
+.agregarImagenes input[type="file"] {
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    margin-left: -10px;
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 768px) {
     .contenedorEditAlojamiento h2 {
         font-size: 30px;

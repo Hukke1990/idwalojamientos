@@ -39,7 +39,7 @@ export const GetTipoAlojamiento = () => {
 
     return (
         <div className='contenedorGetTipoAlojamientos'>
-            <h2>Obtener Tipo Alojamiento por ID</h2>
+            <h2>Tipo Alojamiento por ID</h2>
             <fieldset className='fieldset'>
                 <legend>Buscar</legend>
                 <input
@@ -57,7 +57,7 @@ export const GetTipoAlojamiento = () => {
                 <span className='span2'></span>
                 <span className='span3'></span>
                 <span className='span4'></span>
-                Obtener Tipo Alojamiento
+                Obtener
             </button>
             {alojamientoData && (
                 <div className='contenedorAlojamientoInfo'>

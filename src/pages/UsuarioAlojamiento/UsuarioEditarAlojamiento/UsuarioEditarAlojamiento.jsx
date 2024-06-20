@@ -418,7 +418,7 @@ export const UsuarioEditarAlojamiento = () => {
                                 ))}
                             </div>
                         </div>
-                        <div>
+                        <div className='agregarImagenes'>
                             <label>Agregar nuevas imágenes:</label>
                             <input type="file" multiple onChange={handleNewImagesChange} />
                         </div>

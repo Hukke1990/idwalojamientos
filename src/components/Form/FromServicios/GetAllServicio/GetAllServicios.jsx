@@ -13,7 +13,7 @@ export const GetAllServicios = () => {
                         {servicios.map(servicio => (
                             <li className='AllTipoAlojamiento' key={servicio.idServicio}>
                                 <p>ID: <span>{servicio.idServicio}</span></p>
-                                <p>Nombre: <span>{servicio.Nombre}</span></p>
+                                <p className='ServicioNombre' >Nombre: <span>{servicio.Nombre}</span></p>
                             </li>
                         ))}
                     </div>

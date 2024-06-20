@@ -72,3 +72,10 @@
     color: #ee0cd0;
     text-shadow: #ee0cd0 0 0 5px;
 }
+
+@media screen and (max-width: 768px) {
+    .contenedorGetTipoAlojamientos h2 {
+        font-size: 30px !important;
+    }
+    
+}
