@@ -1,3 +1,13 @@
+.contenedorHome {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+
 .contenedorOpciones {
     display: flex;
     flex-direction: row;
@@ -25,5 +35,40 @@
     font-weight: 100;
     color: #ffffff;
     text-decoration: none;
+}
+
+.contenedorFiltrosAlojamientoHome {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    box-shadow: #ee0cd0 inset 0px 0px 5px, #ee0cd0 0px 0px 5px;
+}
+
+.contenedorFiltrosAlojamientoHome input, select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 230px;
+    padding: 10px;
+    border: none;
+    box-shadow: #ee0cd0 0px 0px 15px;
+    background-color: #ee0cd0;
+}
+
+.contenedorFiltrosAlojamientoHome input::placeholder {
+    color: #ffffff;
+}
+
+.contenedorFiltrosAlojamientoHome select {
+    color: #ffffff;
+}
+
+.contenedorFiltrosAlojamientoHome legend {
+    font-family: 'Pacifico';
+    font-weight: 100;
+    font-size: 24px;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ee0cd0, 0 0 10px #ee0cd0, 0 0 15px #ee0cd0;
 }
 

@@ -17,19 +17,7 @@ const Modal = ({ isOpen, onClose }) => {
         <div className="contenedorModalLogin" onClick={onClose}>
             <div className="contenedorModalLogin" onClick={(e) => e.stopPropagation()}>
                 <div className="modalLogin">
-                    <h2>Bienvenido</h2>
-                    <form>
-                        <div>
-                            <input type="email" placeholder="Email" id="email" />
-                        </div>
-                        <div>
-                            <input type="password" placeholder="Password" id="password" />
-                        </div>
-                        <button>
-                            Iniciar Sesion
-                        </button>
-                    </form>
-                    <p>No tienes cuenta? <a href="#">Registrate</a></p>
+                    <h2>PROXIMAMENTE</h2>
                     <button id='btnCloseModalLogin' onClick={handleModalClose}>Cancelar</button>
                 </div>
             </div>

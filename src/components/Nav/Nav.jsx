@@ -36,7 +36,9 @@ export const Nav = () => {
                         <span className="span4"></span>
                         <i className="bi bi-info-circle icon"></i><p className='text'>sobre nosotros</p> {/* Icono de Bootstrap */}
                     </NavLink></li>
-                    <button className="btn login" onClick={openModal}>
+                    {/* El boton Login se encuentra desactivado, dado que no hemos implementado la funcionalidad
+                    de inicio de sesion, descomentar la linea de abajo para vista prebia del boton */}
+                    {/* <button className="btn login" onClick={openModal}>
                         <span className="span1"></span>
                         <span className="span2"></span>
                         <span className="span3"></span>
@@ -44,7 +46,7 @@ export const Nav = () => {
                         <i class="bi bi-person icon"></i>
                         <p className='text'>login</p>
                         {modalOpen && <Modal isOpen={modalOpen} onClose={closeModal} />}
-                    </button>
+                    </button> */}
                 </ul>
             </div>
         </nav>

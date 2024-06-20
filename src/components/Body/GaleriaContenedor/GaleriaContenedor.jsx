@@ -1,14 +1,11 @@
-import React from 'react'
-import './GaleriaContenedor.css'
+import React from 'react';
+import './GaleriaContenedor.css';
 import { AlojamientoContenedor } from '../AlojamientoContenedor/AlojamientoContenedor';
 
-export const GaleriaContenedor = () => {
-
+export const GaleriaContenedor = ({ searchCriteria }) => {
     return (
         <div className='contenedorGaleria'>
-            <AlojamientoContenedor />
+            <AlojamientoContenedor searchCriteria={searchCriteria} />
         </div>
     );
 };
-
-

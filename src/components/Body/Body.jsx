@@ -1,13 +1,11 @@
-import React from 'react'
-import { GaleriaContenedor } from './GaleriaContenedor/GaleriaContenedor'
-import './Body.css'
+import React from 'react';
+import { GaleriaContenedor } from './GaleriaContenedor/GaleriaContenedor';
+import './Body.css';
 
-
-export const Body = () => {
+export const Body = ({ searchCriteria }) => {
   return (
     <div className='contenedorBody'>
-      <GaleriaContenedor />
+      <GaleriaContenedor searchCriteria={searchCriteria} />
     </div>
-  )
+  );
 }
-

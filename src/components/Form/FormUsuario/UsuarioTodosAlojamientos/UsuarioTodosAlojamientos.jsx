@@ -46,6 +46,7 @@ export const UsuarioTodosAlojamientos = () => {
                 <h1>{alojamientos.length} Alojamientos encontrados</h1>
                 <div className='contenedorFiltrosAlojamiento'>
                     <input
+                        className='inputFiltroAlojamiento'
                         type='text'
                         name='Titulo'
                         placeholder='Buscar por título'
@@ -53,6 +54,7 @@ export const UsuarioTodosAlojamientos = () => {
                         onChange={handleInputChange}
                     />
                     <select
+                        className='inputFiltroAlojamiento'
                         name='Estado'
                         value={searchCriteria.Estado}
                         onChange={handleInputChange}
@@ -62,6 +64,7 @@ export const UsuarioTodosAlojamientos = () => {
                         <option value='Reservado'>Reservado</option>
                     </select>
                     <select
+                        className='inputFiltroAlojamiento'
                         name='idTipoAlojamiento'
                         value={searchCriteria.idTipoAlojamiento}
                         onChange={handleInputChange}

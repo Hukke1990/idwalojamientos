@@ -58,13 +58,24 @@
     justify-content: center;
     margin-bottom: 20px;
 }
-
-.contenedorFiltrosAlojamiento input, select {
+.inputFiltroAlojamiento {
     margin-right: 10px;
     padding: 10px;
     font-size: 16px;
     width: 300px;
     box-sizing: border-box;
     border: none;
-    box-shadow:#ee0cd0 0px 0px 15px;
+    box-shadow: #ee0cd0 0px 0px 15px;
+    background-color: #ee0cd0;
+    color: #ffffff;
+}
+
+.inputFiltroAlojamiento::placeholder {
+    color: #ffffff;
+}
+
+.inputFiltroAlojamiento:focus {
+    outline: none;
+    background-color: #ee0cd0;
+    color: #ffffff;
 }
