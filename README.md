@@ -1,7 +1,5 @@
 # Proyecto IDW Alojamientos
 
-## Materia Introducción al Desarrollo Web
-
 ## Descripción
 Este proyecto, desarrollado en el marco de la materia *Introducción al Desarrollo Web*, presenta una aplicación web para la gestión de alojamientos. Utilizando **ReactJS**, hemos creado una plataforma intuitiva y eficiente para facilitar la reserva y administración de alojamientos.
 
@@ -9,6 +7,9 @@ Este proyecto, desarrollado en el marco de la materia *Introducción al Desarrol
 * Gaston Bordet
 * Marcelo Giles
 * Ludmila Armua
+
+## Materia
+* Materia Introducción al Desarrollo Web
 
 ### Video Explicativo
 Para obtener una explicación detallada del proyecto y su funcionamiento, puedes ver el siguiente video:
