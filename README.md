@@ -6,7 +6,8 @@ Este proyecto, desarrollado en el marco de la materia *Introducción al Desarrol
 * Gaston Bordet
 * Marcelo Giles
 * Ludmila Armua
-Video Explicativo
+
+### Video Explicativo
 Para obtener una explicación detallada del proyecto y su funcionamiento, puedes ver el siguiente video:
 
 https://www.youtube.com/watch?v=dGPdhFIWP7Y
