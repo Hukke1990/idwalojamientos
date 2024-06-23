@@ -17,4 +17,4 @@ Para obtener una explicación detallada del proyecto y su funcionamiento, puedes
 https://www.youtube.com/watch?v=dGPdhFIWP7Y
 
 ## Recomendaciones
-Se recomiendo utilizar la api que se encuentra en el archivo idwApi.rar
+Se recomienda utilizar la api que se encuentra en el archivo idwApi.rar
