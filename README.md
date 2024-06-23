@@ -15,3 +15,6 @@ Este proyecto, desarrollado en el marco de la materia *Introducción al Desarrol
 Para obtener una explicación detallada del proyecto y su funcionamiento, puedes ver el siguiente video:
 
 https://www.youtube.com/watch?v=dGPdhFIWP7Y
+
+## Recomendaciones
+Se recomiendo utilizar la api que se encuentra en el archivo api.rar
