@@ -4,7 +4,7 @@
 Este proyecto, desarrollado en el marco de la materia *Introducción al Desarrollo Web*, presenta una aplicación web para la gestión de alojamientos. Utilizando **ReactJS**, hemos creado una plataforma intuitiva y eficiente para facilitar la reserva y administración de alojamientos.
 
 ## Materia
-* Materia Introducción al Desarrollo Web
+* Introducción al Desarrollo Web
 
 ## Integrantes
 * Gaston Bordet
